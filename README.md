@@ -1,30 +1,68 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# :rocket: [randymorales.dev](https://randymorales.dev)
 
-## Getting Started
+Randy's personal website using [Next.js](https://nextjs.org/) and [GitHub Pages](https://pages.github.com/). Markdown is rendered via [`remark`](https://remark.js.org/) and [`remark-html`](https://github.com/remarkjs/remark-html), with the Markdown metadata handled via [`gray-matter`](https://github.com/jonschlinkert/gray-matter).
+
+
+## App structure
+
+Here is the basic layout of the app.
+
+```txt
+├───components
+│   ├───Date.js
+│   ├───Header.js
+│   └───Layout.js
+├───pages
+│   ├───posts
+│   │   └───[slug].js
+│   ├───_app.js
+│   ├───404.js
+│   ├───about.js
+│   ├───index.js
+├───public
+│   ├───images
+│   │   └───profile.png
+│   └───favicon.ico
+├───styles
+│       └───globals.css
+│       └───Home.module.css
+│       └───layout.module.css
+│       └───utils.module.css
+├───utils
+│   ├───posts.js
+├───.gitignore
+├───jsconfig.json
+├───LICENSE
+├───next.config.js
+├───package.json
+├───README.md
+├───siteconfig.json
+```
+
+## Dev Steps
 
 First, run the development server:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
 
-## Learn More
+## TODO List
 
-To learn more about Next.js, take a look at the following resources:
+- [ ] Improve CSS styles
+- [ ] Improve navbar
+- [ ] Add blog post cards in /posts page
+- [ ] Add tags per post
+- [ ] Add Search bar for posts
+- [ ] Add comments section for posts
+- [ ] Add SEO component
+- [ ] Add multilingual support (spanish)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## License
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is open source and available under the [MIT License](LICENSE).
