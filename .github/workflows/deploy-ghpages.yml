@@ -35,7 +35,7 @@ jobs:
         NEXT_PUBLIC_BASE_PATH: /nextjs-deploy
     - run: npm test
     - run: touch ./out/.nojekyll
-    - run: echo randymorales.dev ./out/CNAME
+    - run: echo randymorales.dev > ./out/CNAME
 
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@3.6.2
