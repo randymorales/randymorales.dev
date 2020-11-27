@@ -1,6 +1,6 @@
-import Layout from '@components/Layout'
+import Layout from '../components/Layout'
 
-const Index = ({ posts, title, description, ...props }) => {
+const BlogIndex = ({ posts, title, description, ...props }) => {
   return (
     <>
       <Layout pageTitle={`${title}` + "Blog"} description={description}>
@@ -20,4 +20,4 @@ const Index = ({ posts, title, description, ...props }) => {
   )
 }
 
-export default Index
+export default BlogIndex
