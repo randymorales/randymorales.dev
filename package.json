@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://randymorales.dev",
   "scripts": {
+    "format": "prettier --write '*.js' 'components/*.js' 'i18n/*.js' 'lib/*.js' 'pages/*.js' 'pages/posts/*.js'",
     "dev": "next dev",
     "build": "next build",
     "export": "next export",
@@ -17,5 +18,11 @@
     "react-dom": "^17",
     "remark": "^13",
     "remark-html": "^13"
+  },
+  "devDependencies": {
+    "eslint": "^7.16.0",
+    "eslint-config-prettier": "^7.1.0",
+    "eslint-plugin-prettier": "^3.3.0",
+    "prettier": "2.2.1"
   }
 }

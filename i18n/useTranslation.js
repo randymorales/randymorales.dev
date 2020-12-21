@@ -1,22 +1,22 @@
-import { useRouter } from "next/router";
+import { useRouter } from 'next/router'
 
-import Strings from "./strings";
+import Strings from './strings'
 
 export default function useTranslation() {
-  const router = useRouter();
-  const { locale, defaultLocale } = router;
+  const router = useRouter()
+  const { locale, defaultLocale } = router
 
-  const t = (key) => {
+  const t = key => {
     try {
       if (!Strings[locale][key]) {
-        console.warn(`No key '${key}' for locale '${locale}'`);
-        return key;
+        console.warn(`No key '${key}' for locale '${locale}'`)
+        return key
       }
-      return Strings[locale][key] || Strings[defaultLocale][key] || key;
+      return Strings[locale][key] || Strings[defaultLocale][key] || key
     } catch (error) {
-      return key;
+      return key
     }
-  };
+  }
 
-  return { t };
+  return { t }
 }

@@ -1,19 +1,19 @@
-import Head from "next/head";
-import Link from "next/link";
-import { useRouter } from "next/router";
+import Head from 'next/head'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
 
-import { SiteTitle, PostsDirectory } from "@/lib/constants";
-import Date from "@/components/Date";
-import Layout from "@/components/Layout";
-import { getSortedPostsData } from "@/lib/posts";
-import useTranslation from "@/i18n/useTranslation";
+import { SiteTitle, PostsDirectory } from '@/lib/constants'
+import Date from '@/components/Date'
+import Layout from '@/components/Layout'
+import { getSortedPostsData } from '@/lib/posts'
+import useTranslation from '@/i18n/useTranslation'
 
-import utilStyles from "@/styles/utils.module.css";
+import utilStyles from '@/styles/utils.module.css'
 
 export default function Home({ allPostsData }) {
-  const { t } = useTranslation();
-  const router = useRouter();
-  const { locale } = router;
+  const { t } = useTranslation()
+  const router = useRouter()
+  const { locale } = router
 
   return (
     <Layout home>
@@ -22,7 +22,7 @@ export default function Home({ allPostsData }) {
       </Head>
 
       <section className={utilStyles.headingMd}>
-        <p>{t("blog-description")}</p>
+        <p>{t('blog-description')}</p>
       </section>
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
@@ -44,15 +44,15 @@ export default function Home({ allPostsData }) {
         </ul>
       </section>
     </Layout>
-  );
+  )
 }
 
 export const getStaticProps = async ({ locale }) => {
-  // Get posts according to given locale.
-  const allPostsData = getSortedPostsData(locale);
+  // Get posts data according to given locale.
+  const allPostsData = getSortedPostsData(locale)
   return {
     props: {
       allPostsData,
     },
-  };
-};
+  }
+}
