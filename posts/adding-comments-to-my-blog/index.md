@@ -1,5 +1,7 @@
 ---
 title: 'Adding Comments to a Markdown Blog (via Utterances)'
+description: 'Setup Utterances in a markdown blog'
+tags: blog, comments, Utterances
 date: '2020-12-22'
 ---
 

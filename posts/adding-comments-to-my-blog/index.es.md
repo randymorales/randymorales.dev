@@ -1,5 +1,7 @@
 ---
 title: 'Agregando Comentarios a un Blog (vía Utterances)'
+description: Configurar Utterances en un blog markdown
+tags: blog, comments, Utterances
 date: '2020-12-22'
 ---
 
