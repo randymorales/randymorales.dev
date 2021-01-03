@@ -1,8 +1,7 @@
+import dynamic from 'next/dynamic'
 import Head from 'next/head'
-import Link from 'next/link'
 
 import { SiteTitle, FullName } from '@/lib/constants'
-import LanguageSelector from './LanguageSelector'
 import useTranslation from '@/i18n/useTranslation'
 
 import layoutStyles from '@/styles/layout.module.css'
@@ -10,10 +9,11 @@ import utilStyles from '@/styles/utils.module.css'
 
 export default function Layout({ children, home }) {
   const { t } = useTranslation()
+  const Navbar = dynamic(() => import('@/components/Navbar'))
 
   return (
     <div className={layoutStyles.container}>
-      <LanguageSelector />
+      <Navbar />
 
       <Head>
         <link
@@ -63,14 +63,6 @@ export default function Layout({ children, home }) {
       </header>
 
       <main>{children}</main>
-
-      {!home && (
-        <div className={layoutStyles.backToHome}>
-          <Link href='/'>
-            <a>← Back to home</a>
-          </Link>
-        </div>
-      )}
     </div>
   )
 }

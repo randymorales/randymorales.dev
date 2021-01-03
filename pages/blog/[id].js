@@ -10,6 +10,7 @@ import { getAllPostIds, getPostData } from '@/lib/posts'
 import { CommentsRepo, DarkTheme, FullName, Theme } from '@/lib/constants'
 
 import utilStyles from '@/styles/utils.module.css'
+import styles from '@/styles/post.module.css'
 
 export default function Post({ postData }) {
   const router = useRouter()
@@ -54,7 +55,10 @@ export default function Post({ postData }) {
           <Date dateString={postData.date} locale={locale} />
         </div>
 
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+        <div
+          className={styles.postContent}
+          dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+        />
       </article>
 
       {/* Add comments section via Utterances. */}

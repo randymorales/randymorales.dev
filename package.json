@@ -17,7 +17,8 @@
     "react": "^17",
     "react-dom": "^17",
     "remark": "^13",
-    "remark-html": "^13"
+    "remark-html": "^13",
+    "styled-components": "^5.2.1"
   },
   "devDependencies": {
     "eslint": "^7.16.0",

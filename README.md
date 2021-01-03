@@ -1,11 +1,11 @@
-# :rocket: [randymorales.dev](https://randymorales.dev)
+# ☢️ [randymorales.dev](https://randymorales.dev) ☣️
 
 Randy's personal website. The idea behind this website is to share knowledge and build a community or network around interesting topics in Computer Programming.
 
 Feel free to contribute, I am open to suggestions.
 
 
-## :office: Project Structure
+## 🏗 Project Structure
 
 - `components/*`: Custom react components.
 - `lib/*`: Helper functions and constants.
@@ -17,7 +17,7 @@ Feel free to contribute, I am open to suggestions.
 - `.github/workflows/*`: Scripts to deploy in GitHub Pages. This was stopped since NextJS does not support `i18n` with `next export`. Deploying to vercel by the moment.
 
 
-## :wrench: Dev Steps
+## 🔧 Dev Steps
 
 First, run the development server:
 
@@ -29,12 +29,13 @@ npm run dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
-## :pencil: TODO List
+## 📝 TODO List
 
-- [ ] Add navbar
+- [X] Add navbar
+- [ ] Add footer
 - [ ] Improve CSS styles
 - [X] Add multilingual support (spanish)
-- [ ] Add blog post cards in /posts page
+- [ ] Add blog post cards in /blog page
 - [ ] Add tags per post
 - [ ] Add Search bar for posts
 - [X] Add comments section for posts
@@ -42,7 +43,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [ ] Add SEO component
 
 
-## :hammer: Built using
+## 🔨 Built using
 
 * [Next.js](https://nextjs.org/).
 * [Vercel](https://vercel.com).
@@ -50,6 +51,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 * [Utterances](https://utteranc.es/).
 
 
-## :copyright: License
+## ©️ License
 
 This project is open source and available under the [MIT License](LICENSE).
