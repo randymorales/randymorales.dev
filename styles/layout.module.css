@@ -1,7 +1,5 @@
 .container {
-    max-width: 70%;
-    padding: 0 1rem;
-    margin: 3rem auto 6rem;
+    min-height: 100vh;
 }
 
 .header {
@@ -18,4 +16,9 @@
 .headerHomeImage {
     width: 8rem;
     height: 8rem;
+}
+
+.content {
+    max-width: 80%;
+    margin: 1rem auto;
 }

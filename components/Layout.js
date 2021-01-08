@@ -1,20 +1,17 @@
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 
-import { SiteTitle, FullName } from '@/lib/constants'
+import { SiteTitle } from '@/lib/constants'
 import useTranslation from '@/i18n/useTranslation'
 
 import layoutStyles from '@/styles/layout.module.css'
-import utilStyles from '@/styles/utils.module.css'
 
-export default function Layout({ children, home }) {
+export default function Layout({ children }) {
   const { t } = useTranslation()
   const Navbar = dynamic(() => import('@/components/Navbar'))
 
   return (
     <div className={layoutStyles.container}>
-      <Navbar />
-
       <Head>
         <link
           rel='icon'
@@ -47,22 +44,9 @@ export default function Layout({ children, home }) {
         <meta name='twitter:card' content='summary_large_image' />
       </Head>
 
-      <header className={layoutStyles.header}>
-        {home ? (
-          <>
-            <img
-              src='/images/profile.jpg'
-              className={`${layoutStyles.headerHomeImage} ${utilStyles.borderCircle}`}
-              alt={FullName}
-            />
-            <h1 className={utilStyles.heading2Xl}>{FullName}</h1>
-          </>
-        ) : (
-          <>{/* Show nothing at blog post pages */}</>
-        )}
-      </header>
+      <Navbar />
 
-      <main>{children}</main>
+      <main className={layoutStyles.content}>{children}</main>
     </div>
   )
 }

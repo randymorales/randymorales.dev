@@ -1,7 +1,5 @@
 .postContent {
-  box-sizing: border-box;
-  margin: 16px 0px;
-  min-width: 0px;
+  margin: 1rem 0px;
   line-height: 1.7;
   letter-spacing: 0.1px;
 }
@@ -12,74 +10,4 @@
   margin-block-end: 1em;
   margin-inline-start: 0px;
   margin-inline-end: 0px;
-}
-
-.postContent ul {
-  display: block;
-  list-style-type: disc;
-  margin-block-start: 1em;
-  margin-block-end: 1em;
-  margin-inline-start: 0px;
-  margin-inline-end: 0px;
-  padding-inline-start: 40px;
-}
-
-.postContent li {
-  display: list-item;
-  text-align: -webkit-match-parent;
-  padding-top: 4px;
-  padding-bottom: 4px;
-  line-height: 1.4;
-}
-
-.postContent blockquote {
-  box-sizing: border-box;
-  margin: 8px 0px;
-  min-width: 0px;
-  padding: 0.01rem 16px 0.01rem 12px;
-  border-left-width: 4px;
-  border-left-style: solid;
-  border-left-color: var(--theme-ui-colors-primary, orange);
-  border-radius: 4px;
-  background-color: var(--theme-ui-colors-muted,#f1f3f4);
-  color: gray;
-  font-size: 1.1rem;
-}
-
-.postContent img {
-  box-sizing: border-box;
-  min-width: 0px;
-  max-width: 100%;
-  margin: 16px auto;
-  width: fit-content;
-  height: 100%;
-  line-height: 1.7;
-  letter-spacing: 0.1px;
-}
-
-.postContent pre {
-  box-sizing: border-box;
-  margin: 0px auto;
-  min-width: 0px;
-  width: 99%;
-  max-width: 780px;
-  padding-top: 8px;
-  padding-bottom: 8px;
-  display: block;
-
-  font-family: monospace;
-  white-space: pre;
-}
-
-.postContent code {
-  box-sizing: border-box;
-  color: rgb(214, 222, 235);
-  background-color: rgb(1, 22, 39);
-  padding: 16px 16px 8px;
-  margin-top: 16px;
-  margin-bottom: 16px;
-  border-radius: 6px;
-  box-shadow: rgba(0, 0, 0, 0.15) 0px 10px 20px, rgba(0, 0, 0, 0.2) 0px 10px 20px;
-  font-size: 1.15rem;
-  overflow: scroll;
 }

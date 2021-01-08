@@ -15,7 +15,7 @@ export const Nav = styled.div`
 `
 
 export const NavBar = styled.div`
-  width: 100%;
+  width: 98%;
   display: grid;
   grid-template-columns: 50% 50%;
   align-items: center;
@@ -63,7 +63,7 @@ export const NavUl = styled.ul`
   }
 `
 export const NavList = styled.li`
-  padding: 1rem;
+  padding: 1rem 0;
   @media screen and (max-width: 976px) {
     padding: 0;
     margin-bottom: 1.5rem;
@@ -92,6 +92,7 @@ export const MenuToggle = styled.div`
   }
 `
 export const InputToggle = styled.input`
+  cursor: pointer;
   position: absolute;
   width: 28px;
   height: 40px;

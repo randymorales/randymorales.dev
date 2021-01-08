@@ -26,8 +26,7 @@ export default function Navbar() {
       <NavBar>
         <LeftNav>
           <h1>
-            {' '}
-            <a href='/'> Randy </a>
+            <Link href='/'>Randy</Link>
           </h1>
         </LeftNav>
 
@@ -51,23 +50,17 @@ export default function Navbar() {
           <NavUl>
             <NavList>
               <Linkhref>
-                <Link href='/'>
-                  <a>{t('home')}</a>
-                </Link>
+                <Link href='/'>{t('home')}</Link>
               </Linkhref>
             </NavList>
             <NavList>
               <Linkhref>
-                <Link href='/blog'>
-                  <a>{t('blog')}</a>
-                </Link>
+                <Link href='/blog'>{t('blog')}</Link>
               </Linkhref>
             </NavList>
             <NavList>
               <Linkhref>
-                <Link href='/about'>
-                  <a>{t('about')}</a>
-                </Link>
+                <Link href='/about'>{t('about')}</Link>
               </Linkhref>
             </NavList>
             <NavList>
