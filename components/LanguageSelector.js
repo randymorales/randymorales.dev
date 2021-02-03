@@ -21,7 +21,7 @@ export const LanguageSelector = () => {
   }
 
   return (
-    <div>
+    <span>
       <select
         name='languageSelector'
         id='languageSelector'
@@ -36,7 +36,7 @@ export const LanguageSelector = () => {
           </option>
         ))}
       </select>
-    </div>
+    </span>
   )
 }
 

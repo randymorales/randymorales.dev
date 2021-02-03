@@ -9,9 +9,6 @@ import Comment from '@/components/Comment'
 import { getAllPostIds, getPostData } from '@/lib/posts'
 import { CommentsRepo, DarkTheme, FullName, Theme } from '@/lib/constants'
 
-import utilStyles from '@/styles/utils.module.css'
-import styles from '@/styles/post.module.css'
-
 export default function Post({ postData }) {
   const router = useRouter()
   const { locale } = router
@@ -48,18 +45,15 @@ export default function Post({ postData }) {
         </title>
       </Head>
 
-      <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
+      <div>
+        <h1>{postData.title}</h1>
 
-        <div className={utilStyles.lightText}>
+        <div>
           <Date dateString={postData.date} locale={locale} />
         </div>
 
-        <div
-          className={styles.postContent}
-          dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
-        />
-      </article>
+        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      </div>
 
       {/* Add comments section via Utterances. */}
       <div>

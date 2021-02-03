@@ -3,15 +3,14 @@
 const LangStrings = {
   en: {
     about: 'About',
-    'about-description':
-      "I'm a software engineer building open-source projects and writing about programming.",
-    and: 'and',
+    'intro-description':
+      "I'm a software engineer writing these posts and building open-source projects.",
     blog: 'Blog',
     'blog-description':
       "Hi! I'm a software engineer. This website is my digital legacy — a compendium of the things I've learned and put into practice.",
     'error-content': 'Oops something went wrong. Check the requested link.',
     'error-heading': 'Error',
-    greeting: 'Hi! I am',
+    greeting: "Hello! I'm ",
     home: 'Home',
     language: 'Language',
     'latest-posts': 'Latest Posts',
@@ -26,15 +25,14 @@ const LangStrings = {
   },
   es: {
     about: 'Acerca de',
-    'about-description':
+    'intro-description':
       'Soy un ingeniero de software que crea proyectos de código abierto y escribe sobre programación.',
-    and: 'y',
     blog: 'Blog',
     'blog-description':
       'Hola! Soy un ingeniero de software. Este sitio web es mi espacio digital — conocimiento que he adquirido y puesto en práctica.',
     'error-content': 'Algo salió mal. Revise el link accesado.',
     'error-heading': 'Error',
-    greeting: 'Hola! Soy',
+    greeting: '¡Hola! Soy',
     home: 'Inicio',
     language: 'Idioma',
     'latest-posts': 'Últimos Posts',

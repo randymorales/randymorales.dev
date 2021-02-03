@@ -1,74 +1,73 @@
 import Link from 'next/link'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-import LanguageSelector from '@/components/LanguageSelector'
+import { CSSTransition } from 'react-transition-group'
+
 import useTranslation from '@/i18n/useTranslation'
-import {
-  Nav,
-  NavBar,
-  LeftNav,
-  RightNav,
-  NavUl,
-  NavList,
-  Linkhref,
-  MenuToggle,
-  InputToggle,
-  SpanToggle,
-} from '@/components/NavbarStyled'
+import LanguageSelector from '@/components/LanguageSelector'
+import ThemeSelector from '@/components/ThemeSelector'
 
-export default function Navbar() {
-  const [toggle, setToggle] = useState({ mode: 'no_slide' })
+import navbarStyles from '@/styles/navbar.module.css'
+
+// Header using react-transition-group
+export default function Header() {
+  const [isNavVisible, setNavVisibility] = useState(false)
+  const [isSmallScreen, setIsSmallScreen] = useState(false)
   const { t } = useTranslation()
 
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 768px)')
+    mediaQuery.addEventListener('change', handleMediaQueryChange)
+    handleMediaQueryChange(mediaQuery)
+
+    return () => {
+      mediaQuery.removeEventListener('change', handleMediaQueryChange)
+    }
+  }, [])
+
+  const handleMediaQueryChange = mediaQuery => {
+    if (mediaQuery.matches) {
+      setIsSmallScreen(true)
+    } else {
+      setIsSmallScreen(false)
+    }
+  }
+
+  const toggleNav = () => {
+    setNavVisibility(!isNavVisible)
+  }
+
   return (
-    <Nav>
-      <NavBar>
-        <LeftNav>
-          <h1>
-            <Link href='/'>Randy</Link>
-          </h1>
-        </LeftNav>
+    <header className={navbarStyles.header}>
+      <Link href='/'>
+        <img
+          src='/android-icon-192x192.png'
+          className={navbarStyles.logo}
+          alt='logo'
+        />
+      </Link>
 
-        <MenuToggle>
-          <InputToggle
-            type='checkbox'
-            onClick={() =>
-              setToggle(
-                toggle.mode === 'slide'
-                  ? { mode: 'no_slide' }
-                  : { mode: 'slide' },
-              )
-            }
-          />
-          <SpanToggle></SpanToggle>
-          <SpanToggle></SpanToggle>
-          <SpanToggle></SpanToggle>
-        </MenuToggle>
+      <CSSTransition
+        in={!isSmallScreen || isNavVisible}
+        timeout={350}
+        classNames='NavAnimation'
+        unmountOnExit
+      >
+        <nav className={navbarStyles.nav}>
+          <Link href='/blog'>{t('blog')}</Link>
 
-        <RightNav slide={toggle}>
-          <NavUl>
-            <NavList>
-              <Linkhref>
-                <Link href='/'>{t('home')}</Link>
-              </Linkhref>
-            </NavList>
-            <NavList>
-              <Linkhref>
-                <Link href='/blog'>{t('blog')}</Link>
-              </Linkhref>
-            </NavList>
-            <NavList>
-              <Linkhref>
-                <Link href='/about'>{t('about')}</Link>
-              </Linkhref>
-            </NavList>
-            <NavList>
-              <LanguageSelector />
-            </NavList>
-          </NavUl>
-        </RightNav>
-      </NavBar>
-    </Nav>
+          <Link href='/about'>{t('about')}</Link>
+
+          <LanguageSelector />
+
+          <ThemeSelector />
+        </nav>
+      </CSSTransition>
+
+      <button onClick={toggleNav} className={navbarStyles.burger}>
+        🍔
+      </button>
+    </header>
   )
 }

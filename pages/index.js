@@ -5,14 +5,12 @@ import { useRouter } from 'next/router'
 import fs from 'fs'
 
 import generateRSS from '@/lib/rss'
-import { FullName, SiteTitle, PostsDirectory } from '@/lib/constants'
+import { SiteTitle, PostsDirectory } from '@/lib/constants'
 import Date from '@/components/Date'
 import Layout from '@/components/Layout'
+import Intro from '@/components/Intro'
 import { getSortedPostsData } from '@/lib/posts'
 import useTranslation from '@/i18n/useTranslation'
-
-import layoutStyles from '@/styles/layout.module.css'
-import utilStyles from '@/styles/utils.module.css'
 
 export default function Home({ allLocalePostsData }) {
   const { t } = useTranslation()
@@ -28,38 +26,21 @@ export default function Home({ allLocalePostsData }) {
         <title>{SiteTitle}</title>
       </Head>
 
-      <header className={layoutStyles.header}>
-        <>
-          <img
-            src='/images/profile.jpg'
-            className={`${layoutStyles.headerHomeImage} ${utilStyles.borderCircle}`}
-            alt={FullName}
-          />
-          <h1 className={utilStyles.heading2Xl}>{FullName}</h1>
-        </>
-      </header>
+      <Intro />
 
-      <section className={utilStyles.headingMd}>
-        <p>{t('about-description')}</p>
-      </section>
-
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>{t('latest-posts')}</h2>
-
+      <h2>{t('latest-posts')}</h2>
+      <section>
         {/* List blog posts */}
-        <ul className={utilStyles.list}>
-          {lastBlogEntries.map(({ id, date, title }) => (
-            <li className={utilStyles.listItem} key={id}>
-              <Link href={`${PostsDirectory}${id}`}>
-                <a>{title}</a>
-              </Link>
-              <br />
-              <small className={utilStyles.lightText}>
-                <Date dateString={date} locale={locale} />
-              </small>
-            </li>
-          ))}
-        </ul>
+        {lastBlogEntries.map(({ id, title, date, tags }) => (
+          <article>
+            <h3>
+              <Link href={`${PostsDirectory}${id}`}>{title}</Link>
+            </h3>
+            <small>
+              <Date dateString={date} locale={locale} />
+            </small>
+          </article>
+        ))}
       </section>
     </Layout>
   )

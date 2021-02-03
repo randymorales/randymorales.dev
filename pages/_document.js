@@ -16,6 +16,10 @@ export default class MyDocument extends Document {
             title='RSS feed for blog posts'
             href='https://randymorales.dev/rss.xml'
           />
+          <script
+            src='https://kit.fontawesome.com/2c36e9b7b1.js'
+            crossOrigin='anonymous'
+          ></script>
         </Head>
         <body>
           <Main />

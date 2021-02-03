@@ -17,7 +17,7 @@ const About = ({ title, description, ...props }) => {
         </Head>
         <h1 className='title'>{t('greeting')} Randy. </h1>
 
-        <p>{t('about-description')}</p>
+        <p>{t('blog-description')}</p>
       </Layout>
     </>
   )

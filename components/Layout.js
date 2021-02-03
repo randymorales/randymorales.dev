@@ -11,7 +11,7 @@ export default function Layout({ children }) {
   const Navbar = dynamic(() => import('@/components/Navbar'))
 
   return (
-    <div className={layoutStyles.container}>
+    <div>
       <Head>
         <link
           rel='icon'

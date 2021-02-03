@@ -33,7 +33,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 - [X] Add navbar
 - [ ] Add footer
-- [ ] Improve CSS styles
+- [X] Improve CSS styles
 - [X] Add multilingual support (spanish)
 - [ ] Add blog post cards in /blog page
 - [ ] Add tags per post

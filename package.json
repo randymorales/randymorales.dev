@@ -16,6 +16,7 @@
     "next": "^10",
     "react": "^17",
     "react-dom": "^17",
+    "react-transition-group": "^4.4.1",
     "remark": "^13",
     "remark-html": "^13",
     "styled-components": "^5.2.1"

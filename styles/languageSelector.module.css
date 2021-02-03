@@ -3,15 +3,16 @@
   appearance: none;
   background-color: transparent;
   border: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
+  color: var(--content-text-color);
+  cursor: pointer;
   font-family: inherit;
   font-size: inherit;
-  cursor: inherit;
-  line-height: inherit;
+  font-weight: inherit;
+  margin: 0;
+  padding: 0;
+  width: 100%;
 }
 
 .languageSelector:hover{
-  background-color: orange;
+  border-bottom: 2px solid var(--link-hover-underline-color);
 }

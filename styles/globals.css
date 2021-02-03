@@ -1,4 +1,34 @@
 @import 'https://fonts.googleapis.com/css?family=Roboto:300,400,500';
+@import 'https://fonts.googleapis.com/css?family=Inter';
+
+/* ******** Global CSS ******** */
+
+@media all and (max-width:768px) {
+  :root {
+    --main-width: 95%;
+    --scale: 0.85;
+  }
+}
+
+@media all and (min-width:768px) {
+  :root {
+    --main-width: 80%;
+    --scale: 0.95;
+  }
+}
+
+@media all and (min-width:1848px) {
+  :root {
+    --main-width: 75%;
+    --scale: 1;
+  }
+}
+
+@media all and (min-width:2300px) {
+  :root {
+    --main-width: 60em;
+  }
+}
 
 * {
   box-sizing: border-box;
@@ -6,66 +36,102 @@
   padding: 0;
 }
 
-html,
+:root {
+  /* Size related */
+  --header-height: 3.5em;
+  --mobile-header-height: 3em;
+
+  /* Font related */
+  --code-font: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
+  --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-size: 18px;
+
+  /* Color related */
+  --body-background-color: white;
+  --border-color: var(--content-text-color);
+  --content-text-color: #09090B;
+  --link-hover-underline-color: #e6752e;
+  --nav-mobile-background-color: rgba(237, 241, 243, 0.95);
+  --shadow-color: #e6752e;
+  --social-networks-icons-color: #141F2D;
+  --title-color: #e6752e;
+}
+
+.darkTheme {
+  --body-background-color: #141F2D;
+  --border-color: var(--content-text-color);
+  --content-text-color: white;
+  --link-hover-underline-color: #ff6200;
+  --nav-mobile-background-color: rgba(12, 26, 39, 0.95);
+  --shadow-color: #030f20;
+  --social-networks-icons-color: white;
+  --title-color: #ff6200;
+}
+
 body {
-  margin: 0;
-  padding: 0;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
-  line-height: 1.6;
-  font-size: 18px;
-  color: #1c2225;
-}
-
-a {
-  color: orange;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-img {
-  max-width: 100%;
-  display: block;
+  background-color: var(--body-background-color);
+  color: var(--content-text-color);
+  font-family: var(--font-family);
+  font-size: calc(var(--font-size) * var(--scale));
+  line-height:1.6
 }
 
 h1 {
-  font-size: 2.5rem;
-  line-height: 1.2;
-  font-weight: 800;
-  letter-spacing: -0.05rem;
-  margin: 1rem 0;
+  color: var(--title-color);
+  font-size: calc(1.75em * var(--scale));
 }
 
 h2 {
-  margin-top: 1em;
-  padding-top: 1em;
+  color: var(--title-color);
+  font-size: calc(1.5em * var(--scale));
+}
+
+h3 {
+  font-size: calc(1.3em * var(--scale))
+}
+
+h4 {
+  font-size: calc(1.2em * var(--scale))
 }
 
 h1,
 h2,
-strong {
-  color: #333;
+h3,
+h4 {
+  font-weight: 700;
+  font-family: var(--font-family);
+  line-height: 1.4;
+  margin: 0.5em auto;
 }
 
-code,
-pre {
-  background: #f5f7f9;
-  color: #a7adba;
-  margin: 1rem 0;
+a, li {
+  color: var(--link-color);
+  font-weight: 600;
+  list-style: none;
+  text-decoration: none;
 }
 
-pre {
-  padding: 1em;
-  border-left: 6px solid orange;
-  border-radius: 5px;
+main {
+  margin: 0 auto;
+  width: var(--main-width)
 }
 
-code {
-  padding: 0.75rem;
-  font-size: 1.1rem;
-  font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
-    Bitstream Vera Sans Mono, Courier New, monospace;
-  overflow: scroll;
+/* ******** CSSTransition from react-transition-group ******** */
+
+.NavAnimation-enter {
+  opacity: 0;
+  transform: scale(0.5);
+}
+.NavAnimation-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 350ms, transform 350ms;
+}
+.NavAnimation-exit {
+  opacity: 1;
+}
+.NavAnimation-exit-active {
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 350ms, transform 350ms;
 }
