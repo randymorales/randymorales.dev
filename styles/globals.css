@@ -3,30 +3,38 @@
 
 /* ******** Global CSS ******** */
 
-@media all and (max-width:768px) {
+@media all and (min-width: 1920px) {
   :root {
-    --main-width: 95%;
-    --scale: 0.85;
+    --main-width: 60em;
+    --scale: 1;
   }
 }
 
-@media all and (min-width:768px) {
+@media all and (max-width: 1920px) {
   :root {
     --main-width: 80%;
     --scale: 0.95;
   }
 }
 
-@media all and (min-width:1848px) {
+@media all and (max-width: 1368px) {
   :root {
-    --main-width: 75%;
-    --scale: 1;
+    --main-width: 85%;
+    --scale: 0.90;
   }
 }
 
-@media all and (min-width:2300px) {
+@media all and (max-width: 1024px) {
   :root {
-    --main-width: 60em;
+    --main-width: 90%;
+    --scale: 0.85;
+  }
+}
+
+@media all and (max-width: 768px) {
+  :root {
+    --main-width: 90%;
+    --scale: 0.80;
   }
 }
 

@@ -41,11 +41,11 @@
 }
 
 .switchIcon {
+  align-items: center;
   background: none;
   color: #fff;
   display: block;
-  height: 23px;
+  height: 22px;
   line-height: 23px;
-  margin: 3px;
   width: 30px;
 }

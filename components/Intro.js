@@ -1,4 +1,4 @@
-import { FullName } from '@/lib/constants'
+import { Name } from '@/lib/constants'
 import useTranslation from '@/i18n/useTranslation'
 
 import introStyles from '@/styles/intro.module.css'
@@ -14,6 +14,14 @@ export default function Intro() {
           className={introStyles.profileImage}
           alt='site author photo'
         />
+      </div>
+
+      <div className={introStyles.description}>
+        <h1>
+          {t('greeting')} {Name}
+        </h1>
+
+        <p>{t('intro-description')}</p>
 
         <ul className={introStyles.socialNetworks}>
           <li>
@@ -49,14 +57,6 @@ export default function Intro() {
             </a>
           </li>
         </ul>
-      </div>
-
-      <div className={introStyles.description}>
-        <h1>
-          {t('greeting')} {FullName}
-        </h1>
-
-        <p>{t('intro-description')}</p>
       </div>
     </section>
   )

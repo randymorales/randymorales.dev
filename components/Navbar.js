@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react'
 import { CSSTransition } from 'react-transition-group'
 
 import useTranslation from '@/i18n/useTranslation'
-import LanguageSelector from '@/components/LanguageSelector'
+import Translator from '@/components/Translator'
 import ThemeSelector from '@/components/ThemeSelector'
 
 import navbarStyles from '@/styles/navbar.module.css'
@@ -59,7 +59,7 @@ export default function Header() {
 
           <Link href='/about'>{t('about')}</Link>
 
-          <LanguageSelector />
+          <Translator />
 
           <ThemeSelector />
         </nav>
