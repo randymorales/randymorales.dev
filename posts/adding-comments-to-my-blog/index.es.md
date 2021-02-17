@@ -1,8 +1,9 @@
 ---
 title: 'Agregando Comentarios a un Blog (vía Utterances)'
 description: Configurar Utterances en un blog markdown
-tags: blog, comments, Utterances
+tags: blog,comments
 date: '2020-12-22'
+image: 'https://avatars.githubusercontent.com/u/27908738?s=200&v=4'
 ---
 
 Crear mi propio blog es un objetivo importante para mí, y por eso quería agregar una sección de comentarios para cada post.

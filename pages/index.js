@@ -1,66 +1,52 @@
-import Head from 'next/head'
-import Link from 'next/link'
-import { useRouter } from 'next/router'
-
 import fs from 'fs'
 
+import { PostsDirectory } from '@/lib/constants'
 import generateRSS from '@/lib/rss'
-import { SiteTitle, PostsDirectory } from '@/lib/constants'
-import Date from '@/components/Date'
-import Layout from '@/components/Layout'
-import Intro from '@/components/Intro'
 import { getSortedPostsData } from '@/lib/posts'
 import useTranslation from '@/i18n/useTranslation'
+import Intro from '@/components/Intro'
+import Layout from '@/components/Layout'
+import PostCard from '@/components/PostCard'
+
+import blogStyles from '@/styles/blog.module.css'
 
 export default function Home({ allLocalePostsData }) {
   const { t } = useTranslation()
-  const router = useRouter()
-  const { locale } = router
 
   // Get the first 3 items
   const lastBlogEntries = allLocalePostsData.slice(0, 3)
 
   return (
-    <Layout>
-      <Head>
-        <title>{SiteTitle}</title>
-      </Head>
-
+    <Layout pageTitle={t('home')}>
       <Intro />
 
       <h2>{t('latest-posts')}</h2>
-      <section>
-        {/* List blog posts */}
-        {lastBlogEntries.map(({ id, title, date, tags }) => (
-          <article>
-            <h3>
-              <Link href={`${PostsDirectory}${id}`}>{title}</Link>
-            </h3>
-            <small>
-              <Date dateString={date} locale={locale} />
-            </small>
-          </article>
-        ))}
+      <section className={blogStyles.cardsContainer}>
+        {/* Blog posts list*/}
+        {lastBlogEntries.map(
+          ({ id, title, description, date, tags, image }) => (
+            <PostCard
+              url={`${PostsDirectory}${id}`}
+              title={title}
+              description={description}
+              date={date}
+              tags={tags}
+              image={image}
+            />
+          ),
+        )}
       </section>
     </Layout>
   )
 }
 
-export const getStaticProps = async ({ locale, locales }) => {
-  let allLocalePostsData
+export const getStaticProps = async ({ locale }) => {
+  // Get posts.
+  let allLocalePostsData = getSortedPostsData(locale)
 
   // Write RSS feed files.
-  for (let language of locales) {
-    const allPostsData = getSortedPostsData(language)
-    const rss = generateRSS(allPostsData, language)
-    fs.writeFileSync(`./public/rss-${language}.xml`, rss)
-
-    // Save the posts according to the current locale
-    // in order to return it to the client.
-    if (language === locale) {
-      allLocalePostsData = allPostsData
-    }
-  }
+  const rss = generateRSS(allLocalePostsData, locale)
+  fs.writeFileSync(`./public/rss-${locale}.xml`, rss)
 
   return {
     props: {

@@ -4,7 +4,7 @@
   "private": true,
   "homepage": "https://randymorales.dev",
   "scripts": {
-    "format": "prettier --write '*.js' 'components/*.js' 'i18n/*.js' 'lib/*.js' 'pages/*.js' 'pages/posts/*.js'",
+    "format": "prettier --write '*.js' 'components/*.js' 'i18n/*.js' 'lib/*.js' 'pages/*.js' 'pages/blog/*.js' 'pages/tags/*.js'",
     "dev": "next dev",
     "build": "next build",
     "export": "next export",

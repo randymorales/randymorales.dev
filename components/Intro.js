@@ -10,7 +10,7 @@ export default function Intro() {
     <section className={introStyles.container}>
       <div className={introStyles.profileInfo}>
         <img
-          src='/images/profile.jpg'
+          src='./images/profile.jpg'
           className={introStyles.profileImage}
           alt='site author photo'
         />
@@ -29,7 +29,6 @@ export default function Intro() {
               href='https://twitter.com/randymoralesg'
               target='_blank'
               rel='noopener'
-              className={introStyles.socialNetworks2}
             >
               <i className='fab fa-twitter big-icon'></i>
             </a>
@@ -40,7 +39,6 @@ export default function Intro() {
               href='https://www.linkedin.com/in/randymoralesg/'
               target='_blank'
               rel='noopener'
-              className={introStyles.socialNetworks2}
             >
               <i className='fab fa-linkedin big-icon'></i>
             </a>
@@ -51,7 +49,6 @@ export default function Intro() {
               href='https://github.com/randymorales'
               target='_blank'
               rel='noopener'
-              className={introStyles.socialNetworks2}
             >
               <i className='fab fa-github big-icon'></i>
             </a>

@@ -1,13 +1,15 @@
-import React, { useEffect } from 'react'
-
-import Head from 'next/head'
+import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import Layout from '@/components/Layout'
-import Date from '@/components/Date'
-import Comment from '@/components/Comment'
+import React, { useEffect } from 'react'
+
+import { CommentsRepo, DarkTheme, Name, Theme } from '@/lib/constants'
 import { getAllPostIds, getPostData } from '@/lib/posts'
-import { CommentsRepo, DarkTheme, FullName, Theme } from '@/lib/constants'
+import Comment from '@/components/Comment'
+import Layout from '@/components/Layout'
+import PublishedDate from '@/components/PublishedDate'
+
+import blogStyles from '@/styles/blog.module.css'
 
 export default function Post({ postData }) {
   const router = useRouter()
@@ -38,29 +40,51 @@ export default function Post({ postData }) {
   }, [])
 
   return (
-    <Layout>
-      <Head>
-        <title>
-          {postData.title} | {FullName}
-        </title>
-      </Head>
+    <Layout pageTitle={postData.title}>
+      <img
+        className={blogStyles.postImage}
+        src={postData.image}
+        alt='cover image'
+      />
 
-      <div>
-        <h1>{postData.title}</h1>
+      <h1>{postData.title}</h1>
+
+      <p className={blogStyles.postDescription}>{postData.description}</p>
+
+      <div className={blogStyles.postMetadata}>
+        <span>
+          <PublishedDate dateString={postData.date} locale={locale} />
+        </span>
+
+        <span> | </span>
 
         <div>
-          <Date dateString={postData.date} locale={locale} />
+          {postData.tags.split(',').map(tag => (
+            <Link href={`/tags/${tag}/`}>
+              <a className={[blogStyles.cardTag, tag].join(' ')}>{tag}</a>
+            </Link>
+          ))}
         </div>
+      </div>
 
-        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
+      <div className='page-separator'>
+        <hr />
+      </div>
+
+      {/* Post content. */}
+      <div
+        dangerouslySetInnerHTML={{ __html: postData.contentHtml }}
+        className={blogStyles.postContent}
+      />
+
+      <div className='page-separator'>
+        <hr />
       </div>
 
       {/* Add comments section via Utterances. */}
-      <div>
-        <div id='post-comments'>
-          <h2>Comments</h2>
-          <Comment commentBox={commentBox} />
-        </div>
+      <div className={blogStyles.postComments}>
+        <h2>Comments</h2>
+        <Comment commentBox={commentBox} />
       </div>
     </Layout>
   )

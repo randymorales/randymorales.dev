@@ -1,0 +1,265 @@
+/* ******** Blogpost Card ******** */
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 2rem 0;
+  width: 100%;
+}
+
+.card {
+  background-color: var(--card-color);
+  border-radius: 0.5rem;
+  box-shadow: 1px 3px 0 var(--border-card-color);
+  height: 375px;
+  margin: 1rem;
+  position: relative;
+  transition: 250ms all ease-in-out;
+  width: 375px;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.cardImg {
+  border-radius: 0.5rem;
+  height: 12rem;
+  object-fit: cover;
+  position: absolute;
+  width: 100%;
+}
+
+.cardBody {
+  margin: 13rem 0.7rem 0;
+}
+
+.cardMetadata {
+  align-items: center;
+  display: flex;
+  font-size: calc(1em * var(--scale));
+  font-weight: 600;
+  justify-content: space-between;
+  margin: 0;
+  max-width: 100%;
+}
+
+.cardTag {
+  border: 2px solid var(--tag-color);
+  border-radius: 8px;
+  color: var(--tag-color);
+  font-size: calc(0.9em * var(--scale));
+  height: 1.8em;
+  margin-right: 0.5rem;
+  padding: 0 0.5em;
+  text-align: center;
+  text-decoration: none;
+  transition: all 150ms;
+}
+
+.cardDate {
+  font-size: calc(0.7em * var(--scale));
+  justify-content: right;
+}
+
+.cardTitle {
+  cursor: pointer;
+  font-size: calc(1.2em * var(--scale));
+  line-height: 1.5rem;
+  margin: 1rem 0;
+}
+
+.cardDescription {
+  font-size: calc(0.8em * var(--scale));
+}
+
+.highlight {
+  background-color: red;
+  border-radius: 0 2rem 2rem 0;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-left: -16px;
+  padding: 0.5rem 1.3rem 0.5rem 1rem;
+  position: absolute;
+  text-transform: uppercase;
+  top: 1rem;
+  z-index: 1;
+}
+
+/* ******** Blogpost Content ******** */
+
+.postImage {
+  height: 300px;
+  margin: 0 auto;
+  object-fit: scale-down;
+  width: 100%;
+}
+
+.postDescription {
+  font-size: calc(1.2em * var(--scale));
+  margin: 1.5rem 0;
+  padding: 0.1em 0;
+}
+
+.postTags {
+  margin-bottom: 1.5rem;
+}
+
+.profileImg {
+  border-radius: 50%;
+  height: 60px;
+  object-fit: cover;
+  width: 60px;
+}
+
+.postMetadata {
+  align-items: center;
+  display: flex;
+  font-size: calc(1.2em * var(--scale));
+  justify-content: space-between;
+  width: 50%;
+}
+
+.postContent h2 {
+  margin: 2rem 0;
+}
+
+.postContent p {
+  margin: 1em 0 0;
+}
+
+.postContent p a {
+  color: var(--post-link-color)
+}
+
+.postContent li {
+  list-style-position: inside;
+  list-style-type: disc;
+  margin-bottom: .5rem;
+  margin-top: .5rem;
+}
+
+.postContent a:hover {
+  border-bottom: var(--link-hover-animation);
+
+}
+
+
+/* ******** Media Queries ******** */
+
+@media screen and (max-width: 1024px) {
+  .card {
+    width: 44%;
+  }
+
+  .cardTag {
+    font-size: calc(1.05em * var(--scale));
+  }
+
+  .cardDate {
+    font-size: calc(0.8em * var(--scale));
+  }
+
+  .cardTitle {
+    font-size: calc(1.4em * var(--scale));
+  }
+
+  .cardDescription {
+    font-size: calc(1.1em * var(--scale));
+  }
+
+  .postMetadata {
+    width: 40%;
+  }
+}
+
+@media screen and (max-width: 680px) {
+  .card, .cardImg, .postComments {
+    position: static;
+  }
+
+  .card {
+    height: 300px;
+    margin: 1rem 0;
+    width: 85%;
+  }
+
+  .cardImg {
+    height: 9em;
+  }
+
+  .cardBody {
+    margin: 1rem 0.7rem 0;
+  }
+
+  .cardTag {
+    font-size: calc(1.2em * var(--scale));
+  }
+
+  .cardDate {
+    font-size: calc(0.9em * var(--scale));
+  }
+
+  .cardTitle {
+    font-size: calc(1.3em * var(--scale));
+  }
+
+  .cardDescription {
+    font-size: calc(1em * var(--scale));
+  }
+
+  .postMetadata {
+    width: 60%;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .card {
+    width: 95%;
+  }
+
+  .cardTag {
+    font-size: calc(1.10em * var(--scale));
+  }
+
+  .cardDate {
+    font-size: calc(0.85em * var(--scale));
+  }
+
+  .cardTitle {
+    font-size: calc(1.2em * var(--scale));
+  }
+
+  .cardDescription {
+    font-size: calc(0.95em * var(--scale));
+  }
+
+  .postMetadata {
+    width: 80%;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  .cardTag {
+    font-size: calc(0.9em * var(--scale));
+    margin-right: 0.1rem;
+  }
+
+  .cardDate {
+    font-size: calc(0.8em * var(--scale));
+  }
+
+  .cardTitle {
+    font-size: calc(1em * var(--scale));
+  }
+
+  .cardDescription {
+    font-size: calc(0.9em * var(--scale));
+  }
+
+  .postMetadata {
+    width: 90%;
+  }
+}

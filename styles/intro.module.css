@@ -20,7 +20,7 @@
   width: 250px;
 }
 
-.socialNetworks{
+.socialNetworks {
   display: inline-flex;
   flex-direction: row;
   font-size: calc(2em * var(--scale));
@@ -29,7 +29,7 @@
   width: calc(5em * var(--scale));
 }
 
-.socialNetworks li:hover{
+.socialNetworks li:hover {
   color: var(--link-hover-underline-color);
 }
 
@@ -42,7 +42,7 @@
 }
 
 .description p {
-  font-size: calc(1.5em * var(--scale));
+  font-size: calc(1.3em * var(--scale));
 }
 
 @media all and (max-width: 768px) {
@@ -60,7 +60,7 @@
     margin-left: 0;
   }
 
-  .socialNetworks{
+  .socialNetworks {
     display: inline-flex;
     flex-direction: row;
     flex-wrap: wrap;

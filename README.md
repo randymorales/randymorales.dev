@@ -35,8 +35,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [ ] Add footer
 - [X] Improve CSS styles
 - [X] Add multilingual support (spanish)
-- [ ] Add blog post cards in /blog page
-- [ ] Add tags per post
+- [X] Add blog post cards in /blog page
+- [X] Add tags per post
 - [ ] Add Search bar for posts
 - [X] Add comments section for posts
 - [ ] Views per posts

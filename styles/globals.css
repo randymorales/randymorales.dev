@@ -52,28 +52,37 @@
   /* Font related */
   --code-font: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
   --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --font-size: 18px;
+  --font-size: 20px;
 
   /* Color related */
-  --body-background-color: white;
+  --body-background-color: #FAFAFA;
   --border-color: var(--content-text-color);
+  --border-card-color:  rgb(0 0 0 / 10%);
+  --card-color: white;
   --content-text-color: #09090B;
-  --link-hover-underline-color: #e6752e;
+  --link-hover-underline-color: #E6752E;
   --nav-mobile-background-color: rgba(237, 241, 243, 0.95);
-  --shadow-color: #e6752e;
+  --post-link-color: #E6752E;
+  --shadow-color: #E6752E;
   --social-networks-icons-color: #141F2D;
-  --title-color: #e6752e;
+  --tag-color: #09090B;
+  --title-color: #E6752E;
+
+  /* Styles related */
+  --link-hover-animation: 2px solid var(--link-hover-underline-color);
 }
 
 .darkTheme {
-  --body-background-color: #141F2D;
+  --body-background-color: #0D1219;
   --border-color: var(--content-text-color);
+  --border-card-color: rgb(255 255 255 / 10%);
+  --card-color: #141F2D;
   --content-text-color: white;
-  --link-hover-underline-color: #ff6200;
+  --link-hover-underline-color: #FF6200;
   --nav-mobile-background-color: rgba(12, 26, 39, 0.95);
-  --shadow-color: #030f20;
+  --post-link-color: #FF6200;
   --social-networks-icons-color: white;
-  --title-color: #ff6200;
+  --title-color: #FF6200;
 }
 
 body {
@@ -122,6 +131,25 @@ a, li {
 main {
   margin: 0 auto;
   width: var(--main-width)
+}
+
+.page-separator {
+  width: 50%;
+  margin: 2em 0;
+}
+
+
+/* ******** Tags colors ******** */
+.blog {
+  background:#e9f7eb
+}
+
+.comments {
+  background:#e4ffe7
+}
+
+.utterances, .utterances-frame {
+  position: static;
 }
 
 /* ******** CSSTransition from react-transition-group ******** */

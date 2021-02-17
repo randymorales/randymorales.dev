@@ -17,7 +17,7 @@ export default function Header() {
   const { t } = useTranslation()
 
   useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 768px)')
+    const mediaQuery = window.matchMedia('(max-width: 600px)')
     mediaQuery.addEventListener('change', handleMediaQueryChange)
     handleMediaQueryChange(mediaQuery)
 

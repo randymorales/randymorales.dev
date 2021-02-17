@@ -1,8 +1,9 @@
 ---
 title: 'Adding Comments to a Markdown Blog (via Utterances)'
 description: 'Setup Utterances in a markdown blog'
-tags: blog, comments, Utterances
+tags: blog,comments
 date: '2020-12-22'
+image: 'https://avatars.githubusercontent.com/u/27908738?s=200&v=4'
 ---
 
 Creating my own blog is an important goal for me, which is why I wanted to add a comment section for each post.

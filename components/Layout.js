@@ -1,12 +1,12 @@
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 
-import { SiteTitle } from '@/lib/constants'
+import { SiteTitle, FullName } from '@/lib/constants'
 import useTranslation from '@/i18n/useTranslation'
 
 import layoutStyles from '@/styles/layout.module.css'
 
-export default function Layout({ children }) {
+export default function Layout({ children, pageTitle }) {
   const { t } = useTranslation()
   const Navbar = dynamic(() => import('@/components/Navbar'))
 
@@ -42,6 +42,7 @@ export default function Layout({ children }) {
           )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
         />
         <meta name='twitter:card' content='summary_large_image' />
+        <title>{`${pageTitle} | ${FullName}`}</title>
       </Head>
 
       <Navbar />

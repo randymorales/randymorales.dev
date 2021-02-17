@@ -1,26 +1,19 @@
-import Head from 'next/head'
-
-import { FullName } from '@/lib/constants'
-import Layout from '@/components/Layout'
+import { Name } from '@/lib/constants'
 import useTranslation from '@/i18n/useTranslation'
+import Layout from '@/components/Layout'
 
-const About = ({ title, description, ...props }) => {
+export default function About() {
   const { t } = useTranslation()
 
   return (
     <>
-      <Layout pageTitle={`${title} | About`}>
-        <Head>
-          <title>
-            {FullName} | {t('about')}
-          </title>
-        </Head>
-        <h1 className='title'>{t('greeting')} Randy. </h1>
+      <Layout pageTitle={t('about')}>
+        <h1>
+          {t('greeting')} {Name}
+        </h1>
 
         <p>{t('blog-description')}</p>
       </Layout>
     </>
   )
 }
-
-export default About

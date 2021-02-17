@@ -13,7 +13,11 @@ export const ThemeSelector = () => {
 
   // Get theme from user preferences
   function getInitialTheme() {
-    if (typeof window === 'undefined') {
+    if (
+      typeof window === 'undefined' ||
+      typeof localStorage === 'undefined' ||
+      null
+    ) {
       return false
     }
 

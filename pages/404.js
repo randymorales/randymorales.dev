@@ -1,23 +1,17 @@
-import Head from 'next/head'
-
 import useTranslation from '@/i18n/useTranslation'
+import Layout from '@/components/Layout'
 
-const Error = () => {
+export default function Error404() {
   const { t } = useTranslation()
 
   return (
-    <>
-      <Head>
-        <title>{t('error-heading')} - Randy Morales</title>
-      </Head>
-      <p className=''>{t('error-content')}</p>
-      <p className=''>
+    <Layout pageTitle={t('error-heading')}>
+      <p>{t('error-content')}</p>
+      <p>
         <span aria-label={t('sorry')} role='img'>
           😵
         </span>
       </p>
-    </>
+    </Layout>
   )
 }
-
-export default Error
