@@ -26,6 +26,7 @@ export default function Home({ allLocalePostsData }) {
         {lastBlogEntries.map(
           ({ id, title, description, date, tags, image }) => (
             <PostCard
+              key={id}
               url={`${PostsDirectory}${id}`}
               title={title}
               description={description}

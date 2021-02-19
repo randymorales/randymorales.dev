@@ -19,7 +19,7 @@ export default function TagIndex({ posts, tag }) {
         {t('posts-found')}: {posts.length}
       </h4>
 
-      <div class='page-separator'>
+      <div className='page-separator'>
         <hr />
       </div>
 
@@ -27,6 +27,7 @@ export default function TagIndex({ posts, tag }) {
         {/* List blog posts */}
         {posts.map(({ id, title, description, date, tags, image }) => (
           <PostCard
+            key={id}
             url={`${PostsDirectory}${id}`}
             title={title}
             description={description}

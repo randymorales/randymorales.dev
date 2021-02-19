@@ -16,6 +16,7 @@ export default function BlogIndex({ allLocalePostsData }) {
         {allLocalePostsData.map(
           ({ id, title, description, date, tags, image }) => (
             <PostCard
+              key={id}
               url={`${PostsDirectory}${id}`}
               title={title}
               description={description}

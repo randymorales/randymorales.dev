@@ -25,7 +25,7 @@ export default function PostCard({
         <div className={blogStyles.cardMetadata}>
           <div>
             {tagsList.map(tag => (
-              <Link href={`/tags/${tag}/`}>
+              <Link href={`/tags/${tag}/`} key={tag}>
                 <a className={[blogStyles.cardTag, tag].join(' ')}>{tag}</a>
               </Link>
             ))}

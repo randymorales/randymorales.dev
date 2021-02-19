@@ -30,7 +30,7 @@ export default function Intro() {
               target='_blank'
               rel='noopener'
             >
-              <i className='fab fa-twitter big-icon'></i>
+              <i aria-hidden className='fab fa-twitter big-icon'></i>
             </a>
           </li>
 
@@ -40,7 +40,7 @@ export default function Intro() {
               target='_blank'
               rel='noopener'
             >
-              <i className='fab fa-linkedin big-icon'></i>
+              <i aria-hidden className='fab fa-linkedin big-icon'></i>
             </a>
           </li>
 
@@ -50,7 +50,7 @@ export default function Intro() {
               target='_blank'
               rel='noopener'
             >
-              <i className='fab fa-github big-icon'></i>
+              <i aria-hidden className='fab fa-github big-icon'></i>
             </a>
           </li>
         </ul>
