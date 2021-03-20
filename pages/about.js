@@ -9,7 +9,7 @@ export default function About() {
 
   return (
     <>
-      <Layout pageTitle={t('about')}>
+      <Layout pageTitle={t('about')} large={true}>
         <h1>
           {t('greeting')} {Name}
         </h1>

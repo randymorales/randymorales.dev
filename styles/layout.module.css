@@ -1,4 +1,11 @@
-.content {
+.content, .large {
     margin-top: calc(var(--header-height) + 2em);
+}
+
+.content {
     width: var(--main-width);
+}
+
+.large {
+    width: 80%;
 }

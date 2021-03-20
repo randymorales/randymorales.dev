@@ -6,7 +6,7 @@ import useTranslation from '@/i18n/useTranslation'
 
 import layoutStyles from '@/styles/layout.module.css'
 
-export default function Layout({ children, pageTitle }) {
+export default function Layout({ children, pageTitle, large }) {
   const { t } = useTranslation()
   const Navbar = dynamic(() => import('@/components/Navbar'))
 
@@ -47,7 +47,9 @@ export default function Layout({ children, pageTitle }) {
 
       <Navbar />
 
-      <main className={layoutStyles.content}>{children}</main>
+      <main className={large ? layoutStyles.large : layoutStyles.content}>
+        {children}
+      </main>
     </div>
   )
 }

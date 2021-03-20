@@ -12,21 +12,19 @@
 
 @media all and (max-width: 1920px) {
   :root {
-    --main-width: 80%;
+    --main-width: 50%;
     --scale: 0.95;
   }
 }
 
 @media all and (max-width: 1368px) {
   :root {
-    --main-width: 85%;
     --scale: 0.90;
   }
 }
 
 @media all and (max-width: 1024px) {
   :root {
-    --main-width: 90%;
     --scale: 0.85;
   }
 }
@@ -90,7 +88,7 @@ body {
   color: var(--content-text-color);
   font-family: var(--font-family);
   font-size: calc(var(--font-size) * var(--scale));
-  line-height:1.6
+  line-height:1.75
 }
 
 h1 {
@@ -138,6 +136,9 @@ main {
   margin: 2em 0;
 }
 
+.utterances, .utterances-frame {
+  position: static;
+}
 
 /* ******** Tags colors ******** */
 .blog {
@@ -146,10 +147,6 @@ main {
 
 .comments {
   background:#e4ffe7
-}
-
-.utterances, .utterances-frame {
-  position: static;
 }
 
 /* ******** CSSTransition from react-transition-group ******** */

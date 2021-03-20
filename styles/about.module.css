@@ -16,7 +16,6 @@
 .container {
     display: flex;
     justify-content: space-between;
-    margin-top: 4rem;
     position: relative;
     width: 100%;
     z-index: -1;
@@ -42,7 +41,6 @@
 @media (max-width: 1024px) {
     .container {
         align-items: center;
-        display: flex;
         flex-direction: column;
     }
 
