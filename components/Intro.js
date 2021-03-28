@@ -33,7 +33,6 @@ export default function Intro() {
               <i aria-hidden className='fab fa-twitter big-icon'></i>
             </a>
           </li>
-
           <li>
             <a
               href='https://www.linkedin.com/in/randymoralesg/'
@@ -43,7 +42,6 @@ export default function Intro() {
               <i aria-hidden className='fab fa-linkedin big-icon'></i>
             </a>
           </li>
-
           <li>
             <a
               href='https://github.com/randymorales'

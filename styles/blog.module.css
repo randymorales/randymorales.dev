@@ -64,6 +64,7 @@
 }
 
 .cardTitle {
+  color: var(--title-color);
   cursor: pointer;
   font-size: calc(1.2em * var(--scale));
   line-height: 1.5rem;
@@ -134,11 +135,36 @@
   color: var(--post-link-color)
 }
 
+.postContent ol,
+.postContent ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  grid-gap: 1rem;
+}
+
+.postContent ol {
+  counter-reset: orderedlist;
+  list-style: none;
+}
+
+.postContent ol li::before {
+  counter-increment: orderedlist;
+  content: counter(orderedlist);
+
+  background-color: var(--post-link-color);
+  border-radius: 0.25em;
+  color:white;
+  font-family: "consolas";
+  font-size: 1.25em;
+  margin-right: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  text-align: center;
+}
+
 .postContent li {
-  list-style-position: inside;
-  list-style-type: disc;
-  margin-bottom: .5rem;
-  margin-top: .5rem;
+  line-height: 1.25;
 }
 
 .postContent a:hover {
@@ -149,7 +175,7 @@
 
 /* ******** Media Queries ******** */
 
-@media screen and (max-width: 1024px) {
+@media (max-width: 1024px) {
   .cardTag {
     font-size: calc(1.05em * var(--scale));
   }
@@ -167,15 +193,15 @@
   }
 }
 
-@media screen and (max-width: 680px) {
+@media (max-width: 680px) {
   .card, .cardImg, .postComments {
     position: static;
   }
 
   .card {
-    height: 300px;
+    height: 350px;
     margin: 1rem 0;
-    width: 49%;
+    width: 70%;
   }
 
   .cardImg {
@@ -207,7 +233,7 @@
   }
 }
 
-@media screen and (max-width: 420px) {
+@media (max-width: 420px) {
   .card {
     width: 95%;
   }
@@ -233,7 +259,7 @@
   }
 }
 
-@media screen and (max-width: 330px) {
+@media (max-width: 330px) {
   .cardTag {
     font-size: calc(0.9em * var(--scale));
     margin-right: 0.1rem;

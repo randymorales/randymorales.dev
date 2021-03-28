@@ -3,33 +3,35 @@
 
 /* ******** Global CSS ******** */
 
-@media all and (min-width: 1920px) {
+@media (min-width: 1920px) {
   :root {
     --main-width: 60em;
     --scale: 1;
   }
 }
 
-@media all and (max-width: 1920px) {
+@media (max-width: 1920px) {
   :root {
     --main-width: 50%;
     --scale: 0.95;
   }
 }
 
-@media all and (max-width: 1368px) {
+@media (max-width: 1368px) {
   :root {
+    --main-width: 65%;
     --scale: 0.90;
   }
 }
 
-@media all and (max-width: 1024px) {
+@media (max-width: 1024px) {
   :root {
+    --main-width: 75%;
     --scale: 0.85;
   }
 }
 
-@media all and (max-width: 768px) {
+@media (max-width: 768px) {
   :root {
     --main-width: 90%;
     --scale: 0.80;
@@ -46,6 +48,7 @@
   /* Size related */
   --header-height: 3.5em;
   --mobile-header-height: 3em;
+  --footer-height: 7rem;
 
   /* Font related */
   --code-font: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
@@ -58,37 +61,52 @@
   --border-card-color:  rgb(0 0 0 / 10%);
   --card-color: white;
   --content-text-color: #09090B;
-  --link-hover-underline-color: #E6752E;
+  --link-hover-underline-color: #FF5D27;
   --nav-mobile-background-color: rgba(237, 241, 243, 0.95);
-  --post-link-color: #E6752E;
-  --shadow-color: #E6752E;
+  --post-link-color: #FF5D27;
+  --shadow-color: #FF5D27;
   --social-networks-icons-color: #141F2D;
   --tag-color: #09090B;
-  --title-color: #E6752E;
+  --title-color: #FF5D27;
 
   /* Styles related */
   --link-hover-animation: 2px solid var(--link-hover-underline-color);
 }
 
 .darkTheme {
-  --body-background-color: #0D1219;
+  --body-background-color: #08090C;
   --border-color: var(--content-text-color);
   --border-card-color: rgb(255 255 255 / 10%);
-  --card-color: #141F2D;
+  --card-color: #0B0E13;
   --content-text-color: white;
-  --link-hover-underline-color: #FF6200;
-  --nav-mobile-background-color: rgba(12, 26, 39, 0.95);
-  --post-link-color: #FF6200;
+  --link-hover-underline-color: #FC5F25;
+  --nav-mobile-background-color: rgba(1, 2, 3, 0.95);
+  --post-link-color: #FC5F25;
   --social-networks-icons-color: white;
-  --title-color: #FF6200;
+  --title-color: #FC5F25;
+}
+
+html {
+  display: table;
+  height: 100%;
+  width: 100%;
 }
 
 body {
   background-color: var(--body-background-color);
   color: var(--content-text-color);
+  display: table-cell;
   font-family: var(--font-family);
   font-size: calc(var(--font-size) * var(--scale));
-  line-height:1.75
+  line-height: 1.75;
+  width: 100%;
+}
+
+html, body {
+  margin: 0;
+  min-height: 100%;
+  padding: 0;
+  position: relative;
 }
 
 h1 {
@@ -97,7 +115,6 @@ h1 {
 }
 
 h2 {
-  color: var(--title-color);
   font-size: calc(1.5em * var(--scale));
 }
 
@@ -127,7 +144,7 @@ a, li {
 }
 
 main {
-  margin: 0 auto;
+  margin: 0 auto var(--footer-height) auto;
   width: var(--main-width)
 }
 

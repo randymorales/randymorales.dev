@@ -20,5 +20,5 @@ Now everyone will be able to participate in discussions and leave helpful commen
 
 ## References
 
-* [Utterances website](https://utteranc.es/).
-* [Tania Rascia's Post](https://www.taniarascia.com/adding-comments-to-my-blog/).
+1. [Utterances website](https://utteranc.es/)
+2. [Tania Rascia's Post](https://www.taniarascia.com/adding-comments-to-my-blog/)

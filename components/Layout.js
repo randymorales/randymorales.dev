@@ -3,6 +3,7 @@ import Head from 'next/head'
 
 import { SiteTitle, FullName } from '@/lib/constants'
 import useTranslation from '@/i18n/useTranslation'
+import Footer from '@/components/Footer'
 
 import layoutStyles from '@/styles/layout.module.css'
 
@@ -50,6 +51,8 @@ export default function Layout({ children, pageTitle, large }) {
       <main className={large ? layoutStyles.large : layoutStyles.content}>
         {children}
       </main>
+
+      <Footer />
     </div>
   )
 }

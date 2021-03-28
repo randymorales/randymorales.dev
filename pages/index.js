@@ -17,7 +17,7 @@ export default function Home({ allLocalePostsData }) {
   const lastBlogEntries = allLocalePostsData.slice(0, 3)
 
   return (
-    <Layout pageTitle={t('home')}>
+    <Layout pageTitle={t('home')} large={true}>
       <Intro />
 
       <h2>{t('latest-posts')}</h2>

@@ -26,7 +26,7 @@
   font-size: calc(2em * var(--scale));
   justify-content: space-between;
   margin-top: 1rem;
-  width: calc(5em * var(--scale));
+  width: calc(6em * var(--scale));
 }
 
 .socialNetworks li:hover {
@@ -45,7 +45,7 @@
   font-size: calc(1.3em * var(--scale));
 }
 
-@media all and (max-width: 768px) {
+@media (max-width: 768px) {
  .container {
     flex-direction: column;
     text-align: center;
@@ -61,12 +61,15 @@
   }
 
   .socialNetworks {
-    display: inline-flex;
-    flex-direction: row;
-    flex-wrap: wrap;
     font-size: 30px;
     justify-content: space-between;
     margin: 0.5em;
     width: 40%;
+  }
+}
+
+@media (max-width: 330px) {
+  .socialNetworks {
+    width: 80%;
   }
 }
