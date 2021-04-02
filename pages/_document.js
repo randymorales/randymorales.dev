@@ -14,7 +14,7 @@ export default class MyDocument extends Document {
             rel='alternate'
             type='application/rss+xml'
             title='RSS feed for blog posts'
-            href='https://randymorales.dev/rss.xml'
+            href='https://randymorales.dev/rss-en.xml'
           />
           <script
             src='https://kit.fontawesome.com/2c36e9b7b1.js'

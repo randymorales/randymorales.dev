@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import { Name } from '@/lib/constants'
 import useTranslation from '@/i18n/useTranslation'
 import Layout from '@/components/Layout'
@@ -20,7 +22,7 @@ export default function About() {
         <p className={styles.paragraph}>{t('about-paragraph4')}</p>
         <p className={styles.paragraph}>{t('about-paragraph5')}</p>
 
-        <h3 className={styles.subtitle}>{t('skills-tools')}</h3>
+        <h2 className={styles.subtitle}>{t('skills-tools')}</h2>
         <ul className={styles.skills}>
           <li>Go</li>
           <li>C</li>
@@ -31,13 +33,14 @@ export default function About() {
           <li>Git</li>
         </ul>
 
-        <h3 className={styles.subtitle}>{t('statistics')}</h3>
+        <h2 className={styles.subtitle}>{t('statistics')}</h2>
         <div className={styles.statistics}>
           {/* Strava */}
           <iframe
+            title='Strava statistics'
             height='460'
             width='350'
-            frameborder='0'
+            frameBorder='0'
             allowtransparency='true'
             scrolling='yes'
             src='https://www.strava.com/athletes/40609050/latest-rides/aa328eaf2e21d69d776d04ab20deda9d5c3058f9'
@@ -47,17 +50,35 @@ export default function About() {
           <img
             className={styles.center}
             src='https://github-readme-stats.vercel.app/api?username=randymorales'
+            alt='GitHub statistics'
+            width='540'
+            height='460'
           />
         </div>
 
         <h1 className={styles.subtitle}>{t('gallery')}</h1>
         <div className={styles.photos}>
-          <img
-            src='./images/college-graduation.jpg'
+          <Image
+            src='/images/college-graduation.jpg'
             alt='college graduation photo'
+            width='320'
+            height='680'
+            priority
           />
-          <img src='./images/mtb.jpg' alt='moravia mtb photo' />
-          <img src='./images/alajuela.jpg' alt='iberico photo' />
+          <Image
+            src='/images/mtb.jpg'
+            alt='moravia mtb photo'
+            width='490'
+            height='680'
+            priority
+          />
+          <Image
+            src='/images/alajuela.jpg'
+            alt='iberico photo'
+            width='450'
+            height='680'
+            priority
+          />
         </div>
       </div>
     </Layout>

@@ -32,7 +32,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## 📝 TODO List
 
 - [X] Add navbar
-- [ ] Add footer
+- [X] Add footer
 - [X] Improve CSS styles
 - [X] Add multilingual support (spanish)
 - [X] Add blog post cards in /blog page

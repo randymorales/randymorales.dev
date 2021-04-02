@@ -1,4 +1,6 @@
+import Image from 'next/image'
 import Link from 'next/link'
+
 import { useRouter } from 'next/router'
 
 import PublishedDate from '@/components/PublishedDate'
@@ -19,7 +21,14 @@ export default function PostCard({
 
   return (
     <article className={blogStyles.card}>
-      <img className={blogStyles.cardImg} src={image} alt='' />
+      <Image
+        className={blogStyles.cardImg}
+        src={image}
+        alt=''
+        width='400'
+        height='200'
+        priority
+      />
 
       <div className={blogStyles.cardBody}>
         <div className={blogStyles.cardMetadata}>

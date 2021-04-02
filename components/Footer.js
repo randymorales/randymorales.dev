@@ -16,6 +16,7 @@ export default function Footer() {
             href='https://twitter.com/randymoralesg'
             target='_blank'
             rel='noopener'
+            aria-label='Twitter'
           >
             <i aria-hidden className='fab fa-twitter'></i>
           </a>
@@ -25,6 +26,7 @@ export default function Footer() {
             href='https://www.linkedin.com/in/randymoralesg/'
             target='_blank'
             rel='noopener'
+            aria-label='LinkedIn'
           >
             <i aria-hidden className='fab fa-linkedin'></i>
           </a>
@@ -34,6 +36,7 @@ export default function Footer() {
             href='https://github.com/randymorales'
             target='_blank'
             rel='noopener'
+            aria-label='GitHub'
           >
             <i aria-hidden className='fab fa-github'></i>
           </a>
@@ -44,6 +47,7 @@ export default function Footer() {
             https://www.strava.com/athletes/randymorales'
             target='_blank'
             rel='noopener'
+            aria-label='Strava'
           >
             <i aria-hidden className='fab fa-strava'></i>
           </a>

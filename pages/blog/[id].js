@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -41,10 +42,13 @@ export default function Post({ postData }) {
 
   return (
     <Layout pageTitle={postData.title}>
-      <img
+      <Image
         className={blogStyles.postImage}
         src={postData.image}
         alt='cover image'
+        width={1920}
+        height={500}
+        priority
       />
 
       <h1>{postData.title}</h1>
@@ -60,7 +64,7 @@ export default function Post({ postData }) {
 
         <div>
           {postData.tags.split(',').map(tag => (
-            <Link href={`/tags/${tag}/`}>
+            <Link href={`/tags/${tag}/`} key={tag}>
               <a className={[blogStyles.cardTag, tag].join(' ')}>{tag}</a>
             </Link>
           ))}

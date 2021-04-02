@@ -13,6 +13,7 @@
   cursor: pointer;
   grid-area: logo;
   height: var(--header-height);
+  width: var(--header-height);
 }
 
 .nav {
@@ -56,11 +57,11 @@
 @media (max-width: 600px) {
   .header {
     grid-template-areas: "logo burger" "nav nav";
-    height: var(--mobile-header-height);
+    height: var(--header-height);
   }
 
   .logo {
-    height: var(--mobile-header-height);
+    height: var(--header-height);
   }
 
   .nav {
@@ -81,6 +82,6 @@
   .burger {
     align-items: center;
     display: grid;
-    font-size: calc(var(--mobile-header-height) - .8em);
+    font-size: calc(var(--header-height) - .8em);
   }
 }

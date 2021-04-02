@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { useState, useEffect } from 'react'
@@ -41,11 +42,15 @@ export default function Header() {
   return (
     <header className={navbarStyles.header}>
       <Link href='/'>
-        <img
-          src='/android-icon-192x192.png'
-          className={navbarStyles.logo}
-          alt='logo'
-        />
+        <div className={navbarStyles.logo}>
+          <Image
+            src='/android-icon-192x192.png'
+            alt='logo'
+            width={70}
+            height={70}
+            priority
+          />
+        </div>
       </Link>
 
       <CSSTransition

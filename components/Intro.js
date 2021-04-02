@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import { Name } from '@/lib/constants'
 import useTranslation from '@/i18n/useTranslation'
 
@@ -9,10 +11,12 @@ export default function Intro() {
   return (
     <section className={introStyles.container}>
       <div className={introStyles.profileInfo}>
-        <img
-          src='./images/profile.jpg'
+        <Image
+          src='/images/profile.jpg'
           className={introStyles.profileImage}
           alt='site author photo'
+          width='250'
+          height='250'
         />
       </div>
 
@@ -29,6 +33,7 @@ export default function Intro() {
               href='https://twitter.com/randymoralesg'
               target='_blank'
               rel='noopener'
+              aria-label='Twitter'
             >
               <i aria-hidden className='fab fa-twitter big-icon'></i>
             </a>
@@ -38,6 +43,7 @@ export default function Intro() {
               href='https://www.linkedin.com/in/randymoralesg/'
               target='_blank'
               rel='noopener'
+              aria-label='LinkedIn'
             >
               <i aria-hidden className='fab fa-linkedin big-icon'></i>
             </a>
@@ -47,6 +53,7 @@ export default function Intro() {
               href='https://github.com/randymorales'
               target='_blank'
               rel='noopener'
+              aria-label='GitHub'
             >
               <i aria-hidden className='fab fa-github big-icon'></i>
             </a>
