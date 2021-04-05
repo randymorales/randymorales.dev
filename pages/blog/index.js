@@ -37,7 +37,7 @@ export default function BlogIndex({ allLocalePostsData }) {
   const searchEndpoint = query => `/api/search?q=${query}`
 
   const onChange = useCallback(event => {
-    const query = event.target.value
+    const query = event.target.value.toLowerCase()
     setQuery(query)
     if (query.length) {
       fetch(searchEndpoint(query))
