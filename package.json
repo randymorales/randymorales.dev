@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://randymorales.dev",
   "scripts": {
+    "cache-posts": "node -r esm lib/cache.js",
     "format": "prettier --write '*.js' 'components/*.js' 'i18n/*.js' 'lib/*.js' 'pages/*.js' 'pages/blog/*.js' 'pages/tags/*.js'",
     "dev": "next dev",
     "build": "next build",
@@ -12,6 +13,7 @@
   },
   "dependencies": {
     "date-fns": "^2.16.1",
+    "esm": "^3.2.25",
     "gray-matter": "^4.0.2",
     "next": "^10.0.7",
     "react": "^17",
@@ -25,6 +27,12 @@
     "eslint": "^7.16.0",
     "eslint-config-prettier": "^7.1.0",
     "eslint-plugin-prettier": "^3.3.0",
-    "prettier": "2.2.1"
+    "prettier": "2.2.1",
+    "husky": "^4.2.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run cache-posts && git add cache/data.js"
+    }
   }
 }

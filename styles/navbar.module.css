@@ -76,12 +76,12 @@
     margin: 0;
     padding: 0;
     position: relative;
-    z-index: 9998!important;
   }
 
   .burger {
     align-items: center;
     display: grid;
     font-size: calc(var(--header-height) - .8em);
+    z-index: 9998!important;
   }
 }

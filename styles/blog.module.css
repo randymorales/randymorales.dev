@@ -1,3 +1,19 @@
+/* ******** Search Bar ******** */
+.container {
+  display: flex;
+  margin: 0 auto;
+  width: 50%;
+}
+
+.search {
+  border: 1px solid #666;
+  box-sizing: border-box;
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  padding: 0.9rem;
+  width: 100%;
+}
+
 /* ******** Blogpost Card ******** */
 
 .cardsContainer {
@@ -13,10 +29,10 @@
   border-radius: 0.5rem;
   box-shadow: 1px 3px 0 var(--border-card-color);
   height: 375px;
-  margin: 1rem;
+  margin: 0.5rem;
   position: static;
   transition: 250ms all ease-in-out;
-  width: 375px;
+  width: 45%;
 }
 
 .card:hover {
@@ -176,6 +192,14 @@
 /* ******** Media Queries ******** */
 
 @media (max-width: 1024px) {
+  .container {
+    width: 80%;
+  }
+
+  .search {
+    font-size: calc(1.1em * var(--scale));
+  }
+
   .cardTag {
     font-size: calc(1.05em * var(--scale));
   }
