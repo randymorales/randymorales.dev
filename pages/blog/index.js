@@ -36,7 +36,7 @@ export default function BlogIndex({ allLocalePostsData }) {
 
   const searchEndpoint = query => `/api/search?q=${query}`
 
-  const onChange = useCallback(event => {
+  const onKeyup = useCallback(event => {
     const query = event.target.value
     setQuery(query)
     if (query.length) {
@@ -69,7 +69,7 @@ export default function BlogIndex({ allLocalePostsData }) {
           {/* Search bar */}
           <input
             className={styles.search}
-            onChange={onChange}
+            onKeyup={onKeyup}
             onFocus={onFocus}
             placeholder={t('search-posts')}
             type='text'
