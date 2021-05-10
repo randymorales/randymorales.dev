@@ -1,5 +1,5 @@
 .content, .large {
-    margin-top: calc(var(--header-height) + 2em);
+    margin-top: 2em;
 }
 
 .content {

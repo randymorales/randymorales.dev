@@ -1,87 +1,42 @@
-.header {
-  background-color: var(--body-background-color);
-  display: grid;
-  font-size: calc(var(--font-size) * var(--scale));
-  grid-template-areas: "logo nav";
-  height: var(--header-height);
-  position: fixed;
-  top: 0;
-  width: 100%;
-}
-
-.logo {
-  cursor: pointer;
-  grid-area: logo;
-  height: var(--header-height);
-  width: var(--header-height);
-}
-
 .nav {
   align-items: center;
-  display: grid;
-  font-weight: 400;
-  grid-area: nav;
-  grid-template-columns: repeat(4, 8em);
-  justify-self: end;
-}
-
-.nav a,
-.nav span{
-  display: grid;
-  justify-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .nav a:hover {
   border-bottom: var(--link-hover-animation);
-
 }
 
-.burger {
-  background: none;
-  border: none;
+.logo {
   cursor: pointer;
-  display: none;
-  font-size: calc(var(--font-size) * var(--scale));
-  grid-area: burger;
-  justify-self: end;
-  margin: 0 0.4em 0 0;
-  outline: none;
-  padding: 0;
-  transition: 0.1s;
+  height: var(--header-height);
+  width: var(--header-height);
 }
 
-.burger:active {
-  transform: scale(1.2);
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 1em;
+  width: 90%;
 }
 
-@media (max-width: 600px) {
-  .header {
-    grid-template-areas: "logo burger" "nav nav";
-    height: var(--header-height);
-  }
-
-  .logo {
-    height: var(--header-height);
-  }
-
+@media only screen and (min-width: 1024px){
   .nav {
-    background: var(--nav-mobile-background-color);
-    font-size: 20px;
-    grid-template-columns: none;
-    grid-template-rows: repeat(5, auto);
-    height: 100vh;
-    justify-content: center;
-    justify-items: center;
-    justify-self: auto;
-    margin: 0;
-    padding: 0;
-    position: relative;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-right: 2em;
   }
+  .menu {
+    margin-top: 0;
+    width: 40%;
+  }
+}
 
-  .burger {
-    align-items: center;
-    display: grid;
-    font-size: calc(var(--header-height) - .8em);
-    z-index: 9998!important;
+@media (max-width: 360px) {
+  .menu {
+    font-size: calc(var(--font-size) * 0.60);
   }
 }

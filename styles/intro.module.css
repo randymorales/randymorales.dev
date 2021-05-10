@@ -16,7 +16,6 @@
 .profileImage {
   border: 3px solid var(--border-color);
   border-radius: 50%;
-  box-shadow: rgb(0 0 0 / 20%) 0px 5px 30px;
   height: 250px;
   width: 250px;
 }
