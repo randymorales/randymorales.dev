@@ -31,7 +31,6 @@ export default function BlogIndex({ allLocalePostsData }) {
 
   const searchRef = useRef(null)
   const [query, setQuery] = useState('')
-  const [active, setActive] = useState(false)
   const [results, setResults] = useState([])
 
   const searchEndpoint = query => `/api/search?q=${query}`
@@ -50,27 +49,14 @@ export default function BlogIndex({ allLocalePostsData }) {
     }
   }, [])
 
-  const onFocus = useCallback(() => {
-    setActive(true)
-    window.addEventListener('click', onClick)
-  }, [])
-
-  const onClick = useCallback(event => {
-    if (searchRef.current && !searchRef.current.contains(event.target)) {
-      setActive(false)
-      window.removeEventListener('click', onClick)
-    }
-  }, [])
-
   return (
     <Layout pageTitle={t('blog')}>
-      <div ref={searchRef}>
-        <div className={styles.container}>
+      <div>
+        <div ref={searchRef} className={styles.container}>
           {/* Search bar */}
           <input
             className={styles.search}
             onChange={onChange}
-            onFocus={onFocus}
             placeholder={t('search-posts')}
             type='text'
             value={query}
@@ -88,7 +74,7 @@ export default function BlogIndex({ allLocalePostsData }) {
 
         {/* Show blog posts list */}
         <section className={styles.cardsContainer}>
-          {results.length == 0 && query != '' && active ? (
+          {results.length == 0 && query != '' ? (
             <> </>
           ) : (
             <>

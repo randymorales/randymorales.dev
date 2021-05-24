@@ -1,10 +1,6 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
-import { useState, useEffect } from 'react'
-
-import { CSSTransition } from 'react-transition-group'
-
 import useTranslation from '@/i18n/useTranslation'
 import Translator from '@/components/Translator'
 import ThemeSelector from '@/components/ThemeSelector'
