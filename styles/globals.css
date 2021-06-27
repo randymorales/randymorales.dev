@@ -55,15 +55,15 @@
   --font-size: 20px;
 
   /* Color related */
-  --body-background-color: #FAFAFA;
+  --body-background-color: #f7f8fc;
   --border-color: var(--content-text-color);
-  --border-card-color:  rgb(0 0 0 / 10%);
+  --border-card-color:  rgb(0 0 0 / 20%);
   --card-color: white;
   --content-text-color: #09090B;
   --link-hover-underline-color: #FF5D27;
   --nav-mobile-background-color: rgba(237, 241, 243, 0.95);
   --post-link-color: #FF5D27;
-  --shadow-color: #FF5D27;
+  --shadow-color: #09090B;
   --social-networks-icons-color: #141F2D;
   --tag-color: #09090B;
   --title-color: #FF5D27;
@@ -75,12 +75,13 @@
 .darkTheme {
   --body-background-color: #08090C;
   --border-color: var(--content-text-color);
-  --border-card-color: rgb(255 255 255 / 10%);
+  --border-card-color: rgb(255 255 255 / 20%);
   --card-color: #0B0E13;
   --content-text-color: white;
   --link-hover-underline-color: #FC5F25;
   --nav-mobile-background-color: rgba(1, 2, 3, 0.95);
   --post-link-color: #FC5F25;
+  --shadow-color: #FAFAFA;
   --social-networks-icons-color: white;
   --title-color: #FC5F25;
 }
@@ -148,7 +149,7 @@ main {
 }
 
 .page-separator {
-  width: 50%;
+  width: 100%;
   margin: 2em 0;
 }
 
@@ -162,5 +163,5 @@ main {
 }
 
 .comments {
-  background:#e4ffe7
+  background:#d2edd2
 }

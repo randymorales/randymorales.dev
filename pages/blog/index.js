@@ -50,14 +50,14 @@ export default function BlogIndex({ allLocalePostsData }) {
   }, [])
 
   return (
-    <Layout pageTitle={t('blog')}>
+    <Layout pageTitle={t('blog')} large={true}>
       <div>
         <div ref={searchRef} className={styles.container}>
           {/* Search bar */}
           <input
             className={styles.search}
             onChange={onChange}
-            placeholder={t('search-posts')}
+            placeholder={'🔎 ' + t('search-posts')}
             type='text'
             value={query}
           />

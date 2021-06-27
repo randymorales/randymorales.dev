@@ -44,9 +44,9 @@ export default function PostCard({
           </span>
         </div>
 
-        <Link href={url}>
-          <h2 className={blogStyles.cardTitle}>{title}</h2>
-        </Link>
+        <h2 className={blogStyles.cardTitle}>
+          <Link href={url}>{title}</Link>
+        </h2>
 
         <p className={blogStyles.cardDescription}>{description}</p>
       </div>

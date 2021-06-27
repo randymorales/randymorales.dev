@@ -11,13 +11,15 @@ export default function TagIndex({ posts, tag }) {
 
   return (
     <Layout pageTitle={`${t('posts-tag')} ${tag}`}>
-      <h1>
-        {t('posts-tag')}: {`#${tag}`}
-      </h1>
+      <h2>
+        {t('posts-tag')}:{' '}
+        <span className={blogStyles.tagPageData}>{`#${tag}`}</span>
+      </h2>
 
-      <h4>
-        {t('posts-found')}: {posts.length}
-      </h4>
+      <h2>
+        {t('posts-found')}:{' '}
+        <span className={blogStyles.tagPageData}>{posts.length}</span>
+      </h2>
 
       <div className='page-separator'>
         <hr />
