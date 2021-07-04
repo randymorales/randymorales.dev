@@ -18,7 +18,12 @@ export default function Post({ postData }) {
   const commentBox = React.createRef()
   const prism = require('prismjs')
 
-  // Import prism highlighting for Python because it's not included by default
+  // Import prism highlighting for other languages because they are not
+  // included by default
+  require('prismjs/components/prism-bash')
+  require('prismjs/components/prism-c')
+  require('prismjs/components/prism-go')
+  require('prismjs/components/prism-json')
   require('prismjs/components/prism-python')
 
   // Apply prism in all code blocks

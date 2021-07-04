@@ -42,7 +42,7 @@
 
 .cardImg {
   border-radius: 0.5rem;
-  object-fit: cover;
+  object-fit: contain;
   position: absolute;
   width: 100%;
 }
