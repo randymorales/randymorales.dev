@@ -1,6 +1,6 @@
 ---
-title: 'Adding Comments to a Markdown Blog'
-description: 'Setup Utterances in a markdown blog'
+title: 'Adding Comments to a NextJS Blog'
+description: 'Setup Utterances in a NextJS blog'
 tags: blog,comments
 date: '2020-12-22'
 image: 'https://avatars.githubusercontent.com/u/27908738?s=200&v=4'

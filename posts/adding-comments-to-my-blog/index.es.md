@@ -1,6 +1,6 @@
 ---
-title: 'Agregando Comentarios a un Blog Markdown'
-description: Configurar Utterances en un blog markdown
+title: 'Agregando Comentarios a un Blog NextJS'
+description: Configurar Utterances en un blog NextJS
 tags: blog,comments
 date: '2020-12-22'
 image: 'https://avatars.githubusercontent.com/u/27908738?s=200&v=4'
