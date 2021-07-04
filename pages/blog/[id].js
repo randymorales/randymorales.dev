@@ -4,7 +4,7 @@ import { useRouter } from 'next/router'
 
 import React, { useEffect } from 'react'
 
-import { CommentsRepo, DarkTheme, Name, Theme } from '@/lib/constants'
+import { CommentsRepo, DarkTheme, Theme } from '@/lib/constants'
 import { getAllPostIds, getPostData } from '@/lib/posts'
 import Comment from '@/components/Comment'
 import Layout from '@/components/Layout'
@@ -16,6 +16,15 @@ export default function Post({ postData }) {
   const router = useRouter()
   const { locale } = router
   const commentBox = React.createRef()
+  const prism = require('prismjs')
+
+  // Import prism highlighting for Python because it's not included by default
+  require('prismjs/components/prism-python')
+
+  // Apply prism in all code blocks
+  useEffect(() => {
+    prism.highlightAll()
+  }, [])
 
   // Add comments script with Utterances.
   useEffect(() => {
