@@ -179,6 +179,9 @@
 
 }
 
+.postContent p img {
+  border: 1px solid var(--content-text-color);
+}
 
 /* ******** Media Queries ******** */
 
