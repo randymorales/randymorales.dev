@@ -1,6 +1,8 @@
 import fs from 'fs'
 
-import { PostsDirectory } from '@/lib/constants'
+import { useRouter } from 'next/router'
+
+import { PostsDirectory, SiteBaseURL } from '@/lib/constants'
 import generateRSS from '@/lib/rss'
 import { getSortedPostsData } from '@/lib/posts'
 import useTranslation from '@/i18n/useTranslation'
@@ -12,12 +14,20 @@ import blogStyles from '@/styles/blog.module.css'
 
 export default function Home({ allLocalePostsData }) {
   const { t } = useTranslation()
+  const router = useRouter()
+  const { locale } = router
+  const pageInfo = {
+    url: SiteBaseURL + `/${locale}`,
+    title: t('home'),
+    description: t('slogan'),
+    image: '/android-icon-192x192.png',
+  }
 
   // Get the first 3 items
   const lastBlogEntries = allLocalePostsData.slice(0, 3)
 
   return (
-    <Layout pageTitle={t('home')} large={true}>
+    <Layout pageInfo={pageInfo} large={true}>
       <Intro />
 
       <h2>{t('latest-posts')}</h2>

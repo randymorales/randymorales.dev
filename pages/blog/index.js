@@ -1,8 +1,9 @@
 import { useCallback, useRef, useState } from 'react'
 
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
-import { PostsDirectory } from '@/lib/constants'
+import { PostsDirectory, SiteBaseURL } from '@/lib/constants'
 import { getSortedPostsData } from '@/lib/posts'
 import useTranslation from '@/i18n/useTranslation'
 import Layout from '@/components/Layout'
@@ -28,6 +29,15 @@ function getAllTags(allLocalePostsData) {
 
 export default function BlogIndex({ allLocalePostsData }) {
   const { t } = useTranslation()
+  const router = useRouter()
+  const { locale } = router
+
+  const pageInfo = {
+    url: SiteBaseURL + `/${locale}` + PostsDirectory,
+    title: t('blog'),
+    description: t('slogan'),
+    image: '/android-icon-192x192.png',
+  }
 
   const searchRef = useRef(null)
   const [query, setQuery] = useState('')
@@ -50,7 +60,7 @@ export default function BlogIndex({ allLocalePostsData }) {
   }, [])
 
   return (
-    <Layout pageTitle={t('blog')} large={true}>
+    <Layout pageInfo={pageInfo} large={true}>
       <div>
         <div ref={searchRef} className={styles.container}>
           {/* Search bar */}

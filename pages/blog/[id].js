@@ -4,7 +4,13 @@ import { useRouter } from 'next/router'
 
 import React, { useEffect } from 'react'
 
-import { CommentsRepo, DarkTheme, Theme } from '@/lib/constants'
+import {
+  CommentsRepo,
+  DarkTheme,
+  PostsDirectory,
+  SiteBaseURL,
+  Theme,
+} from '@/lib/constants'
 import { getAllPostIds, getPostData } from '@/lib/posts'
 import Comment from '@/components/Comment'
 import Layout from '@/components/Layout'
@@ -17,6 +23,13 @@ export default function Post({ postData }) {
   const { locale } = router
   const commentBox = React.createRef()
   const prism = require('prismjs')
+  const pageInfo = {
+    url: SiteBaseURL + `/${locale}` + PostsDirectory + postData.id,
+    title: postData.title,
+    description: postData.description,
+    image: postData.image,
+    type: 'article',
+  }
 
   // Import prism highlighting for other languages because they are not
   // included by default
@@ -55,7 +68,7 @@ export default function Post({ postData }) {
   }, [])
 
   return (
-    <Layout pageTitle={postData.title}>
+    <Layout pageInfo={pageInfo}>
       <Image
         className={blogStyles.postImage}
         src={postData.image}

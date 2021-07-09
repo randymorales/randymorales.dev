@@ -1,15 +1,31 @@
 import dynamic from 'next/dynamic'
 import Head from 'next/head'
 
-import { SiteTitle, FullName } from '@/lib/constants'
-import useTranslation from '@/i18n/useTranslation'
+import {
+  FullName,
+  SiteBaseURL,
+  SiteTitle,
+  TwitterUsername,
+} from '@/lib/constants'
 import Footer from '@/components/Footer'
 
-import layoutStyles from '@/styles/layout.module.css'
+import styles from '@/styles/layout.module.css'
 
-export default function Layout({ children, pageTitle, large }) {
-  const { t } = useTranslation()
+export default function Layout({
+  children,
+  large,
+  pageInfo = {
+    url: SiteBaseURL,
+    title: SiteTitle,
+    description: FullName,
+    image: '/android-icon-192x192.png',
+  },
+}) {
   const Navbar = dynamic(() => import('@/components/Navbar'))
+
+  if (!pageInfo.type) {
+    pageInfo.type = 'website'
+  }
 
   return (
     <div>
@@ -32,25 +48,40 @@ export default function Layout({ children, pageTitle, large }) {
         <meta name='theme-color' content='#ffffff' />
         <meta name='msapplication-TileColor' content='#da532c' />
         <meta name='msapplication-TileImage' content='/ms-icon-310x310.png' />
+        <meta name='description' content={pageInfo.description} />
 
-        <meta name='description' content={t('slogan')} />
-        <meta name='og:title' content={SiteTitle} />
-        <meta name='og:description' content={t('slogan')} />
+        {/* Open Graph */}
+        <meta property='og:locale' content='en_US' />
+        <meta property='og:locale:alternate' content='es_ES' />
+        <meta property='og:type' content={pageInfo.type} key='ogtype' />
+        <meta property='og:site_name' content={SiteBaseURL} key='ogsitename' />
+        <meta property='og:url' content={pageInfo.url} key='ogurl' />
+        <meta name='og:title' content={pageInfo.title} key='ogtitle' />
         <meta
-          property='og:image'
-          content={`https://og-image.now.sh/${encodeURI(
-            SiteTitle,
-          )}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg`}
+          name='og:description'
+          content={pageInfo.description}
+          key='ogdesc'
         />
-        <meta name='twitter:card' content='summary_large_image' />
-        <title>{`${pageTitle} | ${FullName}`}</title>
+        <meta property='og:image' content={pageInfo.image} key='ogimage' />
+        <meta property='og:image:width' content='1280' />
+        <meta property='og:image:height' content='720' />
+        <meta property='og:image:alt' content='' />
+
+        {/* Twitter */}
+        <meta name='twitter:card' content='summary_large_image' key='twcard' />
+        <meta name='twitter:site' content={TwitterUsername} key='twsite' />
+        <meta
+          name='twitter:creator'
+          content={TwitterUsername}
+          key='twcreator'
+        />
+
+        <title>{`${pageInfo.title} | ${FullName}`}</title>
       </Head>
 
       <Navbar />
 
-      <main className={large ? layoutStyles.large : layoutStyles.content}>
-        {children}
-      </main>
+      <main className={large ? styles.large : styles.content}>{children}</main>
 
       <Footer />
     </div>

@@ -1,6 +1,7 @@
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 
-import { Name } from '@/lib/constants'
+import { Name, SiteBaseURL } from '@/lib/constants'
 import useTranslation from '@/i18n/useTranslation'
 import Layout from '@/components/Layout'
 
@@ -8,9 +9,17 @@ import styles from '@/styles/about.module.css'
 
 export default function About() {
   const { t } = useTranslation()
+  const router = useRouter()
+  const { locale } = router
+  const pageInfo = {
+    url: SiteBaseURL + `/${locale}` + '/about',
+    title: t('about'),
+    description: t('about-paragraph1'),
+    image: '/android-icon-192x192.png',
+  }
 
   return (
-    <Layout pageTitle={t('about')} large={true}>
+    <Layout pageInfo={pageInfo} large={true}>
       <h1>
         {t('greeting')} {Name}
       </h1>

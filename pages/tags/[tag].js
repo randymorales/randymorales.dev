@@ -1,4 +1,6 @@
-import { PostsDirectory } from '@/lib/constants'
+import { useRouter } from 'next/router'
+
+import { PostsDirectory, SiteBaseURL } from '@/lib/constants'
 import { getAllPostTags, getPostsByTag } from '@/lib/posts'
 import useTranslation from '@/i18n/useTranslation'
 import Layout from '@/components/Layout'
@@ -8,9 +10,17 @@ import blogStyles from '@/styles/blog.module.css'
 
 export default function TagIndex({ posts, tag }) {
   const { t } = useTranslation()
+  const router = useRouter()
+  const { locale } = router
+  const pageInfo = {
+    url: SiteBaseURL + `/${locale}/tags/` + tag,
+    title: `${tag} ${t('posts-tag')}`.toLowerCase(),
+    description: `${tag} ${t('posts-tag')}`.toLowerCase(),
+    image: '/android-icon-192x192.png',
+  }
 
   return (
-    <Layout pageTitle={`${t('posts-tag')} ${tag}`}>
+    <Layout pageInfo={pageInfo}>
       <h2>
         {t('posts-tag')}:{' '}
         <span className={blogStyles.tagPageData}>{`#${tag}`}</span>
