@@ -15,7 +15,7 @@ export default function About() {
     url: SiteBaseURL + `/${locale}` + '/about',
     title: t('about'),
     description: t('about-paragraph1'),
-    image: '/android-icon-192x192.png',
+    image: '/images/cover.png',
   }
 
   return (

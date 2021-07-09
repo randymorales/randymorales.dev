@@ -16,7 +16,7 @@ export default function TagIndex({ posts, tag }) {
     url: SiteBaseURL + `/${locale}/tags/` + tag,
     title: `${tag} ${t('posts-tag')}`.toLowerCase(),
     description: `${tag} ${t('posts-tag')}`.toLowerCase(),
-    image: '/android-icon-192x192.png',
+    image: '/images/cover.png',
   }
 
   return (

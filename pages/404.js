@@ -11,7 +11,7 @@ export default function Error404() {
   const pageInfo = {
     title: t('error-heading'),
     description: t('error-content'),
-    image: '/android-icon-192x192.png',
+    image: '/images/cover.png',
   }
 
   return (

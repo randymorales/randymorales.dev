@@ -20,7 +20,7 @@ export default function Home({ allLocalePostsData }) {
     url: SiteBaseURL + `/${locale}`,
     title: t('home'),
     description: t('slogan'),
-    image: '/android-icon-192x192.png',
+    image: '/images/cover.png',
   }
 
   // Get the first 3 items

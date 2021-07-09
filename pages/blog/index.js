@@ -36,7 +36,7 @@ export default function BlogIndex({ allLocalePostsData }) {
     url: SiteBaseURL + `/${locale}` + PostsDirectory,
     title: t('blog'),
     description: t('slogan'),
-    image: '/android-icon-192x192.png',
+    image: '/images/cover.png',
   }
 
   const searchRef = useRef(null)

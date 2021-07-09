@@ -18,7 +18,7 @@ export default function Layout({
     url: SiteBaseURL,
     title: SiteTitle,
     description: FullName,
-    image: '/android-icon-192x192.png',
+    image: '/images/cover.png',
   },
 }) {
   const Navbar = dynamic(() => import('@/components/Navbar'))
