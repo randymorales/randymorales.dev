@@ -18,7 +18,7 @@ export default function Layout({
     url: SiteBaseURL,
     title: SiteTitle,
     description: FullName,
-    image: '/images/cover.png',
+    image: SiteBaseURL + '/images/cover.png',
   },
 }) {
   const Navbar = dynamic(() => import('@/components/Navbar'))
@@ -51,8 +51,8 @@ export default function Layout({
         <meta name='description' content={pageInfo.description} />
 
         {/* Open Graph */}
-        <meta property='og:locale' content='en_US' key='oglocal'/>
-        <meta property='og:locale:alternate' content='es_ES' key='oglocalalt'/>
+        <meta property='og:locale' content='en_US' key='oglocal' />
+        <meta property='og:locale:alternate' content='es_ES' key='oglocalalt' />
         <meta property='og:type' content={pageInfo.type} key='ogtype' />
         <meta property='og:site_name' content={SiteBaseURL} key='ogsitename' />
         <meta property='og:url' content={pageInfo.url} key='ogurl' />
@@ -63,9 +63,9 @@ export default function Layout({
           key='ogdesc'
         />
         <meta property='og:image' content={pageInfo.image} key='ogimage' />
-        <meta property='og:image:width' content='1280' key='ogimagew'/>
-        <meta property='og:image:height' content='720' key='ogimageh'/>
-        <meta property='og:image:alt' content='' key='ogimagealt'/>
+        <meta property='og:image:width' content='1280' key='ogimagew' />
+        <meta property='og:image:height' content='720' key='ogimageh' />
+        <meta property='og:image:alt' content='' key='ogimagealt' />
 
         {/* Twitter */}
         <meta name='twitter:card' content='summary_large_image' key='twcard' />
