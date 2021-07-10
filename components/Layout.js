@@ -51,8 +51,8 @@ export default function Layout({
         <meta name='description' content={pageInfo.description} />
 
         {/* Open Graph */}
-        <meta property='og:locale' content='en_US' />
-        <meta property='og:locale:alternate' content='es_ES' />
+        <meta property='og:locale' content='en_US' key='oglocal'/>
+        <meta property='og:locale:alternate' content='es_ES' key='oglocalalt'/>
         <meta property='og:type' content={pageInfo.type} key='ogtype' />
         <meta property='og:site_name' content={SiteBaseURL} key='ogsitename' />
         <meta property='og:url' content={pageInfo.url} key='ogurl' />
@@ -63,17 +63,24 @@ export default function Layout({
           key='ogdesc'
         />
         <meta property='og:image' content={pageInfo.image} key='ogimage' />
-        <meta property='og:image:width' content='1280' />
-        <meta property='og:image:height' content='720' />
-        <meta property='og:image:alt' content='' />
+        <meta property='og:image:width' content='1280' key='ogimagew'/>
+        <meta property='og:image:height' content='720' key='ogimageh'/>
+        <meta property='og:image:alt' content='' key='ogimagealt'/>
 
         {/* Twitter */}
         <meta name='twitter:card' content='summary_large_image' key='twcard' />
+        <meta name='twitter:image' content={pageInfo.image} key='twimg' />
         <meta name='twitter:site' content={TwitterUsername} key='twsite' />
+        <meta name='twitter:title' content={pageInfo.title} key='twtitle' />
         <meta
           name='twitter:creator'
           content={TwitterUsername}
           key='twcreator'
+        />
+        <meta
+          name='twitter:description'
+          content={pageInfo.description}
+          key='twdesc'
         />
 
         <title>{`${pageInfo.title} | ${FullName}`}</title>
