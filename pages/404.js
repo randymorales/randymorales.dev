@@ -1,5 +1,6 @@
 import { useRouter } from 'next/router'
 
+import { SiteBaseURL } from '@/lib/constants'
 import useTranslation from '@/i18n/useTranslation'
 import Layout from '@/components/Layout'
 
@@ -11,7 +12,7 @@ export default function Error404() {
   const pageInfo = {
     title: t('error-heading'),
     description: t('error-content'),
-    image: '/images/cover.png',
+    image: SiteBaseURL + '/images/cover.png',
   }
 
   return (
