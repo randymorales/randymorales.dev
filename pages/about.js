@@ -73,6 +73,7 @@ export default function About() {
             width='320'
             height='680'
             priority
+            loading="lazy"
           />
           <Image
             src='/images/mtb.jpg'
@@ -80,6 +81,7 @@ export default function About() {
             width='490'
             height='680'
             priority
+            loading="lazy"
           />
           <Image
             src='/images/alajuela.jpg'
@@ -87,6 +89,7 @@ export default function About() {
             width='450'
             height='680'
             priority
+            loading="lazy"
           />
         </div>
       </div>

@@ -2,7 +2,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import React, { useEffect } from 'react'
+import {createRef, useEffect } from 'react'
 
 import {
   CommentsRepo,
@@ -21,7 +21,7 @@ import blogStyles from '@/styles/blog.module.css'
 export default function Post({ postData }) {
   const router = useRouter()
   const { locale } = router
-  const commentBox = React.createRef()
+  const commentBox = createRef()
   const prism = require('prismjs')
   const pageInfo = {
     url: SiteBaseURL + `/${locale}` + PostsDirectory + postData.id,

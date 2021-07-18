@@ -16,9 +16,12 @@ export default class MyDocument extends Document {
             title='RSS feed for blog posts'
             href='https://randymorales.dev/rss-en.xml'
           />
+          <link rel='preconnect' href='https://fonts.googleapis.com' />
+          <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
           <script
             src='https://kit.fontawesome.com/2c36e9b7b1.js'
             crossOrigin='anonymous'
+            async
           ></script>
         </Head>
         <body>

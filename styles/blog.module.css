@@ -181,6 +181,8 @@
 
 .postContent p img {
   border: 1px solid var(--content-text-color);
+  height: auto;
+  width: 100%;
 }
 
 /* ******** Media Queries ******** */
