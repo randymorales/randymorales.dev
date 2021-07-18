@@ -16,7 +16,7 @@
 
 .container ul {
     margin: 0;
-    font-size: calc(2em * var(--scale));
+    font-size: calc(3em * var(--scale));
 }
 
 .socialNetworks {
@@ -41,7 +41,7 @@
         font-size: 30px;
         justify-content: space-between;
         margin: 0.5em;
-        width: 30%;
+        width: 50%;
     }
 }
 

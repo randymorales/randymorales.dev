@@ -37,7 +37,7 @@
   box-shadow: 1px 3px 0 var(--border-card-color);
   margin: 0.5rem;
   padding-bottom: 0.5rem;
-  width: 400px;
+  width: 390px;
 }
 
 .cardImg {
@@ -253,7 +253,7 @@
 
 @media (max-width: 420px) {
   .card {
-    width: 95%;
+    width: 100%;
   }
 
   .cardTag {

@@ -23,7 +23,7 @@
 .socialNetworks {
   display: inline-flex;
   flex-direction: row;
-  font-size: calc(2em * var(--scale));
+  font-size: calc(3em * var(--scale));
   justify-content: space-between;
   margin-top: 1rem;
   width: calc(6em * var(--scale));
@@ -58,13 +58,6 @@
 
   .description {
     margin-left: 0;
-  }
-
-  .socialNetworks {
-    font-size: 30px;
-    justify-content: space-between;
-    margin: 0.5em;
-    width: 40%;
   }
 }
 
