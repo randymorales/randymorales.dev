@@ -51,6 +51,7 @@ export const ThemeSelector = () => {
       <button
         className={[styles.switch, darkMode ? styles.active : ''].join(' ')}
         onClick={() => setDarkMode(previousMode => !previousMode)}
+        aria-label='Theme Selector'
       >
         <span className={styles.switchIcon}>
           <i className='fas fa-sun'></i>
