@@ -17,12 +17,27 @@ export default class MyDocument extends Document {
             href='https://randymorales.dev/rss-en.xml'
           />
           <link rel='preconnect' href='https://fonts.googleapis.com' />
-          <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin />
+          <link rel='preconnect' href='https://fonts.gstatic.com' />
           <script
             src='https://kit.fontawesome.com/2c36e9b7b1.js'
             crossOrigin='anonymous'
             async
           ></script>
+          {/* Global Site Tag (gtag.js) - Google Analytics */}
+          <script
+            async
+            src={`https://www.googletagmanager.com/gtag/js?id=${process.env.GA_TRACKING_ID}`}
+          />
+          <script
+            dangerouslySetInnerHTML={{
+              __html: `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${process.env.GA_TRACKING_ID}');
+              `,
+            }}
+          />
         </Head>
         <body>
           <Main />

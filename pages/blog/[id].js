@@ -2,7 +2,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-import {createRef, useEffect } from 'react'
+import { createRef, useEffect } from 'react'
+import useSWR from 'swr'
 
 import {
   CommentsRepo,
@@ -11,6 +12,7 @@ import {
   SiteBaseURL,
   Theme,
 } from '@/lib/constants'
+import useTranslation from '@/i18n/useTranslation'
 import { getAllPostIds, getPostData } from '@/lib/posts'
 import Comment from '@/components/Comment'
 import Layout from '@/components/Layout'
@@ -21,6 +23,7 @@ import blogStyles from '@/styles/blog.module.css'
 export default function Post({ postData }) {
   const router = useRouter()
   const { locale } = router
+  const { t } = useTranslation()
   const commentBox = createRef()
   const prism = require('prismjs')
   const pageInfo = {
@@ -67,6 +70,17 @@ export default function Post({ postData }) {
     }
   }, [])
 
+  // Page views count
+  const { data } = useSWR(
+    `/api/page-views?post=${encodeURIComponent(PostsDirectory + postData.id)}`,
+    async url => {
+      const res = await fetch(url)
+      return res.json()
+    },
+    { revalidateOnFocus: false },
+  )
+  const views = data?.pageViews
+
   return (
     <Layout pageInfo={pageInfo}>
       <Image
@@ -83,6 +97,9 @@ export default function Post({ postData }) {
       <p className={blogStyles.postDescription}>{postData.description}</p>
 
       <div className={blogStyles.postMetadata}>
+        <div>
+          {views} {t('views')}
+        </div>
         <span>
           <PublishedDate dateString={postData.date} locale={locale} />
         </span>
