@@ -92,7 +92,7 @@ export default function Post({ postData }) {
         priority
       />
 
-      <h1>{postData.title}</h1>
+      <h1 className={blogStyles.postTitle}>{postData.title}</h1>
 
       <p className={blogStyles.postDescription}>{postData.description}</p>
 
@@ -100,6 +100,9 @@ export default function Post({ postData }) {
         <div>
           {views} {t('views')}
         </div>
+
+        <span> | </span>
+
         <span>
           <PublishedDate dateString={postData.date} locale={locale} />
         </span>

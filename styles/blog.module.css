@@ -136,6 +136,7 @@
 
 .postContent p {
   margin: 1em 0 0;
+  font-size: calc(1.5em * var(--scale));
 }
 
 .postContent p a {
@@ -176,7 +177,6 @@
 
 .postContent a:hover {
   border-bottom: var(--link-hover-animation);
-
 }
 
 .postContent p img {
@@ -210,6 +210,22 @@
 
   .cardDescription {
     font-size: calc(1.1em * var(--scale));
+  }
+
+  .postTitle {
+    font-size: calc(2.5em * var(--scale));
+  }
+
+  .postDescription, .postMetadata {
+    font-size: calc(2em * var(--scale));
+  }
+
+  .postContent {
+    margin-top: 3.5rem;
+  }
+
+  .postContent h2 {
+    font-size: 2em;
   }
 }
 
@@ -248,8 +264,16 @@
     font-size: calc(1em * var(--scale));
   }
 
-  .postMetadata {
-    width: 70%;
+  .postTitle {
+    font-size: calc(1.5em * var(--scale));
+  }
+
+  .postDescription, .postMetadata {
+    font-size: calc(1.2em * var(--scale));
+  }
+
+  .postContent h2 {
+    font-size: 1em;
   }
 }
 
@@ -274,10 +298,6 @@
   .cardDescription {
     font-size: calc(0.95em * var(--scale));
   }
-
-  .postMetadata {
-    width: 80%;
-  }
 }
 
 @media (max-width: 330px) {
@@ -296,9 +316,5 @@
 
   .cardDescription {
     font-size: calc(0.9em * var(--scale));
-  }
-
-  .postMetadata {
-    width: 90%;
   }
 }

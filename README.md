@@ -39,7 +39,7 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [X] Add tags per post
 - [X] Add Search bar for posts
 - [X] Add comments section for posts
-- [ ] Views per posts
+- [X] Views per posts
 - [ ] Add SEO component
 
 
