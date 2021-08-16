@@ -110,19 +110,19 @@ html, body {
 
 h1 {
   color: var(--title-color);
-  font-size: calc(1.75em * var(--scale));
+  font-size: calc(2em * var(--scale));
 }
 
 h2 {
-  font-size: calc(1.5em * var(--scale));
+  font-size: calc(1.85em * var(--scale));
 }
 
 h3 {
-  font-size: calc(1.3em * var(--scale))
+  font-size: calc(1.7em * var(--scale))
 }
 
 h4 {
-  font-size: calc(1.2em * var(--scale))
+  font-size: calc(1.5em * var(--scale))
 }
 
 h1,
@@ -163,6 +163,10 @@ main {
 
 .comments {
   background:#d2edd2
+}
+
+.google-analytics {
+  background: #f8bb59
 }
 
 .nextjs {

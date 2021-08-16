@@ -4,7 +4,6 @@ Randy's personal website. The idea behind this website is to share knowledge and
 
 Feel free to contribute, I am open to suggestions.
 
-
 ## 🏗 Project Structure
 
 - `components/*`: Custom react components.
@@ -15,7 +14,6 @@ Feel free to contribute, I am open to suggestions.
 - `styles/*`: CSS.
 
 - `.github/workflows/*`: Scripts to deploy in GitHub Pages. This was stopped since NextJS does not support `i18n` with `next export`. Deploying to vercel by the moment.
-
 
 ## 🔧 Dev Steps
 
@@ -28,7 +26,6 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-
 ## 📝 TODO List
 
 - [X] Add navbar
@@ -40,16 +37,15 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - [X] Add Search bar for posts
 - [X] Add comments section for posts
 - [X] Views per posts
-- [ ] Add SEO component
-
+- [X] Add SEO component
 
 ## 🔨 Built using
 
-* [Next.js](https://nextjs.org/).
-* [Vercel](https://vercel.com).
-* [remark](https://remark.js.org/), [remark-html](https://github.com/remarkjs/remark-html), [gray-matter](https://github.com/jonschlinkert/gray-matter).
-* [Utterances](https://utteranc.es/).
-
+- [Next.js](https://nextjs.org/)
+- [Vercel](https://vercel.com)
+- [remark](https://remark.js.org/), [remark-html](https://github.com/remarkjs/remark-html), [gray-matter](https://github.com/jonschlinkert/gray-matter)
+- [Utterances](https://utteranc.es/)
+- [Google Analytics](https://analytics.google.com/)
 
 ## ©️ License
 
