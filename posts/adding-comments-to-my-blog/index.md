@@ -28,7 +28,7 @@ export default function Comment({ commentBox }) {
 
 ## Setup Utterances in your blog
 
-Now it is time to setup Utterances in your blog and link it to the previously created repo. Go to the file that creates the blog posts (i.e. `/blog/posts/[slug].js`) and add the following code in your **Post** component:
+Now it is time to setup Utterances in your blog and link it to the previously created repo. Go to the file that creates the blog posts (i.e. `/blog/posts/[slug].js`) and add the following code in your `Post` component:
 
 ```javascript
 import React, { useEffect } from 'react'

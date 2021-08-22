@@ -43,7 +43,7 @@ npm install googleapis --save
 yarn add googleapis
 ```
 
-Agreguemos nuestras claves secretas dentro de las variables de entorno. Para ello vamos a crear un archivo **.env.local** en la raíz del proyecto.
+Agreguemos nuestras claves secretas dentro de las variables de entorno. Para ello vamos a crear un archivo `.env.local` en la raíz del proyecto.
 
 ```shell
 GOOGLE_ANALYTICS_VIEW_ID=123456789
@@ -56,14 +56,12 @@ GOOGLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nR2D2=\n-----END PRIVATE KEY----
 
 Los otros valores se encuentran en el archivo JSON que guardamos anteriormente:
 
-*GOOGLE_CLIENT_EMAIL* -> *client_email*
-
-*GOOGLE_CLIENT_ID* -> *client_id*
-
-*GOOGLE_PRIVATE_KEY* -> *private_key*
+* `GOOGLE_CLIENT_EMAIL` -> `client_email`
+* `GOOGLE_CLIENT_ID` -> `client_id`
+* `GOOGLE_PRIVATE_KEY` -> `private_key`
 
 En este punto seremos capaces de acceder estos valor usando
-**process.env.GOOGLE_CLIENT_EMAIL** lo cual es posible gracias a las [variables de entorno](https://nextjs.org/docs/basic-features/environment-variables) de Next.js.
+`process.env.GOOGLE_CLIENT_EMAIL` lo cual es posible gracias a las [variables de entorno](https://nextjs.org/docs/basic-features/environment-variables) de Next.js.
 
 Para producción, se requiere registrar estas variables donde el proyecto se sirve al público. Yo uso [Vercel](https://vercel.com) y así es como se ve:
 
@@ -73,11 +71,11 @@ Para producción, se requiere registrar estas variables donde el proyecto se sir
 
 Primero, cree un pequeño módulo en la ruta de su preferencia que básicamente expondrá tres cosas:
 
-El ID de Seguimiento de Google Analytics.
-Un método *pageview*.
-Un método *event*.
+* El ID de Seguimiento de Google Analytics.
+* Un método `pageview`.
+* Un método `event`.
 
-En mi caso, lo creé dentro de la carpeta **lib** en la raíz y lo llamé **gtag.js**.
+En mi caso, lo creé dentro de la carpeta `lib` en la raíz y lo llamé `gtag.js`.
 
 ```javascript
 export const GA_TRACKING_ID = 'UA-XXXXXXXXX-X';
@@ -98,7 +96,7 @@ export const event = ({ action, category, label, value }) => {
 };
 ```
 
-En segundo lugar, modificaremos el archivo **_document.js** dentro del directorio **pages** para incluir el código JavaScript de Google Analytics.
+En segundo lugar, modificaremos el archivo `_document.js` dentro del directorio `pages` para incluir el código JavaScript de Google Analytics.
 
 ```javascript
 import Document, { Html, Head, Main, NextScript } from 'next/document';
@@ -145,7 +143,7 @@ export default MyDocument;
 
 Esto inyecta de forma asincrónica el código que inicializa Google Analytics, lo que ayuda a tener un buen rendimiento.
 
-En tercer lugar, necesitamos realizar un seguimiento de la vista de una página cada vez que un router realiza una transición. Para lograr esto, usaremos el propio Router de Next.js para ejecutar una función cada vez que cambie la ruta: el evento **routeChangeComplete** es el que queremos usar en este caso. Actualicemos **_app.js** con el código correspondiente:
+En tercer lugar, necesitamos realizar un seguimiento de la vista de una página cada vez que un router realiza una transición. Para lograr esto, usaremos el propio Router de Next.js para ejecutar una función cada vez que cambie la ruta: el evento `routeChangeComplete` es el que queremos usar en este caso. Actualicemos `_app.js` con el código correspondiente:
 
 ```javascript
 import { useEffect } from 'react';
@@ -175,7 +173,7 @@ export default MyApp;
 
 Aprovechemos el módulo [API Routes](https://nextjs.org/docs/api-routes/introduction) de Next.js para esto.
 
-Primero, cree un nuevo archivo dentro de la carpeta **pages/api** llamado **page-views.js**:
+Primero, cree un nuevo archivo dentro de la carpeta `pages/api` llamado `page-views.js`:
 
 ```javascript
 import { google } from 'googleapis'
@@ -221,14 +219,14 @@ const pageViewsAPI = async (req, res) => {
 export default pageViewsAPI
 ```
 
-Este controlador esperará dos parámetros en consulta: **startDate** y **post** que se utilizarán para filtrar los resultados.
+Este controlador esperará dos parámetros en consulta: `startDate` y `post` que se utilizarán para filtrar los resultados.
 
-Importe el paquete **googleapis** y cree las credenciales.
+Importe el paquete `googleapis` y cree las credenciales.
 
 A continuación, cree una instancia del cliente de Google Analytics v3 y realice la llamada para obtener las métricas.
 
-El parámetro **filters** restringe los resultados a la URL específica.
-El parámetro **startDate**, si no se proporciona, se establecerá en *2021-01-01* para obtener datos desde esa fecha.
+El parámetro `filters` restringe los resultados a la URL específica.
+El parámetro `startDate`, si no se proporciona, se establecerá en *2021-01-01* para obtener datos desde esa fecha.
 
 Ahora abra una URL como
 
@@ -250,7 +248,7 @@ npm install swr --save
 yarn add swr
 ```
 
-Las páginas de mis posts se publican en **pages/blog/[id].js**. Estos son los cambios necesarios para mostrar el contador:
+Las páginas de mis posts se publican en `pages/blog/[id].js`. Estos son los cambios necesarios para mostrar el contador:
 
 ```javascript
 import useSWR from 'swr';

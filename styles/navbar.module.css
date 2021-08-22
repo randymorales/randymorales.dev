@@ -7,7 +7,7 @@
 }
 
 .nav a:hover {
-  border-bottom: var(--link-hover-animation);
+  border-bottom: 2px solid var(--post-link-color);
 }
 
 .logo {
@@ -21,11 +21,17 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-top: 1em;
+  margin-right: 1em;
   width: 90%;
 }
 
-@media only screen and (min-width: 1024px){
+.menu li {
+  font-size: 1.2rem;
+  font-weight: 600;
+  list-style-type: none;
+}
+
+@media (min-width: 1024px){
   .nav {
     flex-direction: row;
     justify-content: space-between;
@@ -39,6 +45,8 @@
 
 @media (max-width: 1024px) {
   .menu {
-    font-size: calc(1.5em * var(--scale));
+    margin-top: 1em;
+    margin-right: 0;
+    font-size: calc(1em * var(--scale));
   }
 }

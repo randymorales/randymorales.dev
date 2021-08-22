@@ -32,7 +32,7 @@ import '@/styles/prismTheme.css'
 
 ## Load Prism into the blog
 
-Now let's apply the styles to the posts. Add this content to the file that generates the blog posts (i.e. `/blog/posts/[slug].js`) and add the following code in your **Post** component:
+Now let's apply the styles to the posts. Add this content to the file that generates the blog posts (i.e. `/blog/posts/[slug].js`) and add the following code in your `Post` component:
 
 ```javascript
   const prism = require('prismjs')

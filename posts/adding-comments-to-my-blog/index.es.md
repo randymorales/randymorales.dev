@@ -10,7 +10,7 @@ Crear mi propio blog es un objetivo importante para mí, y por eso quería agreg
 
 Investigando un poco, encontré que muchos plugins que permiten comentarios requerían crear una nueva cuenta en su servicio, y eso no me convenció.
 
-Finalmente descubrí Utterances, un proyecto de código abierto que utiliza una cuenta de GitHub, y como casi todos los desarrolladores tienen creada una cuenta ahí, decidí implementar mi sección de comentarios con este plugin.
+Finalmente descubrí [Utterances](https://utteranc.es/), un [proyecto de código abierto](https://github.com/utterance/utterances) que utiliza una cuenta de GitHub, y como casi todos los desarrolladores tienen creada una cuenta ahí, decidí implementar mi sección de comentarios con este plugin.
 
 ## Crear un repositorio dedicado a almacenar los comentarios
 
@@ -28,7 +28,7 @@ export default function Comment({ commentBox }) {
 
 ## Agregar Utterances en el blog
 
-Ahora vamos a agregar Utterances en el blog and linkearlo al repositorio previamente creado. Vamos a agregar el siguiente código en el archivo que crea los posts (i.e. `/blog/posts/[slug].js`), específicamente en el componente **Post**:
+Ahora vamos a agregar Utterances en el blog and linkearlo al repositorio previamente creado. Vamos a agregar el siguiente código en el archivo que crea los posts (i.e. `/blog/posts/[slug].js`), específicamente en el componente `Post`:
 
 ```javascript
 import React, { useEffect } from 'react'
@@ -64,7 +64,7 @@ return (
     // ...
     // ...
     <>
-	  {/* Add comments section via Utterances. */}
+   {/* Add comments section via Utterances. */}
       <div>
         <div id='post-comments'>
           <h2>Comments</h2>

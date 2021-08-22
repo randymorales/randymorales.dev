@@ -25,7 +25,7 @@ Navigate back to the project home (Dashboard) and select **+ Enable APIs and Ser
 
 ![Dashboard Enable APIs](/images/posts/dashboard-enable-apis.png)
 
-Look for and enable **Google Analytics API**. Go the [Google Analytics Dashboard](https://analytics.google.com/). Once you've selected the right Analytics account, go to the Admin panel (gear icon). Add a new account, the email address is the one you can find in the field **client_email** of the JSON file you saved before. Click on **Create Property**. This will give us a **Tracking ID** like `UA-XXXXXXXXX-X`. Save this ID since we will need it later.
+Look for and enable **Google Analytics API**. Go the [Google Analytics Dashboard](https://analytics.google.com/). Once you've selected the right Analytics account, go to the Admin panel (gear icon). Add a new account, the email address is the one you can find in the field `client_email` of the JSON file you saved before. Click on **Create Property**. This will give us a **Tracking ID** like `UA-XXXXXXXXX-X`. Save this ID since we will need it later.
 
 ![Admin Create Property](/images/posts/ga-create-property.png)
 
@@ -43,7 +43,7 @@ npm install googleapis --save
 yarn add googleapis
 ```
 
-OK, let's add our secrets keys within environment variables. For this we are going to create a **.env.local** file in the root of the project.
+OK, let's add our secrets keys within environment variables. For this we are going to create a `.env.local` file in the root of the project.
 
 ```shell
 GOOGLE_ANALYTICS_VIEW_ID=123456789
@@ -52,17 +52,15 @@ GOOGLE_CLIENT_ID=1234567890
 GOOGLE_PRIVATE_KEY="-----BEGIN PRIVATE KEY-----\nR2D2=\n-----END PRIVATE KEY-----\n"
 ```
 
-*GOOGLE_ANALYTICS_VIEW_ID* is the View ID.
+`GOOGLE_ANALYTICS_VIEW_ID` is the View ID.
 
 The other values are provided in the JSON file we saved previously:
 
-*GOOGLE_CLIENT_EMAIL* -> *client_email*
+* `GOOGLE_CLIENT_EMAIL` -> `client_email`
+* `GOOGLE_CLIENT_ID` -> `client_id`
+* `GOOGLE_PRIVATE_KEY` -> `private_key`
 
-*GOOGLE_CLIENT_ID* -> *client_id*
-
-*GOOGLE_PRIVATE_KEY* -> *private_key*
-
-At this point we will be able to access these values by using **process.env.GOOGLE_CLIENT_EMAIL** which is possible thanks to Next.js' [Environment Variables](https://nextjs.org/docs/basic-features/environment-variables).
+At this point we will be able to access these values by using `process.env.GOOGLE_CLIENT_EMAIL` which is possible thanks to Next.js' [Environment Variables](https://nextjs.org/docs/basic-features/environment-variables).
 
 For production, it is required to register this variables where the project is deployed to the public. I use [Vercel](https://vercel.com) and this is how it looks:
 
@@ -72,11 +70,11 @@ For production, it is required to register this variables where the project is d
 
 First, create a small module in the route of your preference that will basically expose three things:
 
-The Google Analytics Tracking ID.
-A *pageview* method.
-An *event* method.
+* The Google Analytics Tracking ID.
+* A `pageview` method.
+* An `event` method.
 
-In my case, I created it inside the top-level **lib** folder and called it **gtag.js**.
+In my case, I created it inside the top-level `lib` folder and called it `gtag.js`.
 
 ```javascript
 export const GA_TRACKING_ID = 'UA-XXXXXXXXX-X';
@@ -97,7 +95,7 @@ export const event = ({ action, category, label, value }) => {
 };
 ```
 
-Secondly, let's modify the **_document.js** file inside the **pages** directory to include the Google Analytics JavaScript snippet.
+Secondly, let's modify the `_document.js` file inside the `pages` directory to include the Google Analytics JavaScript snippet.
 
 ```javascript
 import Document, { Html, Head, Main, NextScript } from 'next/document';
@@ -144,7 +142,7 @@ export default MyDocument;
 
 This asynchronously injects the snippet that initializes Google Analytics, helping to keep a good performance.
 
-Third, we need to track a page view each time a router transitions. In order to achieve this, we are going to use Next.js' Router itself to execute a callback function each time the route changes: the event **routeChangeComplete** is the one we want to use in this case. Let's update **_app.js** with the corresponding code:
+Third, we need to track a page view each time a router transitions. In order to achieve this, we are going to use Next.js' Router itself to execute a callback function each time the route changes: the event `routeChangeComplete` is the one we want to use in this case. Let's update `_app.js` with the corresponding code:
 
 ```javascript
 import { useEffect } from 'react';
@@ -174,7 +172,7 @@ export default MyApp;
 
 Let's take advantage of Next.js' [API Routes](https://nextjs.org/docs/api-routes/introduction) for this.
 
-First, create a new file inside the **pages/api** folder called **page-views.js**:
+First, create a new file inside the `pages/api` folder called `page-views.js`:
 
 ```javascript
 import { google } from 'googleapis'
@@ -220,14 +218,14 @@ const pageViewsAPI = async (req, res) => {
 export default pageViewsAPI
 ```
 
-This handler will expect two parameters in the query string: **startDate** and **post** which will be used for filtering the results.
+This handler will expect two parameters in the query string: `startDate` and `post` which will be used for filtering the results.
 
-Import the **googleapis** package and create the credentials.
+Import the `googleapis` package and create the credentials.
 
 Next, instantiate Google Analytics v3 client and perform the call to get the metrics.
 
-The **filters** parameter restricts the results to the specific URL.
-The **startDate** parameter, if not provided, will be set to *2021-01-01* to retrieve data since that date.
+The `filters` parameter restricts the results to the specific URL.
+The `startDate` parameter, if not provided, will be set to `2021-01-01` to retrieve data since that date.
 
 Go ahead and open an URL like
 
@@ -249,7 +247,7 @@ npm install swr --save
 yarn add swr
 ```
 
-My blog post pages are served under **pages/blog/[id].js**, here are the required changes to display the counter:
+My blog post pages are served under `pages/blog/[id].js`, here are the required changes to display the counter:
 
 ```javascript
 import useSWR from 'swr';

@@ -1,7 +1,6 @@
 /* ******** Search Bar ******** */
 
 .container {
-  display: flex;
   margin: 0 auto;
   width: 50%;
 }
@@ -27,7 +26,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  margin: 2rem 0;
+  margin: 4rem 0;
   width: 100%;
 }
 
@@ -71,6 +70,7 @@
   margin: .25em;
   padding: 0 .5em;
   text-align: center;
+  text-decoration: none;
 }
 
 .cardTag:hover{
@@ -85,10 +85,13 @@
 }
 
 .cardTitle {
-  color: var(--title-color);
-  font-size: calc(1.2em * var(--scale));
-  line-height: 1.5rem;
   margin: 1rem 0;
+  line-height: 1.5rem;
+}
+
+.cardTitle a {
+  color: var(--title-color);
+  font-size: calc(1.5rem * var(--scale));
 }
 
 .cardDescription {
@@ -106,7 +109,7 @@
 }
 
 .postDescription {
-  font-size: calc(1.2em * var(--scale));
+  font-size: calc(1.5em * var(--scale));
   margin: 1.5rem 0;
   padding: 0.1em 0;
 }
@@ -130,53 +133,46 @@
   width: 100%;
 }
 
+.postContent {
+  margin: 0 auto;
+}
+
 .postContent h2 {
   margin: 2rem 0;
 }
 
 .postContent p {
+  color: var(--blog-text-color);
   margin: 1em 0 0;
-  font-size: calc(1.5em * var(--scale));
+  font-size: calc(1.3em * var(--scale));
 }
 
-.postContent p a {
-  color: var(--post-link-color)
+.postContent p a,
+.postContent ol li a {
+  color: var(--post-link-color);
+  text-decoration: underline;
 }
 
 .postContent ol,
 .postContent ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
   display: grid;
   grid-gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 0;
 }
 
 .postContent ol {
-  counter-reset: orderedlist;
-  list-style: none;
+  list-style-position: inside;
+  list-style-type: lower-greek;
 }
 
-.postContent ol li::before {
-  counter-increment: orderedlist;
-  content: counter(orderedlist);
-
-  background-color: var(--post-link-color);
-  border-radius: 0.25em;
-  color:white;
-  font-family: "consolas";
-  font-size: 1.25em;
-  margin-right: 0.5rem;
-  padding: 0.25rem 0.5rem;
-  text-align: center;
+.postContent ul {
+  list-style-position: inside;
+  list-style-type: disc;
 }
 
 .postContent li {
   line-height: 1.25;
-}
-
-.postContent a:hover {
-  border-bottom: var(--link-hover-animation);
 }
 
 .postContent p img {
@@ -204,8 +200,8 @@
     font-size: calc(0.9em * var(--scale));
   }
 
-  .cardTitle {
-    font-size: calc(1.4em * var(--scale));
+  .cardTitle a {
+    font-size: calc(1.4rem * var(--scale));
   }
 
   .cardDescription {
@@ -217,7 +213,7 @@
   }
 
   .postDescription, .postMetadata {
-    font-size: calc(2em * var(--scale));
+    font-size: calc(1.5em * var(--scale));
   }
 
   .postContent {
@@ -256,8 +252,8 @@
     font-size: calc(0.9em * var(--scale));
   }
 
-  .cardTitle {
-    font-size: calc(1.3em * var(--scale));
+  .cardTitle a {
+    font-size: calc(1.3rem * var(--scale));
   }
 
   .cardDescription {
@@ -268,12 +264,12 @@
     font-size: calc(1.5em * var(--scale));
   }
 
-  .postDescription, .postMetadata {
+  .postDescription {
     font-size: calc(1.2em * var(--scale));
   }
 
-  .postContent h2 {
-    font-size: 1em;
+  .postMetadata {
+    font-size: calc(1em * var(--scale));
   }
 }
 
@@ -291,8 +287,8 @@
     font-size: calc(0.85em * var(--scale));
   }
 
-  .cardTitle {
-    font-size: calc(1.2em * var(--scale));
+  .cardTitle a {
+    font-size: calc(1.2rem * var(--scale));
   }
 
   .cardDescription {
@@ -310,8 +306,8 @@
     font-size: calc(0.8em * var(--scale));
   }
 
-  .cardTitle {
-    font-size: calc(1em * var(--scale));
+  .cardTitle a {
+    font-size: calc(1rem * var(--scale));
   }
 
   .cardDescription {

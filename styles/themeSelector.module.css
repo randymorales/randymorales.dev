@@ -32,7 +32,7 @@
 }
 
 .active {
-  background: var(--link-hover-underline-color);
+  background: var(--title-color);
 }
 
 .active::after {

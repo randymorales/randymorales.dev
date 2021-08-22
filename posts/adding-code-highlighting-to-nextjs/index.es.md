@@ -14,7 +14,7 @@ Esta es una guía rápida sobre cómo resaltar código en un blog usando PrismJS
 npm install prism
 ```
 
-Su archivo `package.json` debería reflejar la instalación en` dependencias`:
+Su archivo `package.json` debería reflejar la instalación en `dependencies`:
 
 ```json
 "prismjs": "^1.24.1"
@@ -22,7 +22,7 @@ Su archivo `package.json` debería reflejar la instalación en` dependencias`:
 
 ## Agregar tema CSS Prism
 
-En este [repositorio de temas de PrismJS] (https://github.com/PrismJS/prism-themes/tree/master/themes) seleccionaremos un tema de los que proporciona la comunidad. Usted puede crear un tema personalizado, pero está fuera del alcance de esta publicación.
+En este [repositorio de temas de PrismJS](https://github.com/PrismJS/prism-themes/tree/master/themes) seleccionaremos un tema de los que proporciona la comunidad. Usted puede crear un tema personalizado, pero está fuera del alcance de esta publicación.
 
 Una vez que elija el tema, cree un archivo CSS con ese contenido e impórtelo a su blog:
 
@@ -32,7 +32,7 @@ import '@/styles/prismTheme.css'
 
 ## Cargar Prism en el blog
 
-Ahora apliquemos los estilos a los posts. Agregue este contenido al archivo que genera los posts del blog (es decir, `/blog/posts/[slug].js`) y agregue el siguiente código en su componente **Post**:
+Ahora apliquemos los estilos a los posts. Agregue este contenido al archivo que genera los posts del blog (es decir, `/blog/posts/[slug].js`) y agregue el siguiente código en su componente `Post`:
 
 ```javascript
   const prism = require('prismjs')
@@ -48,7 +48,7 @@ Ahora apliquemos los estilos a los posts. Agregue este contenido al archivo que 
 
 El código anterior resaltará todos nuestros bloques de código a través de react hook. Si desea resaltar lenguajes además de javascript, es necesario importarlos manualmente como muestra el ejemplo anterior con Python.
 
-Obtenga más información sobre los bloques de código en markdown [aquí] (https://www.markdownguide.org/extended-syntax/#fenced-code-blocks).
+Obtenga más información sobre los bloques de código en markdown [aquí](https://www.markdownguide.org/extended-syntax/#fenced-code-blocks).
 
 ## Ejemplos
 
