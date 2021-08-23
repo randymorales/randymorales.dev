@@ -49,6 +49,7 @@ export default function Layout({
         <meta name='msapplication-TileColor' content='#da532c' />
         <meta name='msapplication-TileImage' content='/ms-icon-310x310.png' />
         <meta name='description' content={pageInfo.description} />
+        <meta name="yandex-verification" content="7f0ce4ac85304e5e" />
 
         {/* Open Graph */}
         <meta property='og:locale' content='en_US' key='oglocal' />
