@@ -51,15 +51,15 @@
   /* Font related */
   --code-font: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
   --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  --font-size: 18px;
+  --font-size: 1rem;
 
   /* Color related */
   --blog-text-color: #111827;
   --blog-strong-text-color: #111827;
-  --body-background-color: #FFFEFE;
+  --body-background-color: #FEFEFF;
   --border-color: var(--content-text-color);
   --border-card-color:  rgb(0 0 0 / 20%);
-  --card-color: white;
+  --card-color: FEFEFF;
   --code-bg-opacity: 1;
   --code-background-color: rgba(243,244,246,var(--code-bg-opacity));
   --code-opacity: 1;
@@ -75,7 +75,7 @@
 
 .darkTheme {
   --blog-text-color: #D1D5DB;
-  --blog-strong-text-color: white;
+  --blog-strong-text-color: #FEFEFF;
   --body-background-color: #08090C;
   --border-color: var(--content-text-color);
   --border-card-color: rgb(255 255 255 / 20%);
@@ -84,11 +84,11 @@
   --code-background-color: rgba(17,24,39,var(--code-bg-opacity));
   --code-opacity: 1;
   --code-color: rgba(229,231,235,var(--code-opacity));
-  --content-text-color: white;
+  --content-text-color: #FEFEFF;
   --nav-mobile-background-color: rgba(1, 2, 3, 0.95);
   --post-link-color: #FC5F25;
   --shadow-color: #FAFAFA;
-  --social-networks-icons-color: white;
+  --social-networks-icons-color: #FEFEFF;
   --title-color: #FC5F25;
 }
 

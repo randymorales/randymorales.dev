@@ -1,7 +1,7 @@
 ---
 title: 'Show Page Views in Next.js with Google Analytics'
 description: 'Configure Google Analytics for page views count'
-tags: google-analytics,nextjs
+tags: google-analytics
 date: '2021-08-15'
 image: '/images/posts/nextjs-googleanalytics-cover.png'
 ---

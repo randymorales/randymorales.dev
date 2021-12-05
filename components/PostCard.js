@@ -25,13 +25,16 @@ export default function PostCard({
         className={blogStyles.cardImg}
         src={image}
         alt=''
-        width='400'
-        height='200'
+        width='600'
+        height='250'
         priority
       />
 
       <div className={blogStyles.cardBody}>
         <div className={blogStyles.cardMetadata}>
+          <span className={blogStyles.cardDate}>
+            <PublishedDate dateString={date} locale={locale} />
+          </span>
           <div>
             {tagsList.map(tag => (
               <Link href={`/tags/${tag}/`} key={tag}>
@@ -39,9 +42,6 @@ export default function PostCard({
               </Link>
             ))}
           </div>
-          <span className={blogStyles.cardDate}>
-            <PublishedDate dateString={date} locale={locale} />
-          </span>
         </div>
 
         <h2 className={blogStyles.cardTitle}>

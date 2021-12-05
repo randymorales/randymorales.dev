@@ -1,7 +1,7 @@
 ---
 title: 'Mostrar vistas por página en Next.js con Google Analytics'
 description: 'Configurar Google Analytics para el conteo de visitas'
-tags: google-analytics,nextjs
+tags: google-analytics
 date: '2021-08-15'
 image: '/images/posts/nextjs-googleanalytics-cover.png'
 ---

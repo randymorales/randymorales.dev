@@ -1,7 +1,7 @@
 ---
 title: 'Adding Comments to a NextJS Blog'
 description: 'Setup Utterances in a NextJS blog'
-tags: blog,comments
+tags: blog
 date: '2020-12-22'
 image: 'https://avatars.githubusercontent.com/u/27908738?s=200&v=4'
 ---

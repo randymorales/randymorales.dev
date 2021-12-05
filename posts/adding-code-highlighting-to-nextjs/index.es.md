@@ -1,7 +1,7 @@
 ---
 title: 'Agregando resaltado de código a un Blog NextJS con Prism'
 description: 'Configurar Prism en un Blog NextJS para resaltado de código'
-tags: blog,nextjs
+tags: nextjs
 date: '2021-07-05'
 image: 'https://avatars.githubusercontent.com/u/11140484?s=200&v=4'
 ---

@@ -61,9 +61,9 @@ export default function BlogIndex({ allLocalePostsData }) {
 
   return (
     <Layout pageInfo={pageInfo} large={true}>
-      <div>
-        <div ref={searchRef} className={styles.container}>
-          {/* Search bar */}
+      {/* Search bar */}
+      <div className={styles.container}>
+        <div ref={searchRef}>
           <input
             className={styles.search}
             onChange={onChange}
@@ -74,7 +74,7 @@ export default function BlogIndex({ allLocalePostsData }) {
         </div>
 
         {/* Tags */}
-        <div className={styles.container}>
+        <div>
           {getAllTags(allLocalePostsData).map(tag => (
             <Link href={`/tags/${tag}/`} key={tag}>
               <a className={[styles.cardTag, tag].join(' ')}>{tag}</a>

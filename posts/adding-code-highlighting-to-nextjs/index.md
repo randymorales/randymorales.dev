@@ -1,7 +1,7 @@
 ---
 title: 'Adding Code Highlighting to a NextJS Blog with Prism'
 description: 'Setup Code Highlighting in a NextJS blog with Prism'
-tags: blog,nextjs
+tags: nextjs
 date: '2021-07-05'
 image: 'https://avatars.githubusercontent.com/u/11140484?s=200&v=4'
 ---

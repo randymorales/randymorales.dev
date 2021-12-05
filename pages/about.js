@@ -20,7 +20,7 @@ export default function About() {
 
   return (
     <Layout pageInfo={pageInfo} large={true}>
-      <h1>
+      <h1 className={styles.paragraph}>
         {t('greeting')} {Name}
       </h1>
 

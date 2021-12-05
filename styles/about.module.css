@@ -4,6 +4,7 @@
 }
 
 .paragraph {
+    font-size: 1.5rem;
     margin: 1em 0 0;
     padding: 0;
 }
@@ -14,6 +15,7 @@
 
 .skills {
     display: grid;
+    font-size: 1.5rem;
     grid-gap: 1rem;
     grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
 }
@@ -64,6 +66,10 @@
 }
 
 @media (max-width: 768px) {
+    .paragraph, .skills {
+        font-size: 1rem;
+    }
+
     .statistics iframe,
     .statistics img {
         width: 90%;
