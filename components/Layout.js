@@ -28,7 +28,7 @@ export default function Layout({
   }
 
   return (
-    <div>
+    <div className={styles.fullPageWrapper}>
       <Head>
         <link
           rel='icon'

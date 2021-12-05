@@ -15,8 +15,8 @@ export default function Intro() {
           src='/images/profile.jpg'
           className={introStyles.profileImage}
           alt='site author photo'
-          width='250'
-          height='250'
+          width='300'
+          height='300'
         />
       </div>
 
@@ -56,6 +56,16 @@ export default function Intro() {
               aria-label='GitHub'
             >
               <i aria-hidden className='fab fa-github big-icon'></i>
+            </a>
+          </li>
+          <li>
+            <a
+              href='https://www.strava.com/athletes/randymorales'
+              target='_blank'
+              rel='noopener'
+              aria-label='Strava'
+            >
+              <i aria-hidden className='fab fa-strava'></i>
             </a>
           </li>
         </ul>

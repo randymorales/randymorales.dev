@@ -4,7 +4,7 @@ const LangStrings = {
   en: {
     about: 'About',
     'intro-description':
-      "I'm a software engineer writing these posts and building open-source projects.",
+      "I'm a Software Engineer writing these posts about things I am familiar with and learning. I'm based in Costa Rica working at Aruba, a HPE company.",
     and: ' and ',
     'about-paragraph1':
       'I am a software engineer based on Costa Rica 🇨🇷, graduated from TEC - Costa Rica Institute of Technology.',
@@ -45,7 +45,7 @@ const LangStrings = {
   es: {
     about: 'Acerca de',
     'intro-description':
-      'Soy un ingeniero de software que crea proyectos de código abierto y escribe sobre programación.',
+      'Soy un Ingeniero de Software que escribe estos posts sobre cosas con las que estoy familiarizado y aprendiendo. Vivo en Costa Rica y trabajo en Aruba, una empresa de HPE.',
     and: ' y ',
     'about-paragraph1':
       'Soy un ingeniero de software ubicado en Costa Rica 🇨🇷, graduado del TEC - Instituto Tecnológico de Costa Rica.',

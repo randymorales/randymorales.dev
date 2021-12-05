@@ -26,19 +26,6 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 📝 TODO List
-
-- [X] Add navbar
-- [X] Add footer
-- [X] Improve CSS styles
-- [X] Add multilingual support (spanish)
-- [X] Add blog post cards in /blog page
-- [X] Add tags per post
-- [X] Add Search bar for posts
-- [X] Add comments section for posts
-- [X] Views per posts
-- [X] Add SEO component
-
 ## 🔨 Built using
 
 - [Next.js](https://nextjs.org/)
