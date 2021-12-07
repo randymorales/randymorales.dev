@@ -20,7 +20,7 @@ export default function TagIndex({ posts, tag }) {
   }
 
   return (
-    <Layout pageInfo={pageInfo}>
+    <Layout pageInfo={pageInfo} large={true}>
       <h2>
         {t('posts-tag')}:{' '}
         <span className={blogStyles.tagPageData}>{`#${tag}`}</span>

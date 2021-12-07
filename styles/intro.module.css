@@ -63,6 +63,7 @@
   }
 
   .description {
+    align-items: center;
     margin-left: 0;
     width: 90%;
   }

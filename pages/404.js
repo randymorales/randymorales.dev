@@ -1,8 +1,10 @@
 import { useRouter } from 'next/router'
 
-import { SiteBaseURL } from '@/lib/constants'
+import { NotFoundErrorCode, SiteBaseURL } from '@/lib/constants'
 import useTranslation from '@/i18n/useTranslation'
 import Layout from '@/components/Layout'
+
+import styles from '@/styles/404.module.css'
 
 export default function Error404() {
   const { t } = useTranslation()
@@ -17,12 +19,10 @@ export default function Error404() {
 
   return (
     <Layout pageInfo={pageInfo}>
-      <p>{t('error-content')}</p>
-      <p>
-        <span aria-label={t('sorry')} role='img'>
-          😵
-        </span>
-      </p>
+      <div className={styles.box}>
+        <h2>{NotFoundErrorCode}</h2>
+        <p>{t('error-content')}</p>
+      </div>
     </Layout>
   )
 }

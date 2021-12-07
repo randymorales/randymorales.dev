@@ -22,7 +22,8 @@ const LangStrings = {
     'about-paragraph5':
       'Feel free to reach me out and I hope you enjoy my blog posts 📝.',
     blog: 'Blog',
-    'error-content': 'Oops something went wrong. Check the requested link.',
+    'error-content': 'Page Not Found',
+    'error-link': 'Go Home',
     'error-heading': 'Error',
     gallery: 'Gallery',
     greeting: "Hello! I'm ",
@@ -61,7 +62,8 @@ const LangStrings = {
     'about-paragraph5':
       'Siéntase libre de contactarme y espero que disfrute los posts 📝.',
     blog: 'Blog',
-    'error-content': 'Algo salió mal. Revise el link accesado.',
+    'error-content': 'Página No Encontrada',
+    'error-link': 'Ir a Inicio',
     'error-heading': 'Error',
     gallery: 'Galería',
     greeting: '¡Hola! Soy ',
