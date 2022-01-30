@@ -2,6 +2,7 @@
   align-items: center;
   display: flex;
   flex-direction: column;
+  height: var(--header-height);
   justify-content: space-between;
   width: 100%;
 }
@@ -10,19 +11,12 @@
   border-bottom: 2px solid var(--post-link-color);
 }
 
-.logo {
-  cursor: pointer;
-  height: var(--header-height);
-  width: var(--header-height);
-}
-
 .menu {
-  align-items: center;
+  align-content: center;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  margin-right: 1em;
-  width: 90%;
+  width: 100%;
 }
 
 .menu li {
@@ -44,9 +38,12 @@
 }
 
 @media (max-width: 1024px) {
+  .nav {
+    margin-bottom: 8em;
+  }
   .menu {
-    margin-top: 1em;
-    margin-right: 0;
+    margin: 3em 0;
     font-size: calc(1em * var(--scale));
+    justify-content: space-around;
   }
 }

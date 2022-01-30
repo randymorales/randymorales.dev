@@ -35,7 +35,7 @@ const LangStrings = {
     'posts-tag': 'Tag',
     'read-more': 'Read more',
     'search-posts': 'Search posts',
-    'skills-tools': 'Skills - tools I’ve used',
+    'skills-tools': 'Skills - tools I`ve used',
     slogan: 'Randy Morales - Programming Blog',
     sorry: 'Sorry',
     statistics: 'Some statistics',

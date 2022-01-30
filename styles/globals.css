@@ -168,6 +168,11 @@ code:after {
   content: "`";
 }
 
+header {
+  margin: 0 auto;
+  width: 80%
+}
+
 main {
   margin: 0 auto var(--footer-height) auto;
   width: var(--main-width)

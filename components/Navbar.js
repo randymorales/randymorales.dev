@@ -1,4 +1,3 @@
-import Image from 'next/image'
 import Link from 'next/link'
 
 import useTranslation from '@/i18n/useTranslation'
@@ -12,39 +11,31 @@ export default function Header() {
   return (
     <header>
       <nav className={navbarStyles.nav}>
-        <Link href='/'>
-          <div className={navbarStyles.logo}>
-            <Image
-              src='/android-icon-192x192.png'
-              alt='logo'
-              width={80}
-              height={80}
-              priority
-            />
-          </div>
-        </Link>
         <ul className={navbarStyles.menu}>
           <li>
-            <div className={navbarStyles.menuLink}>
+            <div>
+              <Link href='/'>{t('home')}</Link>
+            </div>
+          </li>
+          <li>
+            <div>
               <Link href='/blog'>{t('blog')}</Link>
             </div>
           </li>
           <li>
-            <div className={navbarStyles.menuLink}>
+            <div>
               <Link href='/about'>{t('about')}</Link>
             </div>
           </li>
           <li>
-            <div className={navbarStyles.menuLink}>
+            <div>
               <Translator />
             </div>
           </li>
-          <li>
-            <div className={navbarStyles.menuLink}>
-              <ThemeSelector />
-            </div>
-          </li>
         </ul>
+        <div>
+          <ThemeSelector />
+        </div>
       </nav>
     </header>
   )

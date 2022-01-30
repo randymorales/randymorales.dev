@@ -62,7 +62,7 @@ The other values are provided in the JSON file we saved previously:
 
 At this point we will be able to access these values by using `process.env.GOOGLE_CLIENT_EMAIL` which is possible thanks to Next.js' [Environment Variables](https://nextjs.org/docs/basic-features/environment-variables).
 
-For production, it is required to register this variables where the project is deployed to the public. I use [Vercel](https://vercel.com) and this is how it looks:
+For production, it is required to register these variables where the project is deployed to the public. I use [Vercel](https://vercel.com) and this is how it looks:
 
 ![Vercel Env Variables](/images/posts/vercel-env-variables.png)
 
