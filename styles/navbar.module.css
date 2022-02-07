@@ -39,11 +39,10 @@
 
 @media (max-width: 1024px) {
   .nav {
-    margin-bottom: 8em;
+    margin-bottom: 4em;
   }
   .menu {
     margin: 3em 0;
     font-size: calc(1em * var(--scale));
-    justify-content: space-around;
   }
 }

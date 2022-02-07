@@ -7,10 +7,8 @@ import useSWR from 'swr'
 
 import {
   CommentsRepo,
-  DarkTheme,
   PostsDirectory,
   SiteBaseURL,
-  Theme,
 } from '@/lib/constants'
 import useTranslation from '@/i18n/useTranslation'
 import { getAllPostIds, getPostData } from '@/lib/posts'
@@ -50,10 +48,7 @@ export default function Post({ postData }) {
   // Add comments script with Utterances.
   useEffect(() => {
     const commentScript = document.createElement('script')
-    const theme =
-      typeof window !== 'undefined' && localStorage.getItem(Theme) === DarkTheme
-        ? 'github-dark'
-        : 'github-light'
+    const theme = 'github-dark'
     commentScript.async = true
     commentScript.src = 'https://utteranc.es/client.js'
     // CHANGE REPO VAlUE if you are just going to clone this repo and use the code.

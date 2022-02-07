@@ -2,7 +2,6 @@ import Link from 'next/link'
 
 import useTranslation from '@/i18n/useTranslation'
 import Translator from '@/components/Translator'
-import ThemeSelector from '@/components/ThemeSelector'
 
 import navbarStyles from '@/styles/navbar.module.css'
 
@@ -33,9 +32,6 @@ export default function Header() {
             </div>
           </li>
         </ul>
-        <div>
-          <ThemeSelector />
-        </div>
       </nav>
     </header>
   )

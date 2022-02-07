@@ -97,10 +97,10 @@
 }
 
 .cardTag {
-  border: 2px solid var(--tag-color);
+  border: 2px solid var(--body-background-color);
   border-radius: 8px;
   box-shadow: 3px 3px 0 var(--shadow-color);
-  color: var(--tag-color);
+  color: var(--body-background-color);
   display: inline-block;
   font-weight: 600;
   height: 1.8em;
@@ -267,15 +267,15 @@
   }
 
   .postTitle {
-    font-size: calc(1.5em * var(--scale));
+    font-size: calc(2em * var(--scale));
   }
 
   .postDescription {
-    font-size: calc(1.2em * var(--scale));
+    font-size: calc(1.7em * var(--scale));
   }
 
   .postMetadata {
-    font-size: calc(1em * var(--scale));
+    font-size: calc(1.5em * var(--scale));
   }
 }
 

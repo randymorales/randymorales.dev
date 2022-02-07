@@ -33,17 +33,15 @@ Now it is time to setup Utterances in your blog and link it to the previously cr
 ```javascript
 import React, { useEffect } from 'react'
 
+import Comment from '@/components/Comment'
+
 const commentBox = React.createRef()
 
 // Add comments script with Utterances.
 useEffect(() => {
 const commentScript = document.createElement('script')
 // Optional: It is possible to use light/dark themes in the comment box
-// This variable takes the value based on the blog theme if present
-const theme =
-    typeof window !== 'undefined' && localStorage.getItem(Theme) === DarkTheme
-    ? 'github-dark'
-    : 'github-light'
+const theme = 'github-light'
 commentScript.async = true
 commentScript.src = 'https://utteranc.es/client.js'
 // CHANGE REPO VAlUE if you are going to use the code.
