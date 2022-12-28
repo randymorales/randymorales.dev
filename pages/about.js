@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image";
 import { useRouter } from 'next/router'
 
 import { Name, SiteBaseURL } from '@/lib/constants'
@@ -73,23 +73,38 @@ export default function About() {
             width='320'
             height='680'
             priority
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              maxWidth: "100%",
+              height: "auto"
+            }} />
           <Image
             src='/images/mtb.jpg'
             alt='moravia mtb photo'
             width='490'
             height='680'
             priority
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              maxWidth: "100%",
+              height: "auto"
+            }} />
           <Image
             src='/images/alajuela.jpg'
             alt='iberico photo'
             width='450'
             height='680'
             priority
-          />
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+              maxWidth: "100%",
+              height: "auto"
+            }} />
         </div>
       </div>
     </Layout>
-  )
+  );
 }

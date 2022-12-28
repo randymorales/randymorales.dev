@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image";
 import Link from 'next/link'
 
 import { useRouter } from 'next/router'
@@ -37,8 +37,12 @@ export default function PostCard({
           </span>
           <div>
             {tagsList.map(tag => (
-              <Link href={`/tags/${tag}/`} key={tag}>
-                <a className={[blogStyles.cardTag, tag].join(' ')}>{tag}</a>
+              <Link
+                href={`/tags/${tag}/`}
+                key={tag}
+                className={[blogStyles.cardTag, tag].join(' ')}
+              >
+                {tag}
               </Link>
             ))}
           </div>
@@ -51,5 +55,5 @@ export default function PostCard({
         <p className={blogStyles.cardDescription}>{description}</p>
       </div>
     </article>
-  )
+  );
 }

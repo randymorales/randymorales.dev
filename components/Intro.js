@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image";
 
 import { Name } from '@/lib/constants'
 import useTranslation from '@/i18n/useTranslation'
@@ -17,7 +17,10 @@ export default function Intro() {
           alt='site author photo'
           width='300'
           height='300'
-        />
+          style={{
+            maxWidth: "100%",
+            height: "auto"
+          }} />
       </div>
 
       <div className={introStyles.description}>
@@ -71,5 +74,5 @@ export default function Intro() {
         </ul>
       </div>
     </section>
-  )
+  );
 }

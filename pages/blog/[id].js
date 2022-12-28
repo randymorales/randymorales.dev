@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image from "next/image";
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
@@ -85,7 +85,12 @@ export default function Post({ postData }) {
         width={1920}
         height={500}
         priority
-      />
+        style={{
+          maxWidth: "100%",
+          height: "auto",
+          maxWidth: "100%",
+          height: "auto"
+        }} />
 
       <h1 className={blogStyles.postTitle}>{postData.title}</h1>
 
@@ -106,8 +111,11 @@ export default function Post({ postData }) {
 
         <div>
           {postData.tags.split(',').map(tag => (
-            <Link href={`/tags/${tag}/`} key={tag}>
-              <a className={[blogStyles.cardTag, tag].join(' ')}>{tag}</a>
+            <Link
+              href={`/tags/${tag}/`}
+              key={tag}
+              className={[blogStyles.cardTag, tag].join(' ')}>
+              {tag}
             </Link>
           ))}
         </div>
@@ -133,7 +141,7 @@ export default function Post({ postData }) {
         <Comment commentBox={commentBox} />
       </div>
     </Layout>
-  )
+  );
 }
 
 export async function getStaticPaths({ locales }) {

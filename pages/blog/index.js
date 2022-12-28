@@ -76,8 +76,11 @@ export default function BlogIndex({ allLocalePostsData }) {
         {/* Tags */}
         <div>
           {getAllTags(allLocalePostsData).map(tag => (
-            <Link href={`/tags/${tag}/`} key={tag}>
-              <a className={[styles.cardTag, tag].join(' ')}>{tag}</a>
+            <Link
+              href={`/tags/${tag}/`}
+              key={tag}
+              className={[styles.cardTag, tag].join(' ')}>
+              {tag}
             </Link>
           ))}
         </div>
@@ -106,7 +109,7 @@ export default function BlogIndex({ allLocalePostsData }) {
         </section>
       </div>
     </Layout>
-  )
+  );
 }
 
 export const getStaticProps = async ({ locale }) => {

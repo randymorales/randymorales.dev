@@ -1,6 +1,6 @@
 {
   "name": "randymorales.dev",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "private": true,
   "homepage": "https://randymorales.dev",
   "scripts": {
@@ -14,13 +14,14 @@
   "dependencies": {
     "@babel/runtime": "^7.14.6",
     "date-fns": "^2.16.1",
+    "eslint-config-next": "^13.1.1",
     "esm": "^3.2.25",
     "googleapis": "^82.0.0",
     "gray-matter": "^4.0.2",
-    "next": "^10.0.7",
+    "next": "^13.1.1",
     "prismjs": "^1.24.1",
-    "react": "^17",
-    "react-dom": "^17",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-transition-group": "^4.4.1",
     "remark": "^13",
     "remark-html": "^13",
