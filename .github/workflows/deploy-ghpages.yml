@@ -27,12 +27,22 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
     - run: npm ci --legacy-peer-deps
+
+    # Build the project
     - run: npm run build
       env:
         NEXT_PUBLIC_BASE_PATH: /nextjs-deploy
+
+    # Ensure that the ./out/ directory exists
+    - run: mkdir -p ./out
+
+    # Create .nojekyll file to prevent GitHub Pages from ignoring files that start with an underscore
     - run: touch ./out/.nojekyll
+
+    # Create the CNAME file if necessary
     - run: echo randymorales.dev > ./out/CNAME
 
+    # Deploy to GitHub Pages
     - name: Deploy 🚀
       uses: JamesIves/github-pages-deploy-action@3.6.2
       with:
