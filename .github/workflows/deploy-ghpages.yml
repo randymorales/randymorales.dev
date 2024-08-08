@@ -26,11 +26,8 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - run: npm ci
+    - run: npm ci --legacy-peer-deps
     - run: npm run build
-      env:
-        NEXT_PUBLIC_BASE_PATH: /nextjs-deploy
-    - run: npm run export
       env:
         NEXT_PUBLIC_BASE_PATH: /nextjs-deploy
     - run: npm test
