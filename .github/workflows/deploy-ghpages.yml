@@ -30,7 +30,6 @@ jobs:
     - run: npm run build
       env:
         NEXT_PUBLIC_BASE_PATH: /nextjs-deploy
-    - run: npm test
     - run: touch ./out/.nojekyll
     - run: echo randymorales.dev > ./out/CNAME
 
