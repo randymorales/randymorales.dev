@@ -2,7 +2,7 @@ import useSWR from 'swr'
 import { serialize } from 'next-mdx-remote/serialize'
 
 import { PostsDirectory, SiteBaseURL } from '@/lib/constants'
-import { getAllPostIds, getPostData } from '@/lib/posts'
+import { getAllPostIDs, getPostData } from '@/lib/posts'
 import Layout from '@/components/Layout'
 import BlogPost from '@/components/BlogPost'
 
@@ -35,7 +35,7 @@ export default function Post({ postData, source }) {
 
 export async function getStaticPaths() {
   // Return the list of posts.
-  const paths = getAllPostIds()
+  const paths = getAllPostIDs()
   return {
     paths,
     fallback: false,
@@ -47,7 +47,7 @@ export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id)
 
   // Serialize the content for MDXRemote.
-  const mdxSource = await serialize(postData.contentHtml)
+  const mdxSource = await serialize(postData.contentMD)
 
   return {
     props: {

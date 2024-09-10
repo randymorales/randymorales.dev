@@ -3,7 +3,7 @@ import PostCard from '@/components/PostCard'
 
 export default function BlogPostsSection({ posts, title }) {
   return (
-    <section className='py-8 flex flex-col items-center justify-center'>
+    <section className='py-8 flex flex-col justify-center'>
       <div>
         <h2 className='text-white text-2xl font-bold mb-6'>{title}</h2>
 

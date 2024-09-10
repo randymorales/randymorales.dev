@@ -2,12 +2,12 @@ import fs from 'fs'
 
 import { SiteBaseURL } from '@/lib/constants'
 import generateRSS from '@/lib/rss'
-import { getSortedPostsData } from '@/lib/posts'
+import { getAllPostsMetadata } from '@/lib/posts'
 import BlogPostsSection from '@/components/BlogPostsSection'
 import Intro from '@/components/Intro'
 import Layout from '@/components/Layout'
 
-export default function Home({ allLocalePostsData }) {
+export default function Home({ allPostsMetadata }) {
   const pageInfo = {
     url: SiteBaseURL,
     title: 'Home',
@@ -16,7 +16,7 @@ export default function Home({ allLocalePostsData }) {
   }
 
   // Get the last 3 posts
-  const lastBlogEntries = allLocalePostsData.slice(0, 3)
+  const lastBlogEntries = allPostsMetadata.slice(0, 3)
 
   return (
     <Layout pageInfo={pageInfo} large={true}>
@@ -30,15 +30,15 @@ export default function Home({ allLocalePostsData }) {
 
 export const getStaticProps = async () => {
   // Get posts.
-  let allLocalePostsData = getSortedPostsData()
+  let allPostsMetadata = getAllPostsMetadata()
 
   // Write RSS feed files.
-  const rss = generateRSS(allLocalePostsData)
+  const rss = generateRSS(allPostsMetadata)
   fs.writeFileSync(`./public/rss.xml`, rss)
 
   return {
     props: {
-      allLocalePostsData,
+      allPostsMetadata,
     },
   }
 }

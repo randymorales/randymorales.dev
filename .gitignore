@@ -14,8 +14,7 @@
 
 # production
 /build
-/public/rss-en.xml
-/public/rss-es.xml
+/public/rss.xml
 
 # misc
 .DS_Store

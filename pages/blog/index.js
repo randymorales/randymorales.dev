@@ -3,12 +3,12 @@ import { useCallback, useRef, useState } from 'react'
 import Link from 'next/link'
 
 import { PostsDirectory, SiteBaseURL } from '@/lib/constants'
-import { getSortedPostsData } from '@/lib/posts'
+import { getAllPostsMetadata } from '@/lib/posts'
 import BlogPostsSection from '@/components/BlogPostsSection'
 import Layout from '@/components/Layout'
 import styles from '@/styles/blog.module.css'
 
-export default function BlogIndex({ allPostsData }) {
+export default function BlogIndex({ allPostsMetadata }) {
   const pageInfo = {
     url: SiteBaseURL + PostsDirectory,
     title: 'Blog',
@@ -66,7 +66,7 @@ export default function BlogIndex({ allPostsData }) {
 
         {/* Tags */}
         <div>
-          {getAllTags(allPostsData).map(tag => (
+          {getAllTags(allPostsMetadata).map(tag => (
             <Link
               href={`/tags/${tag}/`}
               key={tag}
@@ -83,7 +83,7 @@ export default function BlogIndex({ allPostsData }) {
         ) : (
           <BlogPostsSection
             title='Latest Posts'
-            posts={getPostsSource(searchInputResult, allPostsData)}
+            posts={getPostsSource(searchInputResult, allPostsMetadata)}
           />
         )}
       </div>
@@ -92,20 +92,20 @@ export default function BlogIndex({ allPostsData }) {
 }
 
 export const getStaticProps = async () => {
-  let allPostsData = getSortedPostsData()
+  let allPostsMetadata = getAllPostsMetadata()
 
   return {
     props: {
-      allPostsData,
+      allPostsMetadata,
     },
   }
 }
 
 // Return the list of all tags.
-function getAllTags(allPostsData) {
+function getAllTags(allPostsMetadata) {
   const tagsList = []
 
-  allPostsData.map(({ tags }) =>
+  allPostsMetadata.map(({ tags }) =>
     tags
       .split(',')
       .map(tag => tagsList.indexOf(tag) === -1 && tagsList.push(tag)),
@@ -115,6 +115,6 @@ function getAllTags(allPostsData) {
 }
 
 // Return the list of posts according to the input searchInputResult.
-function getPostsSource(searchInputResult, allPostsData) {
-  return searchInputResult.length == 0 ? allPostsData : searchInputResult
+function getPostsSource(searchInputResult, allPostsMetadata) {
+  return searchInputResult.length == 0 ? allPostsMetadata : searchInputResult
 }

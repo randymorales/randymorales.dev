@@ -9,25 +9,25 @@
       <atom:link href="https://randymorales.dev/rss.xml" rel="self" type="application/rss+xml"/>
       
   <item>
-    <guid>https://randymorales.dev/blog/show-page-views-with-google-analytics-nextjs.md</guid>
+    <guid>https://randymorales.dev/blog/show-page-views-with-google-analytics-nextjs</guid>
     <title>Show Page Views in Next.js with Google Analytics</title>
-    <link>https://randymorales.dev/blog/show-page-views-with-google-analytics-nextjs.md</link>
+    <link>https://randymorales.dev/blog/show-page-views-with-google-analytics-nextjs</link>
     <description>Configure Google Analytics for page views count</description>
     <pubDate>Sun, 15 Aug 2021 00:00:00 GMT</pubDate>
   </item>
 
   <item>
-    <guid>https://randymorales.dev/blog/adding-code-highlighting-to-nextjs.md</guid>
+    <guid>https://randymorales.dev/blog/adding-code-highlighting-to-nextjs</guid>
     <title>Adding Code Highlighting to a NextJS Blog with Prism</title>
-    <link>https://randymorales.dev/blog/adding-code-highlighting-to-nextjs.md</link>
+    <link>https://randymorales.dev/blog/adding-code-highlighting-to-nextjs</link>
     <description>Setup Code Highlighting in a NextJS blog with Prism</description>
     <pubDate>Mon, 05 Jul 2021 00:00:00 GMT</pubDate>
   </item>
 
   <item>
-    <guid>https://randymorales.dev/blog/adding-comments-to-my-blog.md</guid>
+    <guid>https://randymorales.dev/blog/adding-comments-to-my-blog</guid>
     <title>Adding Comments to a NextJS Blog</title>
-    <link>https://randymorales.dev/blog/adding-comments-to-my-blog.md</link>
+    <link>https://randymorales.dev/blog/adding-comments-to-my-blog</link>
     <description>Setup Utterances in a NextJS blog</description>
     <pubDate>Tue, 22 Dec 2020 00:00:00 GMT</pubDate>
   </item>

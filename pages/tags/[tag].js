@@ -1,5 +1,5 @@
 import { PostsDirectory, SiteBaseURL } from '@/lib/constants'
-import { getAllPostTags, getPostsByTag } from '@/lib/posts'
+import { getAllPostTags, getPostsMetadataByTag } from '@/lib/posts'
 import Layout from '@/components/Layout'
 import PostCard from '@/components/PostCard'
 import blogStyles from '@/styles/blog.module.css'
@@ -56,7 +56,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   // Return a list of posts by tag.
   const tag = params.tag
-  const posts = await getPostsByTag(tag)
+  const posts = await getPostsMetadataByTag(tag)
   return {
     props: {
       posts,
