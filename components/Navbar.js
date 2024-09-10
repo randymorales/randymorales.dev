@@ -1,34 +1,25 @@
 import Link from 'next/link'
 
-import useTranslation from '@/i18n/useTranslation'
-import Translator from '@/components/Translator'
-
 import navbarStyles from '@/styles/navbar.module.css'
 
 export default function Header() {
-  const { t } = useTranslation()
   return (
     <header>
       <nav className={navbarStyles.nav}>
         <ul className={navbarStyles.menu}>
           <li>
             <div>
-              <Link href='/'>{t('home')}</Link>
+              <Link href='/'>Home</Link>
             </div>
           </li>
           <li>
             <div>
-              <Link href='/blog'>{t('blog')}</Link>
+              <Link href='/blog'>Blog</Link>
             </div>
           </li>
           <li>
             <div>
-              <Link href='/about'>{t('about')}</Link>
-            </div>
-          </li>
-          <li>
-            <div>
-              <Translator />
+              <Link href='/about'>About</Link>
             </div>
           </li>
         </ul>

@@ -8,9 +8,7 @@ export const content = [
 export const theme = {
   extend: {
     colors: {
-      orange: {
-        500: '#FF8C00',
-      },
+      titleColor: 'var(--title-color)',
     },
   },
 }

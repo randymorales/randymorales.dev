@@ -1,5 +1,9 @@
 @import 'https://fonts.googleapis.com/css2?family=Inter&display=swap';
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 /* ******** Global CSS ******** */
 
 @media (min-width: 1920px) {
@@ -54,9 +58,9 @@
   --font-size: 1rem;
 
   /* Color related */
-  --blog-text-color: #D1D5DB;
+  --blog-text-color: #FFFFFF;
   --blog-strong-text-color: #FEFEFF;
-  --body-background-color: #08090C;
+  --body-background-color: #0A0A0A;
   --border-color: var(--content-text-color);
   --border-card-color: rgb(255 255 255 / 20%);
   --card-color: #0B0E13;
@@ -66,10 +70,10 @@
   --code-color: rgba(229,231,235,var(--code-opacity));
   --content-text-color: #FEFEFF;
   --nav-mobile-background-color: rgba(1, 2, 3, 0.95);
-  --post-link-color: #FC5F25;
+  --post-link-color: #FF6600;
   --shadow-color: #FAFAFA;
   --social-networks-icons-color: #FEFEFF;
-  --title-color: #FC5F25;
+  --title-color: #FF6600;
 }
 
 html {
@@ -140,12 +144,6 @@ code {
   padding: 0.4rem 0.25rem;
   background-color: var(--code-background-color);
   color: var(--code-color);
-}
-code:before {
-  content: "`";
-}
-code:after {
-  content: "`";
 }
 
 header {

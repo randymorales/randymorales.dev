@@ -35,15 +35,15 @@ import '@/styles/prismTheme.css'
 Now let's apply the styles to the posts. Add this content to the file that generates the blog posts (i.e. `/blog/posts/[slug].js`) and add the following code in your `Post` component:
 
 ```javascript
-  const prism = require('prismjs')
+const prism = require('prismjs')
 
-  // Import highlighting for Python because it's not included by default
-  require('prismjs/components/prism-python')
+// Import highlighting for Python because it's not included by default
+require('prismjs/components/prism-python')
 
-  // Apply prism in all code blocks
-  useEffect(() => {
-    prism.highlightAll()
-  }, [])
+// Apply prism in all code blocks
+useEffect(() => {
+  prism.highlightAll()
+}, [])
 ```
 
 The above code will highlight all our code blocks via react hook. If you want to highlight languages other than javascript, you need to import them manually as the example above shows with Python.

@@ -43,7 +43,7 @@ pre[class*="language-"]::selection, pre[class*="language-"] ::selection, code[cl
 /* Code blocks */
 pre[class*="language-"] {
     padding: 1em;
-    margin: 0.5em 0;
+    margin: 0;
     overflow: auto;
 }
 :not(pre) > code[class*="language-"], pre[class*="language-"] {
@@ -188,7 +188,7 @@ pre.diff-highlight > code .token.deleted:not(.prefix), pre > code.diff-highlight
     background-color: #cd66601f;
 }
 pre.diff-highlight > code .token.inserted:not(.prefix), pre > code.diff-highlight .token.inserted:not(.prefix) {
-    background-color: #91d0761f;
+    background-color: #111b27;
 }
 /* overrides color-values for the Command Line plugin * https://prismjs.com/plugins/command-line/ */
 .command-line-prompt {

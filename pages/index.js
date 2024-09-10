@@ -1,63 +1,40 @@
 import fs from 'fs'
 
-import { useRouter } from 'next/router'
-
-import { PostsDirectory, SiteBaseURL } from '@/lib/constants'
+import { SiteBaseURL } from '@/lib/constants'
 import generateRSS from '@/lib/rss'
 import { getSortedPostsData } from '@/lib/posts'
-import useTranslation from '@/i18n/useTranslation'
+import BlogPostsSection from '@/components/BlogPostsSection'
 import Intro from '@/components/Intro'
 import Layout from '@/components/Layout'
-import PostCard from '@/components/PostCard'
-
-import blogStyles from '@/styles/blog.module.css'
 
 export default function Home({ allLocalePostsData }) {
-  const { t } = useTranslation()
-  const router = useRouter()
-  const { locale } = router
   const pageInfo = {
-    url: SiteBaseURL + `/${locale}`,
-    title: t('home'),
-    description: t('slogan'),
+    url: SiteBaseURL,
+    title: 'Home',
+    description: 'Randy Morales - Programming Blog',
     image: SiteBaseURL + '/images/cover.png',
   }
 
-  // Get the first 3 items
+  // Get the last 3 posts
   const lastBlogEntries = allLocalePostsData.slice(0, 3)
 
   return (
     <Layout pageInfo={pageInfo} large={true}>
       <Intro />
 
-      <h2>{t('latest-posts')}</h2>
-      <section className={blogStyles.cardsContainer}>
-        {/* Blog posts list*/}
-        {lastBlogEntries.map(
-          ({ id, title, description, date, tags, image }) => (
-            <PostCard
-              key={id}
-              url={`${PostsDirectory}${id}`}
-              title={title}
-              description={description}
-              date={date}
-              tags={tags}
-              image={image}
-            />
-          ),
-        )}
-      </section>
+      {/* Show blog post list */}
+      <BlogPostsSection title='Latest Posts' posts={lastBlogEntries} />
     </Layout>
   )
 }
 
-export const getStaticProps = async ({ locale }) => {
+export const getStaticProps = async () => {
   // Get posts.
-  let allLocalePostsData = getSortedPostsData(locale)
+  let allLocalePostsData = getSortedPostsData()
 
   // Write RSS feed files.
-  const rss = generateRSS(allLocalePostsData, locale)
-  fs.writeFileSync(`./public/rss-${locale}.xml`, rss)
+  const rss = generateRSS(allLocalePostsData)
+  fs.writeFileSync(`./public/rss.xml`, rss)
 
   return {
     props: {

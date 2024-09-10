@@ -62,7 +62,7 @@ return (
     // ...
     // ...
     <>
-	  {/* Add comments section via Utterances. */}
+   {/* Add comments section via Utterances. */}
       <div>
         <div id='post-comments'>
           <h2>Comments</h2>
@@ -71,7 +71,6 @@ return (
       </div>
     </>
   )
-}
 ```
 
 Now everyone will be able to participate in discussions and leave helpful comments 😃.

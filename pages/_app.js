@@ -1,7 +1,6 @@
 import { useEffect } from 'react'
 import { pageview } from '@/lib/gtag'
 
-import '../styles/tailwind.css'
 import '@/styles/globals.css'
 import '@/styles/prismTheme.css'
 

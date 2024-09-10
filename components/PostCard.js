@@ -1,10 +1,7 @@
-import Image from "next/image";
+import Image from 'next/image'
 import Link from 'next/link'
 
-import { useRouter } from 'next/router'
-
 import PublishedDate from '@/components/PublishedDate'
-
 import blogStyles from '@/styles/blog.module.css'
 
 export default function PostCard({
@@ -15,45 +12,43 @@ export default function PostCard({
   tags,
   image,
 }) {
-  const router = useRouter()
-  const { locale } = router
   const tagsList = tags.split(',')
 
   return (
-    <article className={blogStyles.card}>
-      <Image
-        className={blogStyles.cardImg}
-        src={image}
-        alt=''
-        width='600'
-        height='250'
-        priority
-      />
-
-      <div className={blogStyles.cardBody}>
-        <div className={blogStyles.cardMetadata}>
-          <span className={blogStyles.cardDate}>
-            <PublishedDate dateString={date} locale={locale} />
-          </span>
-          <div>
-            {tagsList.map(tag => (
-              <Link
-                href={`/tags/${tag}/`}
-                key={tag}
-                className={[blogStyles.cardTag, tag].join(' ')}
-              >
-                {tag}
-              </Link>
-            ))}
-          </div>
-        </div>
-
-        <h2 className={blogStyles.cardTitle}>
-          <Link href={url}>{title}</Link>
-        </h2>
-
-        <p className={blogStyles.cardDescription}>{description}</p>
+    <article className='className="max-w-md rounded-xl overflow-hidden border-b-4 border-r-4 border-gray-700'>
+      <Link href={url} passHref>
+        <Image
+          src={image}
+          alt={title}
+          width={800}
+          height={400}
+          className='w-full h-48 object-cover object-center'
+          priority
+        />
+      </Link>
+      <div className='p-4'>
+        <span className='text-yellow-400 text-sm font-semibold'>
+          {tagsList.map(tag => (
+            <Link
+              href={`/tags/${tag}/`}
+              key={tag}
+              className={[blogStyles.cardTag, tag].join(' ')}
+            >
+              {tag}
+            </Link>
+          ))}
+        </span>
+        <Link href={url} passHref>
+          <h3 className='text-xl font-semibold mt-2 hover:text-titleColor'>
+            {title}
+          </h3>
+        </Link>
+        <PublishedDate
+          className='capitalize text-gray dark:text-light/50 font-semibold text-sm  sm:text-base'
+          dateString={date}
+        />
+        <p className='text-gray-300 text-sm mt-2'>{description}</p>
       </div>
     </article>
-  );
+  )
 }

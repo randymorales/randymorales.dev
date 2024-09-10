@@ -1,11 +1,9 @@
 import { getSortedPostsData } from '@/lib/posts'
 
-const { defaultLocale } = require('@/i18n/config')
-
 const posts =
   process.env.NODE_ENV === 'production'
     ? require('../../cache/data').posts
-    : getSortedPostsData(defaultLocale)
+    : getSortedPostsData()
 
 export default (req, res) => {
   const results = req.query.q

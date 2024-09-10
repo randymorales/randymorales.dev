@@ -1,34 +1,25 @@
-import { useRouter } from 'next/router'
-
 import { PostsDirectory, SiteBaseURL } from '@/lib/constants'
 import { getAllPostTags, getPostsByTag } from '@/lib/posts'
-import useTranslation from '@/i18n/useTranslation'
 import Layout from '@/components/Layout'
 import PostCard from '@/components/PostCard'
-
 import blogStyles from '@/styles/blog.module.css'
 
 export default function TagIndex({ posts, tag }) {
-  const { t } = useTranslation()
-  const router = useRouter()
-  const { locale } = router
   const pageInfo = {
-    url: SiteBaseURL + `/${locale}/tags/` + tag,
-    title: `${tag} ${t('posts-tag')}`.toLowerCase(),
-    description: `${tag} ${t('posts-tag')}`.toLowerCase(),
+    url: SiteBaseURL + `/tags/` + tag,
+    title: `${tag} Tag`.toLowerCase(),
+    description: `${tag} Tag`.toLowerCase(),
     image: SiteBaseURL + '/images/cover.png',
   }
 
   return (
     <Layout pageInfo={pageInfo} large={true}>
       <h2>
-        {t('posts-tag')}:{' '}
-        <span className={blogStyles.tagPageData}>{`#${tag}`}</span>
+        Tag: <span className={blogStyles.tagPageData}>{`#${tag}`}</span>
       </h2>
 
       <h2>
-        {t('posts-found')}:{' '}
-        <span className={blogStyles.tagPageData}>{posts.length}</span>
+        Posts: <span className={blogStyles.tagPageData}>{posts.length}</span>
       </h2>
 
       <div className='page-separator'>
@@ -53,19 +44,19 @@ export default function TagIndex({ posts, tag }) {
   )
 }
 
-export async function getStaticPaths({ locales }) {
-  // Return a list of paths of posts by tag and locale.
-  const paths = getAllPostTags(locales)
+export async function getStaticPaths() {
+  // Return a list of paths of posts by tag.
+  const paths = getAllPostTags()
   return {
     paths,
     fallback: false,
   }
 }
 
-export async function getStaticProps({ locale, params }) {
-  // Return a list of posts by tag and locale.
-  const posts = await getPostsByTag(params.tag, locale)
+export async function getStaticProps({ params }) {
+  // Return a list of posts by tag.
   const tag = params.tag
+  const posts = await getPostsByTag(tag)
   return {
     props: {
       posts,

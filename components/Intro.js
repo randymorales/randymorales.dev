@@ -1,13 +1,9 @@
-import Image from "next/image";
+import Image from 'next/image'
 
 import { Name } from '@/lib/constants'
-import useTranslation from '@/i18n/useTranslation'
-
 import introStyles from '@/styles/intro.module.css'
 
 export default function Intro() {
-  const { t } = useTranslation()
-
   return (
     <section className={introStyles.container}>
       <div className={introStyles.profileInfo}>
@@ -18,17 +14,21 @@ export default function Intro() {
           width='300'
           height='300'
           style={{
-            maxWidth: "100%",
-            height: "auto"
-          }} />
+            maxWidth: '100%',
+            height: 'auto',
+          }}
+        />
       </div>
 
       <div className={introStyles.description}>
         <h1>
-          {t('greeting')} {Name}
+          {"Hello! I'm"} {Name}
         </h1>
 
-        <p>{t('intro-description')}</p>
+        <p>
+          A Costa Rican Software Engineer writing these posts about things I
+          am familiar with and learning.
+        </p>
 
         <ul className={introStyles.socialNetworks}>
           <li>
@@ -74,5 +74,5 @@ export default function Intro() {
         </ul>
       </div>
     </section>
-  );
+  )
 }

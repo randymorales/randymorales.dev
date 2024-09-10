@@ -1,15 +1,9 @@
-import useTranslation from '@/i18n/useTranslation'
-
 import styles from '@/styles/footer.module.css'
 
 export default function Footer() {
-  const { t } = useTranslation()
-
   return (
     <footer className={styles.container}>
-      <p>
-        {t('made-with')} 💻 {t('and')} ❤️ - Randy © 2020
-      </p>
+      <p>Randy - 2020</p>
       <ul className={styles.socialNetworks}>
         <li>
           <a
