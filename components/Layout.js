@@ -1,5 +1,5 @@
-import dynamic from 'next/dynamic'
 import Head from 'next/head'
+import Navbar from '@/components/Navbar'
 
 import {
   FullName,
@@ -21,8 +21,6 @@ export default function Layout({
     image: SiteBaseURL + '/images/cover.png',
   },
 }) {
-  const Navbar = dynamic(() => import('@/components/Navbar'))
-
   if (!pageInfo.type) {
     pageInfo.type = 'website'
   }
@@ -49,8 +47,11 @@ export default function Layout({
         <meta name='msapplication-TileColor' content='#da532c' />
         <meta name='msapplication-TileImage' content='/ms-icon-310x310.png' />
         <meta name='description' content={pageInfo.description} />
-        <meta name="yandex-verification" content="7f0ce4ac85304e5e" />
-        <meta name="google-site-verification" content="10eYz24zqlyxYOEgEtKGcSfl7BOWRyJwZ3mGdmIWTJA" />
+        <meta name='yandex-verification' content='7f0ce4ac85304e5e' />
+        <meta
+          name='google-site-verification'
+          content='10eYz24zqlyxYOEgEtKGcSfl7BOWRyJwZ3mGdmIWTJA'
+        />
 
         {/* Open Graph */}
         <meta property='og:locale' content='en_US' key='oglocal' />

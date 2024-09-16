@@ -1,15 +1,19 @@
-import { getAllPostsMetadata } from '@/lib/posts'
+import { getAllPostsMetadata } from '../../lib/posts'
 
-const posts =
-  process.env.NODE_ENV === 'production'
-    ? require('../../cache/data').posts
-    : getAllPostsMetadata()
+export default function handler(req, res) {
+  const { q } = req.query
+  const posts = getAllPostsMetadata()
 
-export default (req, res) => {
-  const results = req.query.q
-    ? posts.filter(post => post.title.toLowerCase().includes(req.query.q))
-    : []
-  res.statusCode = 200
-  res.setHeader('Content-Type', 'application/json')
-  res.end(JSON.stringify({ results }))
+  if (!q) {
+    // Return all posts if no query is provided.
+    return res.status(200).json(posts)
+  }
+
+  const filteredPosts = posts.filter(
+    post =>
+      post.title.toLowerCase().includes(q.toLowerCase()) ||
+      post.description.toLowerCase().includes(q.toLowerCase()),
+  )
+
+  res.status(200).json(filteredPosts)
 }

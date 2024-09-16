@@ -16,55 +16,10 @@ export default function BlogIndex({ allPostsMetadata }) {
     image: SiteBaseURL + '/images/cover.png',
   }
 
-  const searchRef = useRef(null)
-  const [active, setActive] = useState(false)
-  const [searchInput, setSearchInput] = useState('')
-  const [searchInputResult, setSearchInputResult] = useState([])
-
-  const searchEndpoint = searchInput => `/api/search?q=${searchInput}`
-
-  const onChange = useCallback(event => {
-    const searchInput = event.target.value.toLowerCase()
-    setSearchInput(searchInput)
-    if (searchInput.length) {
-      fetch(searchEndpoint(searchInput))
-        .then(res => res.json())
-        .then(res => {
-          setSearchInputResult(res.results)
-        })
-    } else {
-      setSearchInputResult([])
-    }
-  }, [])
-
-  const onFocus = useCallback(() => {
-    setActive(true)
-    window.addEventListener('click', onClick)
-  }, [])
-
-  const onClick = useCallback(event => {
-    if (searchRef.current && !searchRef.current.contains(event.target)) {
-      setActive(false)
-      window.removeEventListener('click', onClick)
-    }
-  }, [])
-
   return (
     <Layout pageInfo={pageInfo} large={true}>
       <div className={styles.container}>
-        {/* Search bar */}
-        <div ref={searchRef}>
-          <input
-            className={styles.search}
-            onChange={onChange}
-            onFocus={onFocus}
-            placeholder={'🔎 ' + 'Search'}
-            type='text'
-            value={searchInput}
-          />
-        </div>
-
-        {/* Tags */}
+        <h2 className='text-white text-2xl font-bold mb-6'>All Tags</h2>
         <div>
           {getAllTags(allPostsMetadata).map(tag => (
             <Link
@@ -78,14 +33,7 @@ export default function BlogIndex({ allPostsMetadata }) {
         </div>
 
         {/* Show blog post list */}
-        {searchInputResult.length == 0 && searchInput != '' && active ? (
-          <> </>
-        ) : (
-          <BlogPostsSection
-            title='Latest Posts'
-            posts={getPostsSource(searchInputResult, allPostsMetadata)}
-          />
-        )}
+        <BlogPostsSection title='All Posts' posts={allPostsMetadata} />
       </div>
     </Layout>
   )

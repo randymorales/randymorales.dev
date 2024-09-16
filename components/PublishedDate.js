@@ -6,7 +6,7 @@ export default function PublishedDate({ dateString, locale }) {
 
   const dateOptions = {
     year: 'numeric',
-    month: 'short',
+    month: 'long',
     day: 'numeric',
   }
 

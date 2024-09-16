@@ -60,20 +60,19 @@
   /* Color related */
   --blog-text-color: #FFFFFF;
   --blog-strong-text-color: #FEFEFF;
-  --body-background-color: #0A0A0A;
+  --main-background-color: #0A0A0A;
   --border-color: var(--content-text-color);
   --border-card-color: rgb(255 255 255 / 20%);
-  --card-color: #0B0E13;
+  --card-color: #111b27; /* #3 */
   --code-bg-opacity: 1;
   --code-background-color: rgba(17,24,39,var(--code-bg-opacity));
   --code-opacity: 1;
   --code-color: rgba(229,231,235,var(--code-opacity));
   --content-text-color: #FEFEFF;
   --nav-mobile-background-color: rgba(1, 2, 3, 0.95);
-  --post-link-color: #FF6600;
+  --primary-color: #FF6600;
   --shadow-color: #FAFAFA;
   --social-networks-icons-color: #FEFEFF;
-  --title-color: #FF6600;
 }
 
 html {
@@ -81,7 +80,7 @@ html {
 }
 
 body {
-  background-color: var(--body-background-color);
+  background-color: var(--main-background-color);
   color: var(--content-text-color);
   display: table-cell;
   font-family: var(--font-family);
@@ -144,11 +143,6 @@ code {
   padding: 0.4rem 0.25rem;
   background-color: var(--code-background-color);
   color: var(--code-color);
-}
-
-header {
-  margin: 0 auto;
-  width: 80%
 }
 
 main {

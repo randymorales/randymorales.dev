@@ -52,7 +52,7 @@ export default function BlogPost({ postData, source }) {
   return (
     <article>
       {/* Post title */}
-      <h1 className='text-4xl md:text-5xl font-bold mb-6 text-titleColor'>
+      <h1 className='text-4xl md:text-5xl font-bold mb-6 text-secondaryColor'>
         {postData.title}
       </h1>
 

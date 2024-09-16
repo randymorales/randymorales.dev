@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 5rem;
+  justify-content: space-between;
 }
 
 .profileInfo {
@@ -38,7 +39,6 @@
   align-content: center;
   display: flex;
   flex-direction: column;
-  margin-left: 5em;
   width: 60%;
 }
 

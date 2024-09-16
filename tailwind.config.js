@@ -8,7 +8,9 @@ export const content = [
 export const theme = {
   extend: {
     colors: {
-      titleColor: 'var(--title-color)',
+      darkBackground: '#0A0A0A',
+      primaryColor: '#111b27',
+      secondaryColor: '#FF6600',
     },
   },
 }

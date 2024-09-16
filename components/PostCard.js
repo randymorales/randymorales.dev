@@ -15,7 +15,7 @@ export default function PostCard({
   const tagsList = tags.split(',')
 
   return (
-    <article className='className="max-w-md rounded-xl overflow-hidden border-b-4 border-r-4 border-gray-700'>
+    <article className='className="max-w-md rounded-xl overflow-hidden bg-primaryColor border-b-4 border-r-4 border-gray-700'>
       <Link href={url} passHref>
         <Image
           src={image}
@@ -39,7 +39,7 @@ export default function PostCard({
           ))}
         </span>
         <Link href={url} passHref>
-          <h3 className='text-xl font-semibold mt-2 hover:text-titleColor'>
+          <h3 className='text-xl font-semibold mt-2 hover:text-secondaryColor'>
             {title}
           </h3>
         </Link>
