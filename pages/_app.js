@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { pageview } from '@/lib/gtag'
 
+import Navbar from '@/components/Navbar'
 import '@/styles/globals.css'
 import '@/styles/prismTheme.css'
 
@@ -15,7 +16,14 @@ function MyApp({ Component, pageProps, router }) {
     }
   }, [])
 
-  return <Component {...pageProps} />
+  return (
+    <div >
+      <Navbar />
+      <div className="lg:ml-64">
+        <Component {...pageProps} />
+      </div>
+    </div>
+  )
 }
 
 export default MyApp

@@ -13,6 +13,12 @@
   }
 }
 
+@media (min-width: 1024px) {
+  body {
+    padding-left: 16rem; /* 64 in Tailwind units */
+  }
+}
+
 @media (max-width: 1920px) {
   :root {
     --main-width: 50%;

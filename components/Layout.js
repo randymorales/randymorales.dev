@@ -1,5 +1,4 @@
 import Head from 'next/head'
-import Navbar from '@/components/Navbar'
 
 import {
   FullName,
@@ -88,8 +87,6 @@ export default function Layout({
 
         <title>{`${pageInfo.title} | ${FullName}`}</title>
       </Head>
-
-      <Navbar />
 
       <main className={large ? styles.large : styles.content}>{children}</main>
 
