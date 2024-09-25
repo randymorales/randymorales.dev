@@ -5,7 +5,7 @@ import { useRouter } from 'next/router'
 import Search from './Search'
 import { FaLinkedin, FaGithub, FaSquareXTwitter } from 'react-icons/fa6'
 
-const NavLink = ({ href, label}) => {
+const NavLink = ({ href, label }) => {
   const router = useRouter()
   const isActive = router.pathname === href || router.pathname.startsWith(href)
   return (
@@ -79,7 +79,7 @@ const Logo = ({ className = '', imageClassName = '' }) => (
       className={`object-cover object-center ${imageClassName}`}
       priority
     />
-    <span className='hidden lg:block text-white hover:text-secondaryColor text-2xl font-semibold whitespace-nowrap'>
+    <span className='hidden lg:block text-white hover:text-secondaryColor text-xl font-semibold whitespace-nowrap'>
       Randy Morales
     </span>
   </Link>
@@ -141,8 +141,8 @@ export default function Navbar() {
       </nav>
 
       {/* Desktop Navbar */}
-      <nav className='hidden lg:flex flex-col fixed left-0 top-0 h-screen w-64 bg-primaryColor/90 py-7 px-4'>
-        <Logo imageClassName='w-32 h-32'/>
+      <nav className='hidden lg:flex flex-col fixed left-0 top-0 h-screen w-48 bg-primaryColor/90 py-7 px-4'>
+        <Logo imageClassName='w-32 h-32' />
         <div className='flex flex-col justify-center space-y-6 items-center flex-grow'>
           <SearchButton onClick={toggleSearch} />
           <NavLinks />

@@ -8,7 +8,7 @@ export default function BlogPostsSection({ posts, title }) {
         <h2 className='text-white text-2xl font-bold mb-6'>{title}</h2>
 
         {/* grid-rows-2 */}
-        <div className='grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-16'>
+        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-16'>
           {posts.map(post => (
             <PostCard
               key={post.id}

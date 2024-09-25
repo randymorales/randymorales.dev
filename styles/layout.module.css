@@ -11,11 +11,5 @@
 }
 
 .large {
-    width: 80%;
-}
-
-@media (max-width: 680px) {
-    .large {
-        width: 90%;
-    }
+    width: 90%;
 }

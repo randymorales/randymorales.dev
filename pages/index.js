@@ -4,7 +4,7 @@ import { SiteBaseURL } from '@/lib/constants'
 import generateRSS from '@/lib/rss'
 import { getAllPostsMetadata } from '@/lib/posts'
 import BlogPostsSection from '@/components/BlogPostsSection'
-import Intro from '@/components/Intro'
+import HeroSection from '@/components/HeroSection'
 import Layout from '@/components/Layout'
 
 export default function Home({ allPostsMetadata }) {
@@ -20,7 +20,7 @@ export default function Home({ allPostsMetadata }) {
 
   return (
     <Layout pageInfo={pageInfo} large={true}>
-      <Intro />
+      <HeroSection />
 
       {/* Show blog post list */}
       <BlogPostsSection title='Latest Posts' posts={lastBlogEntries} />

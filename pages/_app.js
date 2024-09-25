@@ -19,7 +19,7 @@ function MyApp({ Component, pageProps, router }) {
   return (
     <div >
       <Navbar />
-      <div className="lg:ml-64">
+      <div className="lg:ml-48">
         <Component {...pageProps} />
       </div>
     </div>
