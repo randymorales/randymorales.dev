@@ -129,7 +129,6 @@ h4 {
   font-weight: 700;
   font-family: var(--font-family);
   line-height: 1.4;
-  margin: 2rem 0;
 }
 
 a, li {
@@ -149,10 +148,6 @@ code {
   padding: 0.4rem 0.25rem;
   background-color: var(--code-background-color);
   color: var(--code-color);
-}
-
-main {
-  margin: 0 auto var(--footer-height) auto;
 }
 
 .page-separator {

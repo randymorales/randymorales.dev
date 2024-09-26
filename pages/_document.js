@@ -20,11 +20,6 @@ export default class MyDocument extends Document {
           />
           <link rel='preconnect' href='https://fonts.googleapis.com' />
           <link rel='preconnect' href='https://fonts.gstatic.com' />
-          <script
-            src='https://kit.fontawesome.com/2c36e9b7b1.js'
-            crossOrigin='anonymous'
-            async
-          ></script>
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           {GA_TRACKING_ID ? (
             <>

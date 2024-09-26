@@ -2,8 +2,8 @@ import React, { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-import Search from './Search'
-import { FaLinkedin, FaGithub, FaSquareXTwitter } from 'react-icons/fa6'
+import Search from '@/components/Search'
+import SocialIcons from '@/components/SocialIcons'
 
 const NavLink = ({ href, label }) => {
   const router = useRouter()
@@ -83,27 +83,6 @@ const Logo = ({ className = '', imageClassName = '' }) => (
       Randy Morales
     </span>
   </Link>
-)
-
-const SocialIcons = () => (
-  <div className='flex justify-center space-x-4'>
-    {[
-      { Icon: FaLinkedin, href: 'https://www.linkedin.com/in/randymoralesg/' },
-      {
-        Icon: FaGithub,
-        href: 'https://github.com/randymorales/randymorales.dev/',
-      },
-      { Icon: FaSquareXTwitter, href: 'https://x.com/randymoralesg' },
-    ].map(({ Icon, href }, index) => (
-      <Link
-        key={index}
-        href={href}
-        className='text-white hover:text-secondaryColor'
-      >
-        <Icon className='text-white hover:text-secondaryColor transition-colors text-4xl' />
-      </Link>
-    ))}
-  </div>
 )
 
 const NavLinks = () => (
