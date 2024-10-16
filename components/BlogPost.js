@@ -1,14 +1,11 @@
 import { createRef, useEffect } from 'react'
-import Image from 'next/image'
-import Link from 'next/link'
 import { MDXRemote } from 'next-mdx-remote'
-import { CalendarIcon, ClockIcon, EyeIcon } from 'lucide-react'
 
 import { CommentsRepo } from '@/lib/constants'
 import Comment from '@/components/Comment'
 import MDXComponents from '@/components/MDXComponents'
-import PublishedDate from '@/components/PublishedDate'
-import blogStyles from '@/styles/blog.module.css'
+import TableOfContents from '@/components/TableOfContents'
+import BlogPostHeader from '@/components/BlogPostHeader'
 
 /* Includes:
   - Table of Contents
@@ -50,61 +47,37 @@ export default function BlogPost({ postData, source }) {
   }, [])
 
   return (
-    <article>
-      {/* Post title */}
-      <h1 className='text-4xl md:text-5xl font-bold mb-6 text-secondaryColor'>
-        {postData.title}
-      </h1>
+    <div className='lg:mx-20 mx-10 px-4 sm:px-6 xl:px-20'>
+      <article className='py-8 divide-y divide-gray-700'>
+        <BlogPostHeader postData={postData} />
 
-      {/* Post metadata */}
-      <div className='flex justify-between items-center space-x-10 mb-6 text-lg'>
-        <div className='flex items-center'>
-          <EyeIcon className='w-4 h-4 mr-2' />
-          <span>{postData.views} views</span>
+        {/* Table of Contents (mobile) */}
+        <div className='xl:hidden mb-6'>
+          <TableOfContents />
         </div>
-        <div className='flex items-center'>
-          <CalendarIcon className='w-4 h-4 mr-2' />
-          <span>
-            <PublishedDate dateString={postData.date} />
-          </span>
-        </div>
-        <div className='flex items-center'>
-          <ClockIcon className='w-4 h-4 mr-2' />
-          <span>{postData.readTime} min read</span>
-        </div>
-        <div className='flex items-center'>
-          {postData.tags.split(',').map(tag => (
-            <Link
-              href={`/tags/${tag}/`}
-              key={tag}
-              className={[blogStyles.cardTag, tag].join(' ')}
-            >
-              {tag}
-            </Link>
-          ))}
-        </div>
-      </div>
 
-      {/* className='rounded-lg mb-6' */}
-      <Image
-        className={blogStyles.postImage}
-        src={postData.image}
-        alt='cover image'
-        width={800}
-        height={400}
-        priority
-      />
+        {/* Post content prose-xl prose-invert */}
+        <div className='xl:grid xl:grid-cols-4 xl:gap-10'>
+          <div className='xl:col-span-3'>
+            <div className='darkBlogContent'>
+              <MDXRemote {...source} components={MDXComponents} />
+            </div>
 
-      {/* Post content using MDXRemote */}
-      <div className={blogStyles.postContent}>
-        <MDXRemote {...source} components={MDXComponents} />
-      </div>
+            {/* Comments section */}
+            <div className='pt-10'>
+              <h2 className='text-2xl font-bold mb-4'>Comments</h2>
+              <Comment commentBox={commentBox} />
+            </div>
+          </div>
 
-      {/* Add comments section via Utterances. */}
-      <div className={blogStyles.postComments}>
-        <h2>Comments</h2>
-        <Comment commentBox={commentBox} />
-      </div>
-    </article>
+          {/* Table of Contents (desktop) */}
+          <div className='hidden xl:block'>
+            <div className='sticky top-4'>
+              <TableOfContents />
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
   )
 }

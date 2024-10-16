@@ -11,7 +11,7 @@ export default function Error404() {
   }
 
   return (
-    <Layout pageInfo={pageInfo}>
+    <Layout pageInfo={pageInfo} large={true}>
       <div className={styles.box}>
         <h2>{NotFoundErrorCode}</h2>
         <p>{pageInfo.description}</p>

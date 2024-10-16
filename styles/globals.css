@@ -1,4 +1,5 @@
 @import 'https://fonts.googleapis.com/css2?family=Inter&display=swap';
+@import 'https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap';
 
 @tailwind base;
 @tailwind components;
@@ -6,44 +7,9 @@
 
 /* ******** Global CSS ******** */
 
-@media (min-width: 1920px) {
-  :root {
-    --main-width: 60em;
-    --scale: 1;
-  }
-}
-
 @media (min-width: 1024px) {
   body {
     padding-left: 16rem; /* 64 in Tailwind units */
-  }
-}
-
-@media (max-width: 1920px) {
-  :root {
-    --main-width: 50%;
-    --scale: 0.95;
-  }
-}
-
-@media (max-width: 1368px) {
-  :root {
-    --main-width: 65%;
-    --scale: 0.90;
-  }
-}
-
-@media (max-width: 1024px) {
-  :root {
-    --main-width: 75%;
-    --scale: 0.85;
-  }
-}
-
-@media (max-width: 768px) {
-  :root {
-    --main-width: 90%;
-    --scale: 0.80;
   }
 }
 
@@ -60,25 +26,17 @@
 
   /* Font related */
   --code-font: SFMono-Regular,Consolas,Liberation Mono,Menlo,Courier,monospace;
-  --font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  --font-family: Inter, ui-sans-serif, system-ui, sans-serif, Apple Color Emoji, Segoe UI Emoji, Segoe UI Symbol, Noto Color Emoji;
   --font-size: 1rem;
 
   /* Color related */
-  --blog-text-color: #FFFFFF;
+  --background-code-color: #111b27;
+  --blog-text-color: #E0E0E0;
   --blog-strong-text-color: #FEFEFF;
-  --main-background-color: #0A0A0A;
-  --border-color: var(--content-text-color);
-  --border-card-color: rgb(255 255 255 / 20%);
-  --card-color: #111b27; /* #3 */
-  --code-bg-opacity: 1;
-  --code-background-color: rgba(17,24,39,var(--code-bg-opacity));
   --code-opacity: 1;
   --code-color: rgba(229,231,235,var(--code-opacity));
-  --content-text-color: #FEFEFF;
-  --nav-mobile-background-color: rgba(1, 2, 3, 0.95);
-  --primary-color: #FF6600;
-  --shadow-color: #FAFAFA;
-  --social-networks-icons-color: #FEFEFF;
+  --main-background-color: #121212; /* 0A0A0A */
+  --accent-color: #FF8533;
 }
 
 html {
@@ -87,10 +45,10 @@ html {
 
 body {
   background-color: var(--main-background-color);
-  color: var(--content-text-color);
+  color: var(--blog-text-color);
   display: table-cell;
   font-family: var(--font-family);
-  font-size: calc(var(--font-size) * var(--scale));
+  font-size: var(--font-size);
   line-height: 1.75;
 }
 
@@ -106,20 +64,20 @@ html, body {
 }
 
 h1 {
-  color: var(--title-color);
-  font-size: calc(2em * var(--scale));
+  color: var(--accent-color);
+  font-size: 2em;
 }
 
 h2 {
-  font-size: calc(1.75em * var(--scale));
+  font-size: 1.75em;
 }
 
 h3 {
-  font-size: calc(1.5em * var(--scale))
+  font-size: 1.5em;
 }
 
 h4 {
-  font-size: calc(1.3em * var(--scale))
+  font-size: 1.3em;
 }
 
 h1,
@@ -127,27 +85,21 @@ h2,
 h3,
 h4 {
   font-weight: 700;
-  font-family: var(--font-family);
   line-height: 1.4;
 }
 
 a, li {
-  color: var(--content-text-color);
+  color: var(--blog-text-color);
   text-decoration: none;
   list-style-position: inside;
 }
 
-b, strong {
-  color: var(--blog-strong-text-color);
-  font-weight: 700;
-}
-
-code {
-  font-family: var(--code-font);
+code, b, strong  {
+  background-color: var(--background-code-color);
   border-radius: 0.375rem;
-  padding: 0.4rem 0.25rem;
-  background-color: var(--code-background-color);
   color: var(--code-color);
+  font-family: var(--code-font);
+  padding: 0.4rem 0.25rem;
 }
 
 .page-separator {
@@ -159,19 +111,116 @@ code {
   position: static;
 }
 
-/* ******** Tags colors ******** */
-.blog {
-  background:#e9f7eb
+/* ******** Blog Post styles ******** */
+
+.darkBlogContent {
+  color: var(--blog-text-color);
+  line-height: 1.5;
+  margin-top: 2rem;
 }
 
-.comments {
-  background:#d2edd2
+.darkBlogContent h1,
+.darkBlogContent h2,
+.darkBlogContent h3,
+.darkBlogContent h4,
+.darkBlogContent h5,
+.darkBlogContent h6 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  line-height: 1.33;
 }
 
-.google-analytics {
-  background: #f8bb59
+.darkBlogContent h1 {
+  font-size: 2.5rem;
+  color: var(--accent-color);
 }
 
-.nextjs {
-  background: #5989f8
+.darkBlogContent h2 {
+  font-size: 1.75rem;
+}
+
+.darkBlogContent h3 {
+  font-size: 1.5rem;
+}
+
+.darkBlogContent h4 {
+  font-size: 1.4rem;
+}
+
+.darkBlogContent p {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  line-height: 1.75;
+}
+
+.darkBlogContent a {
+  color: var(--accent-color);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.darkBlogContent a:hover {
+  color: #d36922;
+}
+
+.darkBlogContent ul,
+.darkBlogContent ol {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.darkBlogContent li {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+}
+
+.darkBlogContent ul > li::before {
+  content: '•';
+  color: var(--accent-color);
+  display: inline-block;
+  width: 1rem;
+  margin-left: -1rem;
+}
+
+.darkBlogContent ol {
+  list-style-type: decimal;
+}
+
+.darkBlogContent ol > li::marker {
+  color: var(--accentColor);
+}
+
+.darkBlogContent blockquote {
+  border-left: 4px solid var(--accent-color);
+  padding-left: 1rem;
+  margin-left: 0;
+  font-style: italic;
+  color: #b0b0b0;
+}
+
+.darkBlogContent img {
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 1.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+}
+
+.darkBlogContent table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1.5rem;
+}
+
+.darkBlogContent th,
+.darkBlogContent td {
+  border: 1px solid #333;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.darkBlogContent th {
+  background-color: #1a1a1a;
+  color: var(--accent-color);
 }

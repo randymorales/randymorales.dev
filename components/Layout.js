@@ -6,7 +6,6 @@ import {
   SiteTitle,
   TwitterUsername,
 } from '@/lib/constants'
-import Footer from '@/components/Footer'
 
 import styles from '@/styles/layout.module.css'
 
@@ -89,8 +88,6 @@ export default function Layout({
       </Head>
 
       <main className={large ? styles.large : styles.content}>{children}</main>
-
-      <Footer />
     </div>
   )
 }

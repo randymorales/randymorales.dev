@@ -10,5 +10,9 @@ export default function PublishedDate({ dateString, locale }) {
     day: 'numeric',
   }
 
-  return <time>{new Date(date).toLocaleDateString(locale, dateOptions)}</time>
+  return (
+    <time className='capitalize text-gray dark:text-light/50 font-semibold text-sm sm:text-base'>
+      {new Date(date).toLocaleDateString(locale, dateOptions)}
+    </time>
+  )
 }

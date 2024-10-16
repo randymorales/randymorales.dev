@@ -1,10 +1,9 @@
-import { PostsDirectory, SiteBaseURL } from '@/lib/constants'
+import { getTagIcon, SiteBaseURL } from '@/lib/constants'
 import { getAllPostTags, getPostsMetadataByTag } from '@/lib/posts'
 import Layout from '@/components/Layout'
-import PostCard from '@/components/PostCard'
-import blogStyles from '@/styles/blog.module.css'
+import BlogPostsSection from '@/components/BlogPostsSection'
 
-export default function TagIndex({ posts, tag }) {
+export default function Tag({ posts, tag }) {
   const pageInfo = {
     url: SiteBaseURL + `/tags/` + tag,
     title: `${tag} Tag`.toLowerCase(),
@@ -14,39 +13,30 @@ export default function TagIndex({ posts, tag }) {
 
   return (
     <Layout pageInfo={pageInfo} large={true}>
-      <h2>
-        Tag: <span className={blogStyles.tagPageData}>{`#${tag}`}</span>
-      </h2>
+      <div className='divide-y divide-gray-700'>
+        <div className='mb-10'>
+          <h2 className='mt-24'>
+            Tag:{' '}
+            <span className='text-accentColor items-center'>
+              {`${getTagIcon(tag)}${tag}`}
+            </span>
+          </h2>
 
-      <h2>
-        Posts: <span className={blogStyles.tagPageData}>{posts.length}</span>
-      </h2>
+          <h2>
+            Posts: <span className='text-accentColor'>{posts.length}</span>
+          </h2>
+        </div>
 
-      <div className='page-separator'>
-        <hr />
-      </div>
-
-      <section className={blogStyles.cardsContainer}>
         {/* List blog posts */}
-        {posts.map(({ id, title, description, date, tags, image }) => (
-          <PostCard
-            key={id}
-            url={`${PostsDirectory}${id}`}
-            title={title}
-            description={description}
-            date={date}
-            tags={tags}
-            image={image}
-          />
-        ))}
-      </section>
+        <BlogPostsSection posts={posts} />
+      </div>
     </Layout>
   )
 }
 
 export async function getStaticPaths() {
   // Return a list of paths of posts by tag.
-  const paths = getAllPostTags()
+  const paths = getAllPostTags(true)
   return {
     paths,
     fallback: false,

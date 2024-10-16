@@ -10,7 +10,7 @@ const AboutSection = ({ tabData }) => {
       onClick={() => setActiveTab(tab)}
       className={`px-6 py-2 font-semibold ${
         activeTab === tab
-          ? 'text-white border-b-2 border-secondaryColor'
+          ? 'text-white border-b-2 border-accentColor'
           : 'text-gray-400 hover:text-white'
       }`}
     >
@@ -27,7 +27,7 @@ const AboutSection = ({ tabData }) => {
       >
         {tabData[activeTab].map((item, index) => (
           <div key={index} className='flex items-start'>
-            <div className='w-2 h-2 mt-2 bg-secondaryColor rounded-full mr-2 flex-shrink-0'></div>
+            <div className='w-2 h-2 mt-2 bg-accentColor rounded-full mr-2 flex-shrink-0'></div>
             <span className='text-lg'>{item}</span>
           </div>
         ))}
@@ -51,7 +51,7 @@ const AboutSection = ({ tabData }) => {
             </div>
           </div>
           <div className='lg:w-1/2 text-center lg:text-left'>
-            <h2 className='text-3xl text-secondaryColor font-bold mb-4'>
+            <h2 className='text-3xl text-accentColor font-bold mb-4'>
               About Me
             </h2>
             <p className='text-xl mb-6'>

@@ -7,5 +7,11 @@
 }
 
 .content {
-    width: var(--main-width);
+    width: 100%;
+}
+
+.large {
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
 }

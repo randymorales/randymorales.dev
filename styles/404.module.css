@@ -9,14 +9,14 @@
 
 .box h2 {
     animation: light 4s steps(1) infinite;
-    font-size: calc(20vh * var(--scale));
+    font-size: 20vh;
     font-weight: 700;
     line-height: 1;
     margin: 0;
 }
 
 .box h2 + p {
-    font-size: calc(3vh * var(--scale));
+    font-size: calc(3vh);
 }
 
 @keyframes light {

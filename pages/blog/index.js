@@ -1,14 +1,10 @@
-import { useCallback, useRef, useState } from 'react'
-
-import Link from 'next/link'
-
 import { PostsDirectory, SiteBaseURL } from '@/lib/constants'
-import { getAllPostsMetadata } from '@/lib/posts'
+import { getAllPostsMetadata, getAllPostTags } from '@/lib/posts'
 import BlogPostsSection from '@/components/BlogPostsSection'
 import Layout from '@/components/Layout'
-import styles from '@/styles/blog.module.css'
+import TagsSection from '@/components/TagsSection'
 
-export default function BlogIndex({ allPostsMetadata }) {
+export default function BlogIndex({ posts, tags }) {
   const pageInfo = {
     url: SiteBaseURL + PostsDirectory,
     title: 'Blog',
@@ -18,51 +14,29 @@ export default function BlogIndex({ allPostsMetadata }) {
 
   return (
     <Layout pageInfo={pageInfo} large={true}>
-      <div className={styles.container}>
-        <h2 className='text-white text-2xl font-bold mb-6'>All Tags</h2>
-        <div>
-          {getAllTags(allPostsMetadata).map(tag => (
-            <Link
-              href={`/tags/${tag}/`}
-              key={tag}
-              className={[styles.cardTag, tag].join(' ')}
-            >
-              {tag}
-            </Link>
-          ))}
+      <div className='pt-16 pb-8 flex flex-col lg:flex-row lg:space-x-8 my-12'>
+        <div className='divide-y divide-gray-700 w-full lg:w-4/5 '>
+          <h2 className='text-white text-4xl font-bold mb-12'>All Posts</h2>
+          <div className='mb-8 lg:mb-0'>
+            <BlogPostsSection posts={posts} />
+          </div>
         </div>
-
-        {/* Show blog post list */}
-        <BlogPostsSection title='All Posts' posts={allPostsMetadata} />
+        <div className='w-full lg:w-1/5 lg:sticky lg:top-4'>
+          <TagsSection tags={tags} />
+        </div>
       </div>
     </Layout>
   )
 }
 
 export const getStaticProps = async () => {
-  let allPostsMetadata = getAllPostsMetadata()
+  const posts = getAllPostsMetadata()
+  const tags = getAllPostTags(false)
 
   return {
     props: {
-      allPostsMetadata,
+      posts,
+      tags,
     },
   }
-}
-
-// Return the list of all tags.
-function getAllTags(allPostsMetadata) {
-  const tagsList = []
-
-  allPostsMetadata.map(({ tags }) =>
-    tags
-      .split(',')
-      .map(tag => tagsList.indexOf(tag) === -1 && tagsList.push(tag)),
-  )
-
-  return tagsList
-}
-
-// Return the list of posts according to the input searchInputResult.
-function getPostsSource(searchInputResult, allPostsMetadata) {
-  return searchInputResult.length == 0 ? allPostsMetadata : searchInputResult
 }

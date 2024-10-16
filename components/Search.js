@@ -51,13 +51,13 @@ const Search = ({ onClose }) => {
           <input
             type='text'
             placeholder='Search blog posts'
-            className='w-full bg-primaryColor text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-secondaryColor'
+            className='w-full bg-primaryColor text-white p-2 rounded-md focus:outline-none focus:ring-2 focus:ring-accentColor'
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
           />
           <button
             onClick={onClose}
-            className='text-2xl text-white hover:text-secondaryColor ml-5'
+            className='text-2xl text-white hover:text-accentColor ml-5'
           >
             &times;
           </button>
@@ -73,9 +73,7 @@ const Search = ({ onClose }) => {
                 className='text-gray-400 text-sm'
                 dateString={post.date}
               />
-              <p className='text-secondaryColor hover:underline'>
-                {post.title}
-              </p>
+              <p className='text-accentColor hover:underline'>{post.title}</p>
             </Link>
           ))}
         </div>

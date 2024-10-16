@@ -8,9 +8,9 @@ export const content = [
 export const theme = {
   extend: {
     colors: {
-      darkBackground: '#0A0A0A',
+      darkBackground: 'var(--main-background-color)',
       primaryColor: '#111b27',
-      secondaryColor: '#FF6600',
+      accentColor: 'var(--accent-color)',
     },
     keyframes: {
       profile_animate: {

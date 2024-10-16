@@ -13,8 +13,8 @@ const NavLink = ({ href, label }) => {
       href={href}
       className={`${
         isActive
-          ? 'text-secondaryColor text-xl'
-          : 'text-white hover:text-secondaryColor text-xl'
+          ? 'text-accentColor text-xl'
+          : 'text-white hover:text-accentColor text-xl'
       }`}
     >
       {label}
@@ -25,7 +25,7 @@ const NavLink = ({ href, label }) => {
 const SearchButton = ({ onClick, className = '' }) => (
   <button
     onClick={onClick}
-    className={`text-white hover:text-secondaryColor ${className}`}
+    className={`text-white hover:text-accentColor ${className}`}
   >
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -47,7 +47,7 @@ const SearchButton = ({ onClick, className = '' }) => (
 const HamburgerMenuButton = ({ onClick, className = '' }) => (
   <button
     onClick={onClick}
-    className={`text-white hover:text-secondaryColor ${className}`}
+    className={`text-white hover:text-accentColor ${className}`}
   >
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -79,7 +79,7 @@ const Logo = ({ className = '', imageClassName = '' }) => (
       className={`object-cover object-center ${imageClassName}`}
       priority
     />
-    <span className='hidden lg:block text-white hover:text-secondaryColor text-xl font-semibold whitespace-nowrap'>
+    <span className='hidden lg:block text-white hover:text-accentColor text-xl font-semibold whitespace-nowrap'>
       Randy Morales
     </span>
   </Link>
@@ -89,7 +89,6 @@ const NavLinks = () => (
   <>
     <NavLink href='/blog' label='Blog' />
     <NavLink href='/tags' label='Tags' />
-    <NavLink href='/projects' label='Projects' />
     <NavLink href='/about' label='About' />
   </>
 )
@@ -104,7 +103,7 @@ export default function Navbar() {
   return (
     <>
       {/* Mobile Navbar */}
-      <nav className='lg:hidden sticky top-0 z-10 bg-primaryColor/90 py-7 mb-16 px-7'>
+      <nav className='bg-darkBackground lg:hidden sticky top-0 z-10 py-7 mb-16 px-7'>
         <div className='container mx-auto flex justify-between items-center'>
           <Logo className='flex-row' />
           <div className='flex items-center'>
@@ -113,14 +112,14 @@ export default function Navbar() {
           </div>
         </div>
         {isMenuOpen && (
-          <div className='mt-4 space-y-4 flex flex-col items-center text-lg'>
+          <div className='container mx-auto mt-4 pb-10 space-y-4 flex flex-col items-center text-lg border-b border-b-gray-700'>
             <NavLinks />
           </div>
         )}
       </nav>
 
       {/* Desktop Navbar */}
-      <nav className='hidden lg:flex flex-col fixed left-0 top-0 h-screen w-48 bg-primaryColor/90 py-7 px-4'>
+      <nav className='hidden lg:flex flex-col fixed left-0 top-0 h-screen w-48 py-7 px-4 border-r border-r-gray-700'>
         <Logo imageClassName='w-32 h-32' />
         <div className='flex flex-col justify-center space-y-6 items-center flex-grow'>
           <SearchButton onClick={toggleSearch} />

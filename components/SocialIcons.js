@@ -4,7 +4,7 @@ import { FaLinkedin, FaGithub, FaSquareXTwitter } from 'react-icons/fa6'
 
 const socialLinks = [
   { Icon: FaLinkedin, href: 'https://www.linkedin.com/in/randymoralesg/' },
-  { Icon: FaGithub, href: 'https://github.com/randymorales/randymorales.dev/' },
+  { Icon: FaGithub, href: 'https://github.com/randymorales/' },
   { Icon: FaSquareXTwitter, href: 'https://x.com/randymoralesg' },
 ]
 
@@ -17,7 +17,7 @@ const SocialIcons = ({ className = '', iconClassName = '' }) => {
           href={href}
           target='_blank'
           rel='noopener noreferrer'
-          className='text-white hover:text-secondaryColor transition-colors'
+          className='text-white hover:text-accentColor transition-colors'
         >
           <Icon className={`text-4xl ${iconClassName}`} />
         </Link>

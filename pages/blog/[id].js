@@ -1,4 +1,5 @@
 import useSWR from 'swr'
+import rehypeSlug from 'rehype-slug'
 import { serialize } from 'next-mdx-remote/serialize'
 
 import { PostsDirectory, SiteBaseURL } from '@/lib/constants'
@@ -47,7 +48,11 @@ export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id)
 
   // Serialize the content for MDXRemote.
-  const mdxSource = await serialize(postData.contentMD)
+  const mdxSource = await serialize(postData.contentMD, {
+    mdxOptions: {
+      rehypePlugins: [rehypeSlug],
+    },
+  })
 
   return {
     props: {
