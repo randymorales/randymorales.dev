@@ -1,41 +1,44 @@
 import { google } from 'googleapis'
 
-const pageViewsAPI = async (req, res) => {
-  const startDate = req.query.startDate || '2021-01-01'
-  const post = req.query.post
+/* <url>/api/page-views?post=<post-id> */
+export default async function handler(req, res) {
+  const { post } = req.query
+
+  // Load environment variables
+  const VIEW_ID = process.env.GOOGLE_ANALYTICS_VIEW_ID
+  const CLIENT_EMAIL = process.env.GOOGLE_CLIENT_EMAIL
+  const PRIVATE_KEY = process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, '\n') // Handle newlines in private key
+
+  const auth = new google.auth.GoogleAuth({
+    credentials: {
+      client_email: CLIENT_EMAIL,
+      private_key: PRIVATE_KEY,
+    },
+    scopes: ['https://www.googleapis.com/auth/analytics.readonly'],
+  })
+
+  const analytics = google.analyticsdata({ version: 'v1beta', auth })
 
   try {
-    const auth = new google.auth.GoogleAuth({
-      credentials: {
-        client_email: process.env.GOOGLE_CLIENT_EMAIL,
-        client_id: process.env.GOOGLE_CLIENT_ID,
-        private_key: process.env.GOOGLE_PRIVATE_KEY,
+    // Request page views for the specific post URL
+    const response = await analytics.properties.runReport({
+      property: `properties/${VIEW_ID}`,
+      requestBody: {
+        dateRanges: [{ startDate: '2021-01-01', endDate: 'today' }],
+        dimensions: [{ name: 'pagePath' }],
+        metrics: [{ name: 'screenPageViews' }],
+        dimensionFilter: {
+          filter: {
+            fieldName: 'pagePath',
+            stringFilter: { matchType: 'EXACT', value: `/blog/${post}` },
+          },
+        },
       },
-      scopes: ['https://www.googleapis.com/auth/analytics.readonly'],
     })
 
-    const analytics = google.analytics({
-      auth,
-      version: 'v3',
-    })
-
-    const response = await analytics.data.ga.get({
-      ids: `ga:${process.env.GOOGLE_ANALYTICS_VIEW_ID}`,
-      metrics: 'ga:pageviews',
-      dimensions: 'ga:pagePath',
-      ...(post ? { filters: `ga:pagePath==${post}` } : {}),
-      'start-date': startDate,
-      'end-date': 'today',
-    })
-
-    const pageViews = response?.data?.totalsForAllResults['ga:pageviews']
-
-    return res.status(200).json({
-      pageViews,
-    })
-  } catch (err) {
-    return res.status(500).json({ error: err.message })
+    const views = response.data.rows?.[0]?.metricValues?.[0]?.value || '0'
+    res.status(200).json({ views })
+  } catch (error) {
+    res.status(500).json({ error: `Failed to fetch analytics data: ${error}` })
   }
 }
-
-export default pageViewsAPI

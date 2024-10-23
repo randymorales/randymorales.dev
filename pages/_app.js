@@ -1,25 +1,33 @@
 import { useEffect } from 'react'
-import { pageview } from '@/lib/gtag'
+import { useRouter } from 'next/router'
 
 import Navbar from '@/components/Navbar'
+import GoogleAnalytics from '@/components/GoogleAnalytics'
 import '@/styles/globals.css'
 import '@/styles/prismTheme.css'
 
-function MyApp({ Component, pageProps, router }) {
+function MyApp({ Component, pageProps }) {
+  const router = useRouter()
+
   useEffect(() => {
     const handleRouteChange = url => {
-      pageview(url, document.title)
+      window.gtag('config', process.env.GOOGLE_ANALYTICS_MEASUREMENT_ID, {
+        page_path: url,
+      })
     }
+
     router.events.on('routeChangeComplete', handleRouteChange)
     return () => {
       router.events.off('routeChangeComplete', handleRouteChange)
     }
-  }, [])
+  }, [router.events])
 
   return (
-    <div >
+    <div>
       <Navbar />
-      <div className="lg:ml-48">
+      <div className='lg:ml-48'>
+        {/* Google Analytics Script */}
+        <GoogleAnalytics />
         <Component {...pageProps} />
       </div>
     </div>
