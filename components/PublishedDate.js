@@ -1,18 +1,18 @@
-import { parseISO } from 'date-fns'
+import { parseISO, format } from 'date-fns'
 
-// Return a parsed date based on given data and locale.
-export default function PublishedDate({ dateString, locale }) {
+// Return a parsed date with consistent formatting to avoid hydration errors
+export default function PublishedDate({ dateString, className = '' }) {
   const date = parseISO(dateString)
 
-  const dateOptions = {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric',
-  }
+  // Use consistent format to prevent server/client mismatch
+  const formattedDate = format(date, 'MMMM dd, yyyy')
 
   return (
-    <time className='capitalize text-gray dark:text-light/50 font-semibold text-sm sm:text-base'>
-      {new Date(date).toLocaleDateString(locale, dateOptions)}
+    <time
+      dateTime={dateString}
+      className={`capitalize text-gray-400 font-semibold text-sm sm:text-base ${className}`}
+    >
+      {formattedDate}
     </time>
   )
 }
