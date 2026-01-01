@@ -7,12 +7,6 @@
 
 /* ******** Global CSS ******** */
 
-@media (min-width: 1024px) {
-  body {
-    padding-left: 16rem; /* 64 in Tailwind units */
-  }
-}
-
 * {
   box-sizing: border-box;
   margin: 0;
@@ -35,8 +29,26 @@
   --blog-strong-text-color: #FEFEFF;
   --code-opacity: 1;
   --code-color: rgba(229,231,235,var(--code-opacity));
-  --main-background-color: #121212; /* 0A0A0A */
-  --accent-color: #FF8533;
+  --main-background-color: #18181b; /* zinc-900 */
+  --accent-color: #dc2626; /* red-600 */
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #09090b; /* zinc-950 */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #27272a; /* zinc-800 */
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #3f3f46; /* zinc-700 */
 }
 
 html {
