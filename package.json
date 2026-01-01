@@ -2,10 +2,9 @@
   "name": "randymorales.dev",
   "version": "0.1.1",
   "private": true,
-  "type": "module",
   "homepage": "https://randymorales.dev",
   "scripts": {
-    "cache-posts": "node lib/cache.js",
+    "cache-posts": "node lib/cache.mjs",
     "format": "prettier --write '*.js' 'components/*.js' 'i18n/*.js' 'lib/*.js' 'pages/*.js' 'pages/blog/*.js' 'pages/tags/*.js'",
     "dev": "next dev",
     "build": "next build",
