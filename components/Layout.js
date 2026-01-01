@@ -1,5 +1,4 @@
 import Head from 'next/head'
-
 import {
   FullName,
   SiteBaseURL,
@@ -7,11 +6,8 @@ import {
   TwitterUsername,
 } from '@/lib/constants'
 
-import styles from '@/styles/layout.module.css'
-
 export default function Layout({
   children,
-  large,
   pageInfo = {
     url: SiteBaseURL,
     title: SiteTitle,
@@ -24,7 +20,7 @@ export default function Layout({
   }
 
   return (
-    <div className={styles.fullPageWrapper}>
+    <>
       <Head>
         <link
           rel='icon'
@@ -41,8 +37,8 @@ export default function Layout({
         <link rel='manifest' href='/site.webmanifest' />
         <link rel='mask-icon' href='/safari-pinned-tab.svg' color='#5bbad5' />
 
-        <meta name='theme-color' content='#ffffff' />
-        <meta name='msapplication-TileColor' content='#da532c' />
+        <meta name='theme-color' content='#18181b' />
+        <meta name='msapplication-TileColor' content='#dc2626' />
         <meta name='msapplication-TileImage' content='/ms-icon-310x310.png' />
         <meta name='description' content={pageInfo.description} />
         <meta name='yandex-verification' content='7f0ce4ac85304e5e' />
@@ -84,10 +80,10 @@ export default function Layout({
           key='twdesc'
         />
 
-        <title>{`${pageInfo.title} | ${FullName}`}</title>
+        <title>{pageInfo.title}</title>
       </Head>
 
-      <main className={large ? styles.large : styles.content}>{children}</main>
-    </div>
+      {children}
+    </>
   )
 }
