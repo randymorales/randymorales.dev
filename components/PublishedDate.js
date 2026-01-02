@@ -10,7 +10,7 @@ export default function PublishedDate({ dateString, className = '' }) {
   return (
     <time
       dateTime={dateString}
-      className={`capitalize text-gray-400 font-semibold text-sm sm:text-base ${className}`}
+      className={`capitalize text-zinc-400 font-medium text-sm ${className}`}
     >
       {formattedDate}
     </time>

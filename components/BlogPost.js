@@ -1,20 +1,20 @@
 import { createRef, useEffect } from 'react'
 import { MDXRemote } from 'next-mdx-remote'
+import Image from 'next/image'
+import Link from 'next/link'
+import { ArrowLeft, Calendar, Clock, User } from 'lucide-react'
+import { format } from 'date-fns'
 
-import { CommentsRepo } from '@/lib/constants'
+import { CommentsRepo, FullName } from '@/lib/constants'
 import Comment from '@/components/Comment'
 import MDXComponents from '@/components/MDXComponents'
 import TableOfContents from '@/components/TableOfContents'
-import BlogPostHeader from '@/components/BlogPostHeader'
+import Tag from '@/components/Tag'
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 
-/* Includes:
-  - Table of Contents
-  - Content
-  - Comment box
-*/
 export default function BlogPost({ postData, source }) {
-  // Import prism highlighting for other languages because they are not
-  // included by default.
+  // Import prism highlighting for other languages
   const prism = require('prismjs')
   require('prismjs/components/prism-bash')
   require('prismjs/components/prism-c')
@@ -22,16 +22,16 @@ export default function BlogPost({ postData, source }) {
   require('prismjs/components/prism-json')
   require('prismjs/components/prism-python')
 
-  // Apply prism in all code blocks.
+  // Apply prism in all code blocks
   useEffect(() => {
     prism.highlightAll()
   }, [])
 
-  // Add comments script with Utterances.
+  // Add comments script with Utterances (photon-dark theme)
   const commentBox = createRef()
   useEffect(() => {
     const commentScript = document.createElement('script')
-    const theme = 'github-dark'
+    const theme = 'photon-dark'
     commentScript.async = true
     commentScript.src = 'https://utteranc.es/client.js'
     commentScript.setAttribute('repo', CommentsRepo)
@@ -46,38 +46,104 @@ export default function BlogPost({ postData, source }) {
     }
   }, [])
 
+  const tagsList = postData.tags.split(',')
+
   return (
-    <div className='lg:mx-20 mx-10 px-4 sm:px-6 xl:px-20'>
-      <article className='py-8 divide-y divide-gray-700'>
-        <BlogPostHeader postData={postData} />
+    <div className='min-h-screen bg-zinc-900 flex flex-col'>
+      <Header />
 
-        {/* Table of Contents (mobile) */}
-        <div className='xl:hidden mb-6'>
-          <TableOfContents />
-        </div>
+      <main className='flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full'>
+        {/* Back button */}
+        <Link
+          href='/blog'
+          className='inline-flex items-center gap-2 text-zinc-400 hover:text-red-400 transition-colors mb-8'
+        >
+          <ArrowLeft size={20} />
+          <span>Back to Blog</span>
+        </Link>
 
-        {/* Post content prose-xl prose-invert */}
-        <div className='xl:grid xl:grid-cols-4 xl:gap-10'>
-          <div className='xl:col-span-3'>
-            <div className='darkBlogContent'>
-              <MDXRemote {...source} components={MDXComponents} />
+        {/* Post Header */}
+        <article>
+          {/* Title */}
+          <h1 className='text-4xl md:text-5xl font-bold text-white mb-6'>
+            {postData.title}
+          </h1>
+
+          {/* Metadata */}
+          <div className='flex flex-wrap items-center gap-4 text-sm text-zinc-400 mb-8'>
+            {tagsList.length > 0 && (
+              <div className='flex items-center gap-2'>
+                <Tag tag={tagsList[0]} />
+              </div>
+            )}
+            <div className='flex items-center gap-2'>
+              <Calendar size={16} />
+              <span>{format(new Date(postData.date), 'MMMM dd, yyyy')}</span>
             </div>
+            <div className='flex items-center gap-2'>
+              <Clock size={16} />
+              <span>{postData.readTime} min read</span>
+            </div>
+          </div>
 
-            {/* Comments section */}
-            <div className='pt-10'>
-              <h2 className='text-2xl font-bold mb-4'>Comments</h2>
+          {/* Content Grid */}
+          <div className='grid grid-cols-1 lg:grid-cols-12 gap-12'>
+            {/* Main Content */}
+            <div className='lg:col-span-8'>
+              {/* Cover Image */}
+              {postData.image && (
+                <div className='relative w-full h-48 md:h-64 mb-12 rounded-xl overflow-hidden border border-zinc-800'>
+                  <Image
+                    src={postData.image}
+                    alt={postData.title}
+                    fill
+                    className='object-cover'
+                    priority
+                  />
+                </div>
+              )}
+              {/* MDX Content */}
+              <div className='prose prose-invert max-w-none'>
+                <MDXRemote {...source} components={MDXComponents} />
+              </div>
+
+              {/* Author Info */}
+              <div className='mt-12 p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl'>
+                <div className='flex items-center gap-2 mb-4'>
+                  <User className='text-red-400' size={20} />
+                  <div className='text-lg font-bold text-white'>About the Author</div>
+                </div>
+                <div className='flex items-start gap-4'>
+                  <div className='relative w-16 h-16 rounded-full overflow-hidden flex-shrink-0 border-2 border-red-500'>
+                    <Image
+                      src='/images/profile.jpg'
+                      alt={FullName}
+                      fill
+                      className='object-cover'
+                    />
+                  </div>
+                  <div>
+                    <p className='text-white font-semibold'>{FullName}</p>
+                    <p className='text-zinc-400 text-sm mt-1'>
+                      Software Engineer passionate about cloud technologies, system design, and building scalable solutions.
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Comments */}
               <Comment commentBox={commentBox} />
             </div>
-          </div>
 
-          {/* Table of Contents (desktop) */}
-          <div className='hidden xl:block'>
-            <div className='sticky top-4'>
+            {/* Sidebar */}
+            <aside className='lg:col-span-4'>
               <TableOfContents />
-            </div>
+            </aside>
           </div>
-        </div>
-      </article>
+        </article>
+      </main>
+
+      <Footer />
     </div>
   )
 }

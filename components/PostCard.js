@@ -1,7 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { Calendar, Tag as TagIcon } from 'lucide-react'
+import { format } from 'date-fns'
 import { PostsDirectory } from '@/lib/constants'
-import PublishedDate from '@/components/PublishedDate'
 import Tag from '@/components/Tag'
 
 export default function PostCard({ post }) {
@@ -10,37 +11,52 @@ export default function PostCard({ post }) {
   const url = `${PostsDirectory}${id}`
 
   return (
-    <article className='rounded-lg overflow-hidden shadow-lg h-96 md:h-56 flex flex-col md:flex-row items-center'>
-      <Link href={url} className='md:w-1/3 block'>
-        <Image
-          src={image}
-          alt={title}
-          width={400}
-          height={300}
-          className='w-full h-full object-contain'
-        />
-      </Link>
-      <div className='p-6 w-full md:w-2/3 flex flex-col justify-between overflow-hidden'>
-        <div className='mb-4'>
-          {tagsList.map(tag => (
-            <Tag key={tag} tag={tag} />
-          ))}
-        </div>
-        <div>
-          <Link href={url} className='block mb-2'>
-            <h3 className='text-xl font-bold text-white hover:text-accentColor transition-colors line-clamp-2'>
-              {title}
-            </h3>
-          </Link>
-          <p className='text-gray-400 text-sm line-clamp-2 mb-4'>
-            {description}
-          </p>
-          <PublishedDate
-            dateString={date}
-            className='text-gray-400 text-sm mb-2'
+    <Link href={url}>
+      <article className='group bg-zinc-800 border border-zinc-700 rounded-xl overflow-hidden hover:border-red-500/50 transition-all duration-300 flex flex-col h-full'>
+        {/* Image */}
+        <div className='relative aspect-video bg-zinc-900 overflow-hidden'>
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className='object-cover group-hover:scale-110 transition-transform duration-500'
           />
         </div>
-      </div>
-    </article>
+
+        {/* Content */}
+        <div className='p-6 flex flex-col flex-1'>
+          {/* Metadata */}
+          <div className='flex items-center gap-4 text-xs text-zinc-400 mb-3'>
+            <div className='flex items-center gap-1'>
+              <Calendar className='w-3 h-3' />
+              <span>{format(new Date(date), 'MMM dd, yyyy')}</span>
+            </div>
+            {tags && (
+              <div className='flex items-center gap-1'>
+                <TagIcon className='w-3 h-3 text-red-400' />
+                <span className='text-red-400'>{tagsList[0].trim()}</span>
+              </div>
+            )}
+          </div>
+
+          {/* Title */}
+          <h3 className='text-xl font-bold text-white group-hover:text-red-400 transition-colors mb-3 line-clamp-2'>
+            {title}
+          </h3>
+
+          {/* Description */}
+          <p className='text-zinc-400 text-sm line-clamp-3 mb-4 flex-1'>
+            {description}
+          </p>
+
+          {/* Tags */}
+          <div className='flex flex-wrap gap-2 mt-auto'>
+            {tagsList.slice(0, 3).map(tag => (
+              <Tag key={tag} tag={tag} />
+            ))}
+          </div>
+        </div>
+      </article>
+    </Link>
   )
 }

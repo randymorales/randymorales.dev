@@ -5,19 +5,33 @@ export default function Footer() {
   const currentYear = new Date().getFullYear()
 
   return (
-    <footer className='bg-zinc-950 border-t border-zinc-800'>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12'>
-        <div className='flex flex-col items-center gap-6'>
-          {/* Social Icons */}
-          <SocialIcons className='justify-center' />
+    <footer className='bg-zinc-950 border-t border-zinc-800 py-8'>
+      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+        {/* Main Footer Content */}
+        <div className='flex flex-col md:flex-row justify-between items-center gap-6 mb-8'>
+          {/* Left Side: Name and Text */}
+          <div className='text-center md:text-left'>
+            <h3 className='text-2xl font-bold text-white mb-2'>Randy Morales</h3>
+            <p className='text-zinc-400 text-sm'>
+              Crafting scalable systems and elegant solutions
+            </p>
+          </div>
 
-          {/* Copyright */}
-          <div className='flex items-center gap-2 text-zinc-400 text-sm'>
-            <span>© {currentYear} Randy Morales</span>
-            <span>·</span>
-            <span className='flex items-center gap-1'>
-              Built with <Heart size={16} className='fill-red-500 text-red-500' /> and Next.js
-            </span>
+          {/* Right Side: Social Icons */}
+          <div className='flex items-center'>
+            <SocialIcons />
+          </div>
+        </div>
+
+        {/* Copyright and Made with */}
+        <div className='flex flex-col md:flex-row justify-between items-center gap-4 pt-6 border-t border-zinc-800 text-zinc-500 text-sm'>
+          <div className='text-left'>
+            © {currentYear} Randy Morales. All rights reserved.
+          </div>
+          <div className='flex items-center gap-1.5'>
+            <span>Made with</span>
+            <Heart size={14} className='fill-red-500 text-red-500' />
+            <span>using React & Tailwind</span>
           </div>
         </div>
       </div>
