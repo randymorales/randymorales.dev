@@ -8,8 +8,8 @@ const navItems = [
   { name: 'Home', href: '/', section: 'hero' },
   { name: 'Experience', href: '/#experience', section: 'experience' },
   { name: 'Projects', href: '/#projects', section: 'projects' },
-  { name: 'Blog', href: '/blog' },
   { name: 'About', href: '/#about', section: 'about' },
+  { name: 'Blog', href: '/blog' },
 ]
 
 export default function Header() {

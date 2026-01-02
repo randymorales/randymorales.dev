@@ -9,12 +9,10 @@ export default function Projects() {
       <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
         {/* Header */}
         <div className='text-center mb-16'>
-          <h2 className='text-4xl md:text-5xl font-bold text-white mb-4'>
+          <h2 className='text-3xl md:text-4xl font-bold text-white mb-4'>
             Featured Projects
           </h2>
-          <p className='text-zinc-400 text-lg max-w-2xl mx-auto'>
-            Some of the projects I've worked on
-          </p>
+          <div className='w-20 h-1 bg-red-600 mx-auto rounded-full'></div>
         </div>
 
         {/* Projects Grid */}
@@ -39,17 +37,17 @@ export default function Projects() {
               <div className='p-6'>
                 {/* Title */}
                 <div className='flex items-start justify-between mb-3'>
-                  <h3 className='text-xl font-bold text-white group-hover:text-red-400 transition-colors'>
+                  <h3 className='text-lg font-bold text-white group-hover:text-red-400 transition-colors'>
                     {project.title}
                   </h3>
                   <ExternalLink
-                    size={20}
+                    size={18}
                     className='text-zinc-400 group-hover:text-red-400 transition-colors flex-shrink-0 ml-2'
                   />
                 </div>
 
                 {/* Description */}
-                <p className='text-zinc-400 mb-4 line-clamp-3'>
+                <p className='text-zinc-400 text-sm mb-4 line-clamp-3'>
                   {project.description}
                 </p>
 
@@ -58,7 +56,7 @@ export default function Projects() {
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className='px-3 py-1 bg-red-900/30 border border-red-900/50 text-red-300 text-sm rounded-full'
+                      className='px-3 py-1 bg-red-900/30 border border-red-900/50 text-red-300 text-xs rounded-full'
                     >
                       {tag}
                     </span>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
-import { ClipboardIcon, CheckIcon } from 'lucide-react'
+import { Copy, Check } from 'lucide-react'
 
-const CodeBlock = ({ code, language }) => {
+const CodeBlock = ({ code, language = 'text' }) => {
   const [copied, setCopied] = useState(false)
 
   const copyToClipboard = () => {
@@ -12,27 +12,31 @@ const CodeBlock = ({ code, language }) => {
   }
 
   return (
-    <div className='mt-7 relative rounded-lg overflow-hidden'>
-      <div className='flex justify-between items-center px-4 py-2 bg-gray-800 rounded-t-lg'>
-        <span className='text-gray-400'>{language}</span>
+    <div className='my-6 rounded-lg overflow-hidden border border-zinc-800 bg-zinc-950'>
+      {/* Header */}
+      <div className='flex justify-between items-center px-4 py-2 bg-zinc-900 border-b border-zinc-800'>
+        <span className='text-xs font-mono text-zinc-400 uppercase'>{language}</span>
         <button
           onClick={copyToClipboard}
-          className='flex flex-row items-center gap-1 rounded-md p-1 py-0.5 text-xs transition-opacity delay-100 hover:bg-bg-200 opacity-60 hover:opacity-100'
+          className='flex items-center gap-1.5 px-3 py-1 text-xs text-zinc-400 hover:text-red-400 hover:bg-zinc-800 rounded transition-colors'
+          aria-label='Copy code'
         >
           {copied ? (
-            <span className='text-text-200 pr-0.5'>Copied!</span>
+            <>
+              <Check className='w-4 h-4' />
+              <span>Copied!</span>
+            </>
           ) : (
-            <span className='text-text-200 pr-0.5'>Copy</span>
-          )}
-          {copied ? (
-            <CheckIcon className='w-5 h-5' />
-          ) : (
-            <ClipboardIcon className='w-5 h-5' />
+            <>
+              <Copy className='w-4 h-4' />
+              <span>Copy</span>
+            </>
           )}
         </button>
       </div>
-      <pre className='p-4 rounded-br-lg rounded-bl-lg overflow-x-auto'>
-        <code className={`language-${language}`}>{code}</code>
+      {/* Code */}
+      <pre className='p-4 overflow-x-auto text-sm leading-relaxed'>
+        <code className={`language-${language} text-zinc-300`}>{code}</code>
       </pre>
     </div>
   )

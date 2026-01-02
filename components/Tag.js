@@ -1,15 +1,15 @@
 import Link from 'next/link'
 
-import { getTagIcon } from '@/lib/constants'
-
 export default function Tag({ index, tag }) {
+  const trimmedTag = tag.trim()
+
   return (
     <Link
       key={index}
-      href={`/tags/${tag}`}
-      className='bg-gray-700 text-gray-200 px-3 py-2 rounded-full text-sm hover:bg-gray-600'
+      href={`/tags/${trimmedTag}`}
+      className='inline-block px-3 py-1 bg-red-900/30 border border-red-900/50 text-red-300 text-xs rounded-full hover:border-red-500/50 transition-colors'
     >
-      <span className='text-md 2xl:text-lg'>{getTagIcon(tag) + ' ' + tag}</span>
+      {trimmedTag}
     </Link>
   )
 }

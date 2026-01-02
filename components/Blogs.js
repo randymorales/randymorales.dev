@@ -1,29 +1,32 @@
 import Link from 'next/link'
-import { Calendar, Tag, ArrowRight } from 'lucide-react'
+import Image from 'next/image'
+import { Calendar, Tag as TagIcon, ArrowRight } from 'lucide-react'
 import { format } from 'date-fns'
 
-export default function Blogs({ posts }) {
+export default function Blogs({ posts, showHeader = true, showViewAll = true }) {
   return (
-    <section id='blogs' className='py-20 bg-zinc-900'>
-      <div className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
-        {/* Header */}
-        <div className='flex justify-between items-center mb-16'>
-          <div>
-            <h2 className='text-4xl md:text-5xl font-bold text-white mb-4'>
-              Latest Insights
-            </h2>
-            <p className='text-zinc-400 text-lg'>
-              Recent posts from my blog
-            </p>
+    <section id='blogs' className={showHeader ? 'py-20 bg-zinc-900' : ''}>
+      <div className={showHeader ? 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8' : ''}>
+        {/* Header - only show on landing page */}
+        {showHeader && (
+          <div className='flex flex-col md:flex-row justify-between items-center mb-16'>
+            <div className='text-center md:text-left mb-6 md:mb-0'>
+              <h2 className='text-3xl md:text-4xl font-bold text-white mb-4'>
+                Latest Insights
+              </h2>
+              <div className='w-20 h-1 bg-red-600 rounded-full mx-auto md:mx-0'></div>
+            </div>
+            {showViewAll && (
+              <Link
+                href='/blog'
+                className='hidden md:flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors font-medium'
+              >
+                View all posts
+                <ArrowRight size={20} />
+              </Link>
+            )}
           </div>
-          <Link
-            href='/blog'
-            className='hidden md:flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors font-medium'
-          >
-            View all posts
-            <ArrowRight size={20} />
-          </Link>
-        </div>
+        )}
 
         {/* Posts Grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
@@ -31,61 +34,66 @@ export default function Blogs({ posts }) {
             <Link
               key={post.id}
               href={`/blog/${post.id}`}
-              className='group bg-zinc-800/50 border border-zinc-700 rounded-lg overflow-hidden hover:border-red-500/50 hover:-translate-y-1 transition-all duration-300'
+              className='group bg-zinc-800 border border-zinc-700 rounded-xl overflow-hidden hover:border-zinc-600 transition-colors flex flex-col'
             >
-              <div className='p-6'>
+              {/* Image */}
+              <div className='relative h-48 bg-zinc-800 overflow-hidden'>
+                <Image
+                  src={post.image || '/images/cover.png'}
+                  alt={post.title}
+                  fill
+                  className='object-cover group-hover:scale-105 transition-transform duration-500'
+                />
+              </div>
+
+              {/* Content */}
+              <div className='p-6 flex-1 flex flex-col'>
                 {/* Meta */}
-                <div className='flex items-center gap-4 text-sm text-zinc-400 mb-3'>
+                <div className='flex items-center gap-4 text-xs text-zinc-400 mb-3'>
                   <div className='flex items-center gap-1'>
-                    <Calendar size={16} />
+                    <Calendar className='w-3 h-3' />
                     <span>{format(new Date(post.date), 'MMM dd, yyyy')}</span>
                   </div>
                   {post.tags && (
                     <div className='flex items-center gap-1'>
-                      <Tag size={16} />
-                      <span>{post.tags.split(',')[0]}</span>
+                      <TagIcon className='w-3 h-3 text-red-400' />
+                      <span className='text-red-400'>{post.tags.split(',')[0].trim()}</span>
                     </div>
                   )}
                 </div>
 
                 {/* Title */}
-                <h3 className='text-xl font-bold text-white group-hover:text-red-400 transition-colors mb-3'>
+                <h3 className='text-lg font-bold text-white group-hover:text-red-400 transition-colors mb-3'>
                   {post.title}
                 </h3>
 
                 {/* Description */}
-                <p className='text-zinc-400 line-clamp-3 mb-4'>
+                <p className='text-zinc-400 text-sm line-clamp-3 mb-4 flex-1'>
                   {post.description}
                 </p>
 
-                {/* Tags */}
-                {post.tags && (
-                  <div className='flex flex-wrap gap-2'>
-                    {post.tags.split(',').slice(0, 3).map((tag) => (
-                      <span
-                        key={tag}
-                        className='px-3 py-1 bg-red-900/30 border border-red-900/50 text-red-300 text-xs rounded-full'
-                      >
-                        {tag.trim()}
-                      </span>
-                    ))}
-                  </div>
-                )}
+                {/* Read more link */}
+                <div className='flex items-center gap-2 text-red-400 font-medium text-sm'>
+                  <span>Read Article</span>
+                  <ArrowRight size={16} className='group-hover:translate-x-1 transition-transform' />
+                </div>
               </div>
             </Link>
           ))}
         </div>
 
-        {/* Mobile "View all" link */}
-        <div className='text-center mt-12 md:hidden'>
-          <Link
-            href='/blog'
-            className='inline-flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors font-medium'
-          >
-            View all posts
-            <ArrowRight size={20} />
-          </Link>
-        </div>
+        {/* Mobile View all link - only on landing page */}
+        {showHeader && showViewAll && (
+          <div className='text-center mt-12 md:hidden'>
+            <Link
+              href='/blog'
+              className='inline-flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors font-medium'
+            >
+              View all posts
+              <ArrowRight size={20} />
+            </Link>
+          </div>
+        )}
       </div>
     </section>
   )
