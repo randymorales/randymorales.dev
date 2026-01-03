@@ -17,7 +17,7 @@ export default function Projects() {
 
         {/* Projects Grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {PROJECTS_DATA.map((project) => (
+          {PROJECTS_DATA.map((project, index) => (
             <Link
               key={project.id}
               href={project.link}
@@ -29,6 +29,8 @@ export default function Projects() {
                   src={project.imageUrl}
                   alt={project.title}
                   fill
+                  sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'
+                  priority={index === 0}
                   className='object-cover group-hover:scale-110 transition-transform duration-300'
                 />
               </div>

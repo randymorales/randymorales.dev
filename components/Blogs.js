@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { Calendar, Tag as TagIcon, ArrowRight } from 'lucide-react'
 import { format } from 'date-fns'
 
-export default function Blogs({ posts, showHeader = true, showViewAll = true }) {
+export default function Blogs({ posts, showHeader = true, showViewAll = true, enablePriority = false }) {
   return (
     <section id='blogs' className={showHeader ? 'py-20 bg-zinc-900' : ''}>
       <div className={showHeader ? 'max-w-7xl mx-auto px-4 sm:px-6 lg:px-8' : ''}>
@@ -30,7 +30,7 @@ export default function Blogs({ posts, showHeader = true, showViewAll = true }) 
 
         {/* Posts Grid */}
         <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
-          {posts.map((post) => (
+          {posts.map((post, index) => (
             <Link
               key={post.id}
               href={`/blog/${post.id}`}
@@ -42,6 +42,8 @@ export default function Blogs({ posts, showHeader = true, showViewAll = true }) 
                   src={post.image || '/images/cover.png'}
                   alt={post.title}
                   fill
+                  sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'
+                  priority={enablePriority && index === 0}
                   className='object-cover group-hover:scale-105 transition-transform duration-500'
                 />
               </div>

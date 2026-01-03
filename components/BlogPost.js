@@ -97,8 +97,8 @@ export default function BlogPost({ postData, source }) {
                     src={postData.image}
                     alt={postData.title}
                     fill
+                    sizes='(max-width: 768px) 100vw, 896px'
                     className='object-cover'
-                    priority
                   />
                 </div>
               )}
@@ -119,6 +119,7 @@ export default function BlogPost({ postData, source }) {
                       src='/images/profile.jpg'
                       alt={FullName}
                       fill
+                      sizes='64px'
                       className='object-cover'
                     />
                   </div>
