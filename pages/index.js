@@ -23,7 +23,7 @@ export default function Home({ posts }) {
     <Layout pageInfo={pageInfo}>
       <div className='min-h-screen bg-zinc-900 selection:bg-red-500/30'>
         <Header />
-        <main>
+        <main id='main-content'>
           <Hero />
           <Experience />
           <Projects />
