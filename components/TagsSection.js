@@ -9,7 +9,7 @@ export default function TagsSection({ tags }) {
     <aside className='sticky top-24'>
       <div className='bg-zinc-900/50 border border-zinc-800 rounded-2xl p-6'>
         <div className='flex items-center gap-2 mb-6'>
-          <TagIcon className='text-red-400' size={20} />
+          <TagIcon className='text-red-400' size={20} aria-hidden='true' />
           <h2 className='text-lg font-bold text-white'>Browse by Tag</h2>
         </div>
         <div className='space-y-2'>
@@ -19,7 +19,7 @@ export default function TagsSection({ tags }) {
             className='flex items-center justify-between px-4 py-2 rounded-lg bg-zinc-800 text-red-400 hover:bg-zinc-700 hover:text-red-300 transition-colors group'
           >
             <span className='text-sm font-medium'>View all tags</span>
-            <ArrowRight size={16} className='group-hover:translate-x-1 transition-transform' />
+            <ArrowRight size={16} className='group-hover:translate-x-1 transition-transform' aria-hidden='true' />
           </Link>
 
           {/* Individual tags */}

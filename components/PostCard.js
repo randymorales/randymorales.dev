@@ -26,14 +26,14 @@ export default function PostCard({ post }) {
         {/* Content */}
         <div className='p-6 flex flex-col flex-1'>
           {/* Metadata */}
-          <div className='flex items-center gap-4 text-xs text-zinc-400 mb-3'>
+          <div className='flex items-center gap-4 text-xs text-zinc-300 mb-3'>
             <div className='flex items-center gap-1'>
-              <Calendar className='w-3 h-3' />
+              <Calendar className='w-3 h-3' aria-hidden='true' />
               <span>{format(new Date(date), 'MMM dd, yyyy')}</span>
             </div>
             {tags && (
               <div className='flex items-center gap-1'>
-                <TagIcon className='w-3 h-3 text-red-400' />
+                <TagIcon className='w-3 h-3 text-red-400' aria-hidden='true' />
                 <span className='text-red-400'>{tagsList[0].trim()}</span>
               </div>
             )}
@@ -45,7 +45,7 @@ export default function PostCard({ post }) {
           </h3>
 
           {/* Description */}
-          <p className='text-zinc-400 text-sm line-clamp-3 mb-4 flex-1'>
+          <p className='text-zinc-300 text-sm line-clamp-3 mb-4 flex-1'>
             {description}
           </p>
 

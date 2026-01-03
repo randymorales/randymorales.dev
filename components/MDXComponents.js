@@ -68,17 +68,24 @@ const MDXComponents = {
 
   // Code blocks
   pre: props => {
-    const codeChild = React.Children.toArray(props.children).find(
-      child => child.type === 'code' || child.props?.mdxType === 'code',
-    )
-    if (codeChild) {
+    // MDX passes code blocks as: <pre><code className="language-*">content</code></pre>
+    // props.children is the <code> element directly
+    const codeElement = props.children
+
+    // Check if this is a code block with language class
+    if (codeElement && codeElement.props && codeElement.props.className?.startsWith('language-')) {
+      const code = codeElement.props.children
+      const language = codeElement.props.className.replace('language-', '')
+
       return (
         <CodeBlock
-          code={codeChild.props.children?.trim() || ''}
-          language={codeChild.props.className?.replace('language-', '') || 'text'}
+          code={typeof code === 'string' ? code.trim() : ''}
+          language={language}
         />
       )
     }
+
+    // Fallback to default pre for non-code blocks
     return (
       <pre
         className='bg-zinc-950 text-zinc-300 p-4 rounded-lg overflow-x-auto my-6 border border-zinc-800'

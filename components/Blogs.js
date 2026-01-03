@@ -22,7 +22,7 @@ export default function Blogs({ posts, showHeader = true, showViewAll = true }) 
                 className='hidden md:flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors font-medium'
               >
                 View all posts
-                <ArrowRight size={20} />
+                <ArrowRight size={20} aria-hidden='true' />
               </Link>
             )}
           </div>
@@ -49,14 +49,14 @@ export default function Blogs({ posts, showHeader = true, showViewAll = true }) 
               {/* Content */}
               <div className='p-6 flex-1 flex flex-col'>
                 {/* Meta */}
-                <div className='flex items-center gap-4 text-xs text-zinc-400 mb-3'>
+                <div className='flex items-center gap-4 text-xs text-zinc-300 mb-3'>
                   <div className='flex items-center gap-1'>
-                    <Calendar className='w-3 h-3' />
+                    <Calendar className='w-3 h-3' aria-hidden='true' />
                     <span>{format(new Date(post.date), 'MMM dd, yyyy')}</span>
                   </div>
                   {post.tags && (
                     <div className='flex items-center gap-1'>
-                      <TagIcon className='w-3 h-3 text-red-400' />
+                      <TagIcon className='w-3 h-3 text-red-400' aria-hidden='true' />
                       <span className='text-red-400'>{post.tags.split(',')[0].trim()}</span>
                     </div>
                   )}
@@ -68,14 +68,14 @@ export default function Blogs({ posts, showHeader = true, showViewAll = true }) 
                 </h3>
 
                 {/* Description */}
-                <p className='text-zinc-400 text-sm line-clamp-3 mb-4 flex-1'>
+                <p className='text-zinc-300 text-sm line-clamp-3 mb-4 flex-1'>
                   {post.description}
                 </p>
 
                 {/* Read more link */}
                 <div className='flex items-center gap-2 text-red-400 font-medium text-sm'>
                   <span>Read Article</span>
-                  <ArrowRight size={16} className='group-hover:translate-x-1 transition-transform' />
+                  <ArrowRight size={16} className='group-hover:translate-x-1 transition-transform' aria-hidden='true' />
                 </div>
               </div>
             </Link>
@@ -90,7 +90,7 @@ export default function Blogs({ posts, showHeader = true, showViewAll = true }) 
               className='inline-flex items-center gap-2 text-red-400 hover:text-red-300 transition-colors font-medium'
             >
               View all posts
-              <ArrowRight size={20} />
+              <ArrowRight size={20} aria-hidden='true' />
             </Link>
           </div>
         )}

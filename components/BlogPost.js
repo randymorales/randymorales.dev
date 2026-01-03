@@ -52,13 +52,13 @@ export default function BlogPost({ postData, source }) {
     <div className='min-h-screen bg-zinc-900 flex flex-col'>
       <Header />
 
-      <main className='flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full'>
+      <main id='main-content' className='flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full'>
         {/* Back button */}
         <Link
           href='/blog'
-          className='inline-flex items-center gap-2 text-zinc-400 hover:text-red-400 transition-colors mb-8'
+          className='inline-flex items-center gap-2 text-zinc-300 hover:text-red-400 transition-colors mb-8'
         >
-          <ArrowLeft size={20} />
+          <ArrowLeft size={20} aria-hidden='true' />
           <span>Back to Blog</span>
         </Link>
 
@@ -70,18 +70,18 @@ export default function BlogPost({ postData, source }) {
           </h1>
 
           {/* Metadata */}
-          <div className='flex flex-wrap items-center gap-4 text-sm text-zinc-400 mb-8'>
+          <div className='flex flex-wrap items-center gap-4 text-sm text-zinc-300 mb-8'>
             {tagsList.length > 0 && (
               <div className='flex items-center gap-2'>
                 <Tag tag={tagsList[0]} />
               </div>
             )}
             <div className='flex items-center gap-2'>
-              <Calendar size={16} />
+              <Calendar size={16} aria-hidden='true' />
               <span>{format(new Date(postData.date), 'MMMM dd, yyyy')}</span>
             </div>
             <div className='flex items-center gap-2'>
-              <Clock size={16} />
+              <Clock size={16} aria-hidden='true' />
               <span>{postData.readTime} min read</span>
             </div>
           </div>
@@ -110,7 +110,7 @@ export default function BlogPost({ postData, source }) {
               {/* Author Info */}
               <div className='mt-12 p-6 bg-zinc-900/50 border border-zinc-800 rounded-2xl'>
                 <div className='flex items-center gap-2 mb-4'>
-                  <User className='text-red-400' size={20} />
+                  <User className='text-red-400' size={20} aria-hidden='true' />
                   <div className='text-lg font-bold text-white'>About the Author</div>
                 </div>
                 <div className='flex items-start gap-4'>
@@ -124,7 +124,7 @@ export default function BlogPost({ postData, source }) {
                   </div>
                   <div>
                     <p className='text-white font-semibold'>{FullName}</p>
-                    <p className='text-zinc-400 text-sm mt-1'>
+                    <p className='text-zinc-300 text-sm mt-1'>
                       Software Engineer passionate about cloud technologies, system design, and building scalable solutions.
                     </p>
                   </div>

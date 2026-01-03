@@ -35,7 +35,7 @@ export default function Experience() {
                   <div className='bg-zinc-800/50 border border-zinc-700 rounded-lg p-6 hover:border-red-500/50 transition-colors'>
                     {/* Title with Inline Icon */}
                     <div className='flex items-center gap-2 mb-3'>
-                      <Briefcase className='text-red-400 flex-shrink-0' size={20} />
+                      <Briefcase className='text-red-400 flex-shrink-0' size={20} aria-hidden='true' />
                       <h3 className='text-xl font-bold text-white'>{exp.role}</h3>
                     </div>
 
@@ -64,7 +64,7 @@ export default function Experience() {
             download
             className='inline-flex items-center gap-2 px-8 py-3 bg-zinc-800 hover:bg-zinc-700 text-white font-medium rounded-lg transition-colors border border-zinc-700 hover:border-red-500/50'
           >
-            <Download size={20} />
+            <Download size={20} aria-hidden='true' />
             Download CV
           </a>
         </div>
