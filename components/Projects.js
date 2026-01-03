@@ -43,6 +43,7 @@ export default function Projects() {
                   <ExternalLink
                     size={18}
                     className='text-zinc-400 group-hover:text-red-400 transition-colors flex-shrink-0 ml-2'
+                    aria-hidden='true'
                   />
                 </div>
 

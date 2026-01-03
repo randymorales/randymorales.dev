@@ -19,7 +19,7 @@ export default function About() {
           <div className='bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8'>
             <div className='flex items-center gap-3 mb-6'>
               <div className='p-3 bg-red-900/30 rounded-lg flex items-center justify-center'>
-                <Code className='text-red-400' size={24} />
+                <Code className='text-red-400' size={24} aria-hidden='true' />
               </div>
               <h3 className='text-xl font-bold text-white'>Skills</h3>
             </div>
@@ -40,7 +40,7 @@ export default function About() {
           <div className='bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8'>
             <div className='flex items-center gap-3 mb-6'>
               <div className='p-3 bg-red-900/30 rounded-lg flex items-center justify-center'>
-                <GraduationCap className='text-red-400' size={24} />
+                <GraduationCap className='text-red-400' size={24} aria-hidden='true' />
               </div>
               <h3 className='text-xl font-bold text-white'>Education</h3>
             </div>
@@ -61,7 +61,7 @@ export default function About() {
           <div className='bg-zinc-900/50 border border-zinc-800 rounded-2xl p-8'>
             <div className='flex items-center gap-3 mb-6'>
               <div className='p-3 bg-red-900/30 rounded-lg flex items-center justify-center'>
-                <Award className='text-red-400' size={24} />
+                <Award className='text-red-400' size={24} aria-hidden='true' />
               </div>
               <h3 className='text-xl font-bold text-white'>Certificates</h3>
             </div>
@@ -83,7 +83,7 @@ export default function About() {
                       className='inline-flex items-center gap-1 text-red-400 hover:text-red-300 transition-colors'
                     >
                       View certificate
-                      <ExternalLink size={10} />
+                      <ExternalLink size={10} aria-hidden='true' />
                     </a>
                   </div>
                 </div>

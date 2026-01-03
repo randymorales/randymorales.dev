@@ -29,13 +29,21 @@ export default function Header() {
 
   return (
     <header className='fixed top-0 left-0 right-0 z-50 bg-zinc-900/80 backdrop-blur-md border-b border-zinc-800'>
-      <nav className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8'>
+      {/* Skip to main content link */}
+      <a
+        href='#main-content'
+        className='sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-red-600 focus:text-white focus:rounded'
+      >
+        Skip to main content
+      </a>
+
+      <nav className='max-w-7xl mx-auto px-4 sm:px-6 lg:px-8' aria-label='Main navigation'>
         <div className='flex items-center justify-between h-16'>
           {/* Logo */}
-          <Link href='/' className='flex items-center gap-2 group'>
+          <Link href='/' className='flex items-center gap-2 group focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-zinc-900 rounded'>
             <Image
               src='/logo-transparent.svg'
-              alt='Logo'
+              alt='Randy Morales logo'
               width={32}
               height={32}
               className='transition-transform group-hover:scale-110'
@@ -52,7 +60,8 @@ export default function Header() {
                 key={item.name}
                 href={item.href}
                 onClick={(e) => handleNavClick(e, item.href, item.section)}
-                className='text-zinc-300 hover:text-red-400 transition-colors font-medium'
+                aria-current={router.pathname === item.href || (item.href === '/' && router.pathname === '/') ? 'page' : undefined}
+                className='text-zinc-300 hover:text-red-400 transition-colors font-medium focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-offset-2 focus:ring-offset-zinc-900 rounded px-2 py-1'
               >
                 {item.name}
               </Link>
@@ -61,17 +70,20 @@ export default function Header() {
 
           {/* Mobile menu button */}
           <button
-            className='md:hidden text-zinc-300 hover:text-white transition-colors'
+            type='button'
+            className='md:hidden text-zinc-300 hover:text-white transition-colors p-2 rounded focus:outline-none focus:ring-2 focus:ring-red-500'
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label='Toggle menu'
+            aria-expanded={mobileMenuOpen}
+            aria-controls='mobile-menu'
           >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            {mobileMenuOpen ? <X size={24} aria-hidden='true' /> : <Menu size={24} aria-hidden='true' />}
           </button>
         </div>
 
         {/* Mobile Navigation */}
         {mobileMenuOpen && (
-          <div className='md:hidden py-4 border-t border-zinc-800'>
+          <div id='mobile-menu' className='md:hidden py-4 border-t border-zinc-800'>
             <div className='flex flex-col gap-4'>
               {navItems.map((item) => (
                 <Link
@@ -80,7 +92,8 @@ export default function Header() {
                   onClick={(e) => {
                     handleNavClick(e, item.href, item.section)
                   }}
-                  className='text-zinc-300 hover:text-red-400 transition-colors font-medium px-2'
+                  aria-current={router.pathname === item.href || (item.href === '/' && router.pathname === '/') ? 'page' : undefined}
+                  className='text-zinc-300 hover:text-red-400 transition-colors font-medium px-2 py-1 rounded focus:outline-none focus:ring-2 focus:ring-red-500'
                 >
                   {item.name}
                 </Link>

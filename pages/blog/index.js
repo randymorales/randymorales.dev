@@ -24,7 +24,7 @@ export default function BlogIndex({ posts, tags }) {
       <div className='min-h-screen bg-zinc-900 flex flex-col'>
         <Header />
 
-        <main className='flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full'>
+        <main id='main-content' className='flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 w-full'>
           {/* Header Section */}
           <div className='flex flex-col md:flex-row justify-between items-center md:items-start mb-16'>
             {/* Left: Title */}
@@ -36,11 +36,12 @@ export default function BlogIndex({ posts, tags }) {
             </div>
 
             {/* Right: Search Button */}
-            <button
+            <button type='button'
               onClick={() => setShowSearch(true)}
+              aria-label='Open search dialog'
               className='inline-flex items-center gap-2 px-6 py-3 bg-zinc-800 hover:bg-zinc-700 text-white rounded-lg transition-colors border border-zinc-700 hover:border-red-500/50'
             >
-              <SearchIcon size={20} />
+              <SearchIcon size={20} aria-hidden='true' />
               <span>Search in articles...</span>
             </button>
           </div>

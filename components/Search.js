@@ -45,24 +45,34 @@ const Search = ({ onClose }) => {
   }, [searchTerm])
 
   return (
-    <div className='fixed inset-0 flex items-center justify-center z-50 bg-zinc-950/80 backdrop-blur-sm'>
+    <div
+      className='fixed inset-0 flex items-center justify-center z-50 bg-zinc-950/80 backdrop-blur-sm'
+      role='dialog'
+      aria-modal='true'
+      aria-labelledby='search-title'
+    >
       <div className='bg-zinc-900 border border-zinc-800 rounded-2xl w-full max-w-2xl mx-4 shadow-2xl'>
+        <h2 id='search-title' className='sr-only'>Search blog posts</h2>
+
         {/* Header */}
         <div className='relative p-6 flex items-center gap-3 border-b border-zinc-800'>
-          <SearchIcon className='text-zinc-400' size={20} />
+          <SearchIcon className='text-zinc-400' size={20} aria-hidden='true' />
           <input
-            type='text'
+            type='search'
             placeholder='Search blog posts...'
-            className='flex-1 bg-transparent text-white placeholder:text-zinc-500 focus:outline-none text-lg'
+            aria-label='Search blog posts'
+            autoComplete='off'
+            className='flex-1 bg-transparent text-white placeholder:text-zinc-500 focus:ring-2 focus:ring-red-500 rounded px-2 text-lg'
             value={searchTerm}
             onChange={e => setSearchTerm(e.target.value)}
             autoFocus
           />
-          <button
+          <button type='button'
             onClick={onClose}
+            aria-label='Close search modal'
             className='p-2 text-zinc-400 hover:text-red-400 hover:bg-zinc-800 rounded-lg transition-colors'
           >
-            <X size={20} />
+            <X size={20} aria-hidden='true' />
           </button>
         </div>
 

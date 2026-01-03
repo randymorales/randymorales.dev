@@ -37,8 +37,10 @@ export default function Hero() {
 
             <div className='flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-6 pt-4'>
               <button
+                type='button'
                 onClick={scrollToProjects}
                 className='px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-medium rounded-lg transition-colors'
+                aria-label='Scroll to projects section'
               >
                 View Projects
               </button>

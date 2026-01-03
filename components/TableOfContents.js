@@ -48,7 +48,7 @@ export default function TableOfContents() {
     <div className='hidden lg:block sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto'>
       <div className='bg-zinc-900/50 border border-zinc-800 rounded-2xl p-6'>
         <div className='flex items-center gap-2 mb-6'>
-          <List className='text-red-400' size={20} />
+          <List className='text-red-400' size={20} aria-hidden='true' />
           <h2 className='text-lg font-bold text-white'>Table of Contents</h2>
         </div>
         <nav>
