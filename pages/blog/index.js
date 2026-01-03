@@ -50,7 +50,7 @@ export default function BlogIndex({ posts, tags }) {
           <div className='grid grid-cols-1 lg:grid-cols-5 gap-12'>
             {/* Posts Section - 4 columns */}
             <div className='lg:col-span-4'>
-              <Blogs posts={posts} showHeader={false} showViewAll={false} />
+              <Blogs posts={posts} showHeader={false} showViewAll={false} enablePriority={true} />
             </div>
 
             {/* Sidebar - 1 column */}
