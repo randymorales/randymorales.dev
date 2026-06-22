@@ -15,13 +15,15 @@ export default function Projects() {
           <div className='w-20 h-1 bg-red-600 mx-auto rounded-full'></div>
         </div>
 
-        {/* Projects Grid */}
-        <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8'>
+        {/* Projects Grid (centered; wraps for multiple) */}
+        <div className='flex flex-wrap justify-center gap-8'>
           {PROJECTS_DATA.map((project, index) => (
             <Link
               key={project.id}
               href={project.link}
-              className='group bg-zinc-900 border border-zinc-800 rounded-lg overflow-hidden hover:border-red-500/50 hover:-translate-y-1 transition-all duration-300'
+              target='_blank'
+              rel='noopener noreferrer'
+              className='group w-full max-w-sm bg-zinc-800 border border-zinc-700 rounded-xl overflow-hidden hover:border-zinc-600 transition-colors flex flex-col'
             >
               {/* Image */}
               <div className='relative h-48 bg-zinc-800 overflow-hidden'>
@@ -29,9 +31,13 @@ export default function Projects() {
                   src={project.imageUrl}
                   alt={project.title}
                   fill
-                  sizes='(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw'
+                  sizes='(max-width: 768px) 100vw, 384px'
                   priority={index === 0}
-                  className='object-cover group-hover:scale-110 transition-transform duration-300'
+                  className={
+                    project.imageFit === 'contain'
+                      ? 'object-contain p-8 group-hover:scale-105 transition-transform duration-300'
+                      : 'object-cover group-hover:scale-110 transition-transform duration-300'
+                  }
                 />
               </div>
 
